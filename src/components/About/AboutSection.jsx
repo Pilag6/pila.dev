@@ -24,28 +24,18 @@ const AboutSection = () => {
                 <div className="about-content__right">
                     <div className="about-text">
                         <p>
-                            Hi, I'm Ezequiel "Pila" Gonzalez, a professional
-                            Frontend UX/UI Developer based in Berlin, with +10
-                            years of experience.
+                            Hi, I&apos;m <strong>Ezequiel &quot;Pila&quot; Gonzalez</strong>, a professional  <strong>Frontend UX/UI Developer</strong> based in Berlin, with +10 years of experience.
                         </p>
                         <p>
-                            After working as a consultant for entrepreneurs, I
-                            embarked on a journey around the world, visiting 45+
-                            countries and working in tourism. For over a decade,
-                            I've delved into Content Creation, Web Development,
-                            and Digital Marketing, with a focus on copywriting,
-                            social media, design, and SEO.
+                            After working as a consultant for entrepreneurs, I embarked on a journey around  the world, visiting 45+ countries and working in tourism. For over a decade, I&apos;ve delved into Content Creation, Web Development, and Digital Marketing, with a focus on copywriting, social media, design, and SEO.
                         </p>
 
                         <p>
-                            I've authored 300+ articles and published 3 books in
-                            Spanish. Now, I reside in Berlin with my wife and my daughter, and am eager to assist with your Web
-                            Development and Design projects.
+                            I&apos;ve authored 300+ articles and published 3 books in Spanish. Now, I reside in Berlin with my wife and my daughter, and am eager to assist with your Web Development and Design projects.
                         </p>
 
                         <p>
-                            Feel free to reach out. I look forward to
-                            connecting. See you on the other side.
+                            Feel free to reach out. I look forward to connecting. See you on the other side.
                         </p>
                     </div>
                     <div className="about-btn">

@@ -1,7 +1,7 @@
 .about {
     border-left: var(--border-main);
     border-right: var(--border-main);
-    background: #fff;
+    background: var(--nb-lila);
     scroll-margin-top: calc(var(--sm-block) * 2);
     color: var(--black);
 }
@@ -21,6 +21,7 @@
 .about-content {
     display: flex;
     border-top: var(--border-main);
+    background: var(--nb-blue);
 }
 
 .about-content__left {
