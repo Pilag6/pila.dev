@@ -1,0 +1,21 @@
+/* ----------------------
+    HERO SECTION
+---------------------- */
+
+.hero {
+    height: calc(100vh - (85px * 2));
+    border: var(--border-main);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    background: #fff;
+}
+
+@media only screen and (min-width: 1560px) {
+    .hero {
+        height: calc(100vh - (85px * 5));
+    }
+}
+

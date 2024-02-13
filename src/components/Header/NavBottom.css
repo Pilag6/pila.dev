@@ -1,0 +1,117 @@
+/* NAV BOTTOM START */
+
+.nav-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+
+    height: var(--sm-block);
+    border-left: var(--border-main);
+    border-right: var(--border-main);
+}
+
+.nav-bottom__logo {
+    width: 275px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-right: var(--border-main);
+    background: var(--nb-yellow);
+
+    position: relative;
+
+    h2 {
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+        color: var(--black); ;
+    }
+
+    img.logo__underline {
+        position: absolute;
+        bottom: 10px;
+        left: 120px;
+    }
+}
+
+/* social */
+
+.nav-bottom__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-left: var(--border-main);
+}
+
+.social {
+    height: 100%;
+    width: 100%;
+    color: var(--black);
+    background: var(--nb-yellow);
+    font-size: 1.9rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        width: 50px;
+        height: 50px;
+        margin: 0 20px;
+        background: #fff;
+        text-decoration: none;
+    
+        color: var(--black);
+        border: var(--border-btn);
+        box-shadow: var(--shadow-square);
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        transition: all 0.3s ease-in;
+
+        &:hover {
+            box-shadow: none;
+        }
+    }
+}
+
+
+.social--linkedin {
+    border-left: var(--border-main);
+    border-right: var(--border-main);
+}
+/* NAV BOTTOM END */
+
+@media only screen and (max-width: 640px) {
+    .nav-bottom {
+        height: var(--xs-block);
+    }
+    
+    .nav-bottom__logo{
+        width: 100%;
+        border-right: var(--nb-yellow);
+
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .logo__underline {
+        display: none;
+    }
+
+    .social {
+        a {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+        }
+    }
+}

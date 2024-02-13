@@ -1,0 +1,62 @@
+.hero-btn {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+
+    border-top: var(--border-main);
+    padding: var(--gral-padding);
+
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    position: relative;
+}
+
+.hero-btn a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 10px 20px;
+
+    background: var(--nb-yellow);
+    border: var(--border-btn);
+    box-shadow: var(--shadow-square);
+
+    transition: all 0.3s ease-in;
+}
+
+/* 
+it is important to define the order
+so, the hover effect in the arrow can work
+ */
+
+.hero-arrow-1 {
+    order: 1;
+    cursor: crosshair;
+    transition: all 0.3s ease-in;
+}
+
+.btn-projects {
+    order: 2;
+}
+
+.hero-btn a:hover {
+    box-shadow: none;
+    background: var(--nb-orange);
+}
+
+.hero-btn .btn-curriculum:hover ~ .hero-arrow-1 {
+    rotate: 90deg;
+}
+
+.hero-btn .btn-projects:hover ~ .hero-arrow-1 {
+    rotate: -90deg;
+}
+
+.hero-circle {
+    position: absolute;
+    top: -40px;
+    right: -38px;
+    z-index: 100;
+    cursor: crosshair;
+    animation: discover 2s cubic-bezier(.76,-0.65,.03,1.78);
+}
