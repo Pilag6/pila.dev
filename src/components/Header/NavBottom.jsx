@@ -1,5 +1,8 @@
 import drawUnderline from "../../assets/draw-underline.svg";
 import "./NavBottom.css";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithubSquare } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
 
 const NavBottom = () => {
     return (
@@ -20,7 +23,7 @@ const NavBottom = () => {
                         rel="noreferrer"
                         aria-label="Github Social Icon in the Menu"
                     >
-                        <i className="fa-brands fa-square-github"></i>
+                        <FaGithubSquare className="social-icon"/>
                     </a>
                 </div>
                 {/* <!-- LINKEDIN --> */}
@@ -31,7 +34,7 @@ const NavBottom = () => {
                         rel="noreferrer"
                         aria-label="Linkedin Social Icon in the Menu"
                     >
-                        <i className="fa-brands fa-linkedin"></i>
+                        <FaLinkedin className="social-icon"/>
                     </a>
                 </div>
                 {/* <!-- EMAIL --> */}
@@ -42,7 +45,7 @@ const NavBottom = () => {
                         rel="noreferrer"
                         aria-label="Email Social Icon in the Menu"
                     >
-                        <i className="fa-solid fa-envelope"></i>
+                        <FaEnvelope className="social-icon"/>
                     </a>
                 </div>
             </div>

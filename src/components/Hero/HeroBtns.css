@@ -43,7 +43,7 @@ so, the hover effect in the arrow can work
 
 .hero-btn a:hover {
     box-shadow: none;
-    background: var(--nb-orange);
+    background: var(--nb-lila);
 }
 
 .hero-btn .btn-curriculum:hover ~ .hero-arrow-1 {

@@ -4,7 +4,9 @@
 
 .hero {
     height: calc(100vh - (85px * 2));
-    border: var(--border-main);
+    border-bottom: var(--border-main);
+    border-left: var(--border-main);
+    border-right: var(--border-main);
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -27,7 +29,7 @@
 
 @media only screen and (max-width: 480px) {
     .hero {
-        height: calc(100vh - (85px * 2));
+        height: calc(100vh - (85px * 1.8));
     }
 }
 

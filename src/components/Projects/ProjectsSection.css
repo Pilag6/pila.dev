@@ -1,0 +1,31 @@
+.projects {
+    border-left: var(--border-main);
+    border-right: var(--border-main);
+    border-bottom: var(--border-main);
+    background: #fff;
+    scroll-margin-top: calc(var(--sm-block) * 2);
+    background: var(--nb-green); ;
+    
+}
+
+.projects-logo {
+    width: 275px;
+    height: var(--sm-block);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-right: var(--border-main);
+    background: var(--nb-blue);
+    color: var(--black);
+}
+
+.projects-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: var(--border-main);
+    background: var(--nb-yellow);
+    color: var(--black);
+}

@@ -9,6 +9,7 @@
     height: var(--sm-block);
     border-left: var(--border-main);
     border-right: var(--border-main);
+    border-bottom: var(--border-main);
 }
 
 .nav-bottom__logo {
@@ -112,6 +113,10 @@
             width: 40px;
             height: 40px;
             margin: 0 10px;
+
+            .social-icon {
+                padding: 0.2rem;
+            }
         }
     }
 }
