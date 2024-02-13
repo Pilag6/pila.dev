@@ -1,13 +1,14 @@
 import "./HeroBtns.css"
 import drawHeroArrow from "../../assets/draw-hero-arrow.svg";
 import drawHeroCircle from "../../assets/draw-hero-circle.svg";
+import Curriculum from "../../assets/Ezequiel-L-Gonzalez-CV.pdf";
 
 const HeroBtns = () => {
     return (
         <div className="hero-btn">
             <a
                 className="btn-curriculum"
-                href="https://bit.ly/3Z8eUre"
+                href={Curriculum}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Go to download My Curriculum"
