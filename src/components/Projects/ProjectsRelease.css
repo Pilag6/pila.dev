@@ -1,0 +1,115 @@
+.realease-article {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .release-card__title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+
+        .release-card__title-img {
+            width: 40px;
+            height: 40px;
+            padding: 2px;
+            box-shadow: var(--shadow-square);
+            border: var(--border-btn);
+            transition: all 0.3s ease-in;
+            cursor: crosshair;
+            z-index: 1;
+            background: #fff;
+
+            &:hover {
+                box-shadow: none;
+            }
+
+            &:hover ~ .release-star {
+                rotate: 360deg;
+                scale: 1.5;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        .release-star {
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            transition: all 0.3s ease-in;
+        }
+
+        .realease-title-curly {
+            rotate: 45deg;
+        }
+
+        .release-play {
+            width: 30px;
+            height: 30px;
+            padding: 0.2rem;
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+            border: var(--border-btn);
+            box-shadow: var(--shadow-square);
+            background:var(--nb-blue);
+            
+            margin-left: auto;
+            transition: all 0.3s ease-in;
+        }
+    }
+
+    .release-card__content {
+        display: flex;
+        width: 330px;
+        height: 135px;
+        border: var(--border-btn);
+        box-shadow: var(--shadow-square);
+        background: var(--nb-yellow);
+        transition: all 0.3s ease-in;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        .release-card__content-img {
+            width: 130px;
+            height: 100%;
+            border-right: var(--border-btn);
+            background: #fff;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .release-card__content-right {
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - 130px);
+            padding: 10px;
+
+            h3 {
+                font-size: 1.3rem;
+                line-height: 1;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1;
+                margin-top: 6px;
+                font-family: var(--font-primary);
+            }
+        }
+    }
+}

@@ -1,11 +1,18 @@
 import ProjectsCards from "./ProjectsCards.jsx";
 import "./ProjectsSection.css";
+
+// Images
 import ecommerce from "../../assets/projects/ecommerce-crusaders.webp";
 import riverPlate from "../../assets/projects/river-plate.webp";
 import olga from "../../assets/projects/olga.webp";
 import wooltrip from "../../assets/projects/wooltrip.webp";
 import integral from "../../assets/projects/integral.webp";
 import bauchbaum from "../../assets/projects/bauchbaum.webp";
+import ProjectsRelease from "./ProjectsRelease.jsx";
+
+import releaseGrid from "../..//assets/release-grid.svg";
+import releaseFlex from "../../assets/release-flex.svg";
+import releaseAnimation from "../../assets/release-animations.svg";
 
 const ProjectsSection = () => {
     return (
@@ -15,7 +22,6 @@ const ProjectsSection = () => {
             </div>
 
             <div className="projects-cards">
-
                 {/* CARD #1 */}
                 <ProjectsCards
                     title={"Crusaders eCommerce"}
@@ -87,6 +93,43 @@ const ProjectsSection = () => {
                     time2={"3:54"}
                     url={"https://pilag6.github.io/Buchsbaum/"}
                 />
+            </div>
+
+            <div className="projects-release">
+                <h2>LATEST REALEASE</h2>
+
+                <div className="release-container">
+                    {/* Release #1 */}
+                    <ProjectsRelease
+                        title={"JavaScript"}
+                        bgRelease={"hsl(43, 100%, 80%)"}
+                        urlRelease={"https://the-projects-js.netlify.app/"}
+                        releaseTitle={"The Projects JS"}
+                        imgRelease={releaseGrid}
+                        releaseDescription={"JavaScript Projects for mastering the art of web development through hands-on practice with Vanilla JavaScript!"}
+                    />
+
+                    {/* Release #2 */}
+                    <ProjectsRelease
+                        title={"React/Vite"}
+                        bgRelease={"hsl(209, 82%, 83%)"}
+                        urlRelease={"https://github.com/Pilag6/rvct"}
+                        releaseTitle={"Clean Template"}
+                        imgRelease={releaseFlex}
+                        releaseDescription={"This template provides a minimal setup to get React working in Vite, completely clean, without any extra noise."}
+                    />
+
+                    {/* Release #3 */}
+
+                    <ProjectsRelease
+                        title={"Next.js"}
+                        bgRelease={"hsl(177, 61%, 73%)"}
+                        urlRelease={"https://001-restaurant.netlify.app/"}
+                        releaseTitle={"Pizza/restaurant"}
+                        imgRelease={releaseAnimation}
+                        releaseDescription={"Responisve restaurant website using the powerful combination of React, Next.js, TypeScript, and Tailwind CSS."}
+                    />
+                </div>
             </div>
         </section>
     );

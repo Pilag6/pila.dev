@@ -29,3 +29,31 @@
     background: var(--nb-yellow);
     color: var(--black);
 }
+
+.projects-release {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 50px;
+    color: var(--black);
+    background: var(--nb-yellow) ;
+
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+        font-family: var(--font-secondary);
+        
+    }
+
+    .release-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        font-family: var(--font-secondary);
+    }
+}
+
