@@ -4,8 +4,7 @@
     border-bottom: var(--border-main);
     background: #fff;
     scroll-margin-top: calc(var(--sm-block) * 2);
-    background: var(--nb-green); ;
-    
+    background: var(--nb-green);
 }
 
 .projects-logo {
@@ -39,13 +38,12 @@
     gap: 50px;
     padding: 30px 0 0 0;
     color: var(--black);
-    background: var(--nb-yellow) ;
+    background: var(--nb-yellow);
 
     h2 {
         text-align: center;
         font-size: 3rem;
         font-family: var(--font-secondary);
-        
     }
 
     .release-container {
@@ -67,13 +65,13 @@
     color: var(--black);
     font-family: var(--font-secondary);
     font-size: 1.5rem;
-    
+
     a {
         display: flex;
         align-items: center;
         gap: 10px;
         padding: 0.5rem 1rem;
-        
+
         border: 2px solid var(--white-body);
         background: var(--black);
         color: var(--white-body);
@@ -81,10 +79,10 @@
 
         &:hover {
             box-shadow: none;
-            text-decoration: underline ;
+            text-decoration: underline;
         }
 
-        &:hover  .more-projects-icon {
+        &:hover .more-projects-icon {
             transform: translateX(10px);
         }
 
@@ -94,7 +92,6 @@
             transition: all 0.3s ease-in;
         }
     }
-
 }
 
 @media only screen and (max-width: 640px) {
@@ -103,4 +100,3 @@
         border-right: 0;
     }
 }
-
