@@ -1,6 +1,8 @@
 import ProjectsCards from "./ProjectsCards.jsx";
 import "./ProjectsSection.css";
 
+import { FaGithubSquare } from "react-icons/fa";
+
 // Images
 import ecommerce from "../../assets/projects/ecommerce-crusaders.webp";
 import riverPlate from "../../assets/projects/river-plate.webp";
@@ -131,6 +133,9 @@ const ProjectsSection = () => {
                     />
                 </div>
             </div>
+
+            <div className="more-projects">
+                <a  href="https://github.com/Pilag6">Find More Projects in my GitHub <FaGithubSquare className="more-projects-icon"/></a></div>
         </section>
     );
 };
