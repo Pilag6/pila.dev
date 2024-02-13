@@ -6,7 +6,7 @@
     align-items: center;
 
     height: var(--sm-block);
-    background: var(--nb-green);
+    background: var(--nb-blue);
     padding: var(--gral-padding);
     border: var(--border-main);
 }

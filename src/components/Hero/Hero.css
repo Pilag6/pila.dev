@@ -19,3 +19,15 @@
     }
 }
 
+@media only screen and (max-width: 992px) {
+    .hero {
+        height: calc(100vh - (85px * 3));
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .hero {
+        height: calc(100vh - (85px * 2));
+    }
+}
+

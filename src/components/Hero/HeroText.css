@@ -8,6 +8,8 @@
 
     padding: var(--gral-padding);
     position: relative;
+
+    background: var(--nb-green); ;
 }
 
 .hero-frontend,
@@ -73,5 +75,44 @@
     }
     100% {
         transform: translate(0, 0);
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .hero-main-draw {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .hero-frontend h1 {
+        font-size: 5rem;
+    }
+
+    .h1-decoration {
+        top: -15px;
+        left: 240px;
+    }
+
+    .hero-designer p {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .hero-text {
+        grid-column: 1/4;
+    }
+    
+    .hero-main-draw {
+        display: block;
+        right: 0px;
+        width: 100px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .hero-main-draw {
+        display: none;
     }
 }

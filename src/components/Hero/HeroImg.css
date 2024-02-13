@@ -1,4 +1,3 @@
-
 /* hero image section */
 
 .hero-img {
@@ -21,4 +20,22 @@
     right: 20px;
     cursor: crosshair;
     animation: discover 2s ease-in-out;
+}
+
+@media only screen and (max-width: 992px) {
+    .hero-img {
+        grid-column: 3 / 4;
+        grid-row: 1 / 3;
+    }
+}
+
+@media only screen and (max-width:  640px) {
+    .hero-img {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+    }
+
+    .img-waves {
+        display: none;
+    }
 }
