@@ -1,4 +1,4 @@
-import drawX from "../../assets/draw-x.svg";
+import drawX from "../../assets/drawX.svg";
 import drawCurvyArrow from "../../assets/draw-curvyArrow-1.svg";
 import "./NavTop.css";
 
