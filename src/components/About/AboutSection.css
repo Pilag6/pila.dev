@@ -21,7 +21,7 @@
 .about-content {
     display: flex;
     border-top: var(--border-main);
-    background: var(--nb-blue);
+    background: var(--white-body);
 }
 
 .about-content__left {
@@ -97,4 +97,18 @@
     position: absolute;
     bottom: 50px;
     right: 50px;
+}
+
+@media only screen and (max-width: 640px) {
+    .about-logo {
+        width: 100%;
+        border-right: 0;
+    }
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-content__left {
+        flex: 1 0 100%;
+    }
 }
