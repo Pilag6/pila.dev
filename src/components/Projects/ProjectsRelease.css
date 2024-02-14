@@ -12,13 +12,13 @@
         .release-card__title-img {
             width: 40px;
             height: 40px;
-            padding: 2px;
+            padding: 3px;
             box-shadow: var(--shadow-square);
-            border: var(--border-btn);
+            /* outline: 1px solid var(--white-body); */
             transition: all 0.3s ease-in;
             cursor: crosshair;
             z-index: 1;
-            background: #fff;
+            background: var(--black);
 
             &:hover {
                 box-shadow: none;
@@ -83,7 +83,7 @@
         .release-card__content-img {
             width: 130px;
             height: 100%;
-            border-right: var(--border-btn);
+            border-right: 3px dashed var(--black);
             background: #fff;
 
             img {

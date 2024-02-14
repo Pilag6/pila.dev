@@ -9,6 +9,7 @@ import releaseCurly from "../../assets/draw-curvyArrow-1.svg";
 const ProjectsRelease = ({
     title,
     bgRelease,
+    imgTitleRelease,
     imgRelease,
     urlRelease,
     releaseTitle,
@@ -19,7 +20,7 @@ const ProjectsRelease = ({
             {/* <!-- Release Card Title --> */}
             <div className="release-card__title">
                 <div className="release-card__title-img">
-                    <img src={imgRelease} alt="" />
+                    <img src={imgTitleRelease} alt="" />
                 </div>
                 <h3>{title}</h3>
                 <img

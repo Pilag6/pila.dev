@@ -15,6 +15,9 @@ import ProjectsRelease from "./ProjectsRelease.jsx";
 import releaseGrid from "../..//assets/release-grid.svg";
 import releaseFlex from "../../assets/release-flex.svg";
 import releaseAnimation from "../../assets/release-animations.svg";
+import js from "../../assets/js.svg";
+import react from "../../assets/react.svg";
+import next from "../../assets/next.svg";
 
 const ProjectsSection = () => {
     return (
@@ -107,6 +110,7 @@ const ProjectsSection = () => {
                         bgRelease={"hsl(43, 100%, 80%)"}
                         urlRelease={"https://the-projects-js.netlify.app/"}
                         releaseTitle={"The Projects JS"}
+                        imgTitleRelease={js}
                         imgRelease={releaseGrid}
                         releaseDescription={"JavaScript Projects for mastering the art of web development through hands-on practice with Vanilla JavaScript!"}
                     />
@@ -117,7 +121,8 @@ const ProjectsSection = () => {
                         bgRelease={"hsl(209, 82%, 83%)"}
                         urlRelease={"https://github.com/Pilag6/rvct"}
                         releaseTitle={"Clean Template"}
-                        imgRelease={releaseFlex}
+                        imgTitleRelease={react}
+                        imgRelease={releaseAnimation}
                         releaseDescription={"This template provides a minimal setup to get React working in Vite, completely clean, without any extra noise."}
                     />
 
@@ -128,7 +133,8 @@ const ProjectsSection = () => {
                         bgRelease={"hsl(177, 61%, 73%)"}
                         urlRelease={"https://001-restaurant.netlify.app/"}
                         releaseTitle={"Pizza/restaurant"}
-                        imgRelease={releaseAnimation}
+                        imgTitleRelease={next}
+                        imgRelease={releaseFlex}
                         releaseDescription={"Responisve restaurant website using the powerful combination of React, Next.js, TypeScript, and Tailwind CSS."}
                     />
                 </div>
