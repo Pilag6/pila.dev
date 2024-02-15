@@ -1,0 +1,62 @@
+.study-container {
+    border: var(--border-main);
+    background: #fff;
+    /* scroll-margin-top: calc(var(--sm-block) * 2); */
+    background: var(--nb-green);
+    padding: 50px;
+    color: var(--black);
+
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+        font-family: var(--font-secondary);
+        margin-bottom: 50px;
+    }
+
+    .study-cards-wrapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 50px;
+        column-gap: 50px;
+
+        .study-block {
+            width: 300px;
+
+            background: var(--nb-orange);
+            border: var(--border-btn);
+            box-shadow: var(--shadow-square);
+            padding: 20px;
+
+            h3 {
+                text-align: center;
+                font-size: 2rem;
+                font-family: var(--font-secondary);
+                margin-bottom: 20px;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        img {
+            rotate: -90deg;
+        }
+    }
+}
+
+@media only screen and (max-width: 860px) {
+    .study-container {
+        flex-direction: column;
+        align-items: center;
+
+        .study-block {
+            width: 100%;
+        }
+
+        img {
+            rotate: 0deg;
+        }
+    }
+}

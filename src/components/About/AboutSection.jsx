@@ -1,6 +1,7 @@
 import "./AboutSection.css";
 
 import drawAbout from "../../assets/draw-about.svg";
+import rulo from "../../assets/rulo.svg";
 
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
@@ -81,7 +82,7 @@ const AboutSection = () => {
                     <div className="berlin-text">
                         <h3>BERLIN, DE</h3>
                     </div>
-                    <img className="rulo" src="./assets/rulo.svg" alt="" />
+                    <img className="rulo" src={rulo} alt="" />
                 </div>
             </div>
         </section>
