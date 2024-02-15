@@ -76,10 +76,14 @@ const CaseOfStudy = () => {
                         media queries, streamlining the development process.
                     </li>
                     <li>
-                        <strong>Extra details:</strong> <br /><br /><strong>Open Graph Cards:</strong> I added Open Graph
-                        cards for improved social sharing.<br /> <strong>Cursor Styles:</strong> I
-                        customized the cursor styles for various decorative
-                        elements on the website.<br /> <strong>Scrollbar and Text Selection:</strong> I
+                        <strong>Extra details:</strong> <br />
+                        <br />
+                        <strong>Open Graph Cards:</strong> I added Open Graph
+                        cards for improved social sharing.
+                        <br /> <strong>Cursor Styles:</strong> I customized the
+                        cursor styles for various decorative elements on the
+                        website.
+                        <br /> <strong>Scrollbar and Text Selection:</strong> I
                         adjusted the scrollbar and text selection styles to
                         align with the overall design.
                     </li>
