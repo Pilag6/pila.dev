@@ -4,3 +4,10 @@
     /* border: var(--border); */
     background: #fff;
 }
+
+footer {
+    background: var(--black);
+    color: var(--white-body);
+    padding: 20px 0;
+    text-align: center;
+}

@@ -5,6 +5,8 @@ import Hero from "@components/Hero/Hero.jsx";
 import ProjectsSection from "@components/Projects/ProjectsSection.jsx";
 
 const Home = () => {
+    const copy = `${new Date().getFullYear()}`;
+
     return (
         <>
             <Header />
@@ -12,6 +14,8 @@ const Home = () => {
             <ProjectsSection />
             <AboutSection />
             <CaseOfStudy />
+
+            <footer>© {copy} | Ezequiel &apos;Pila&apos; Gonzalez</footer>
         </>
     );
 };
