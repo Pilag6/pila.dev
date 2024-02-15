@@ -75,6 +75,7 @@ const AboutSection = () => {
                             href="https://twitter.com/PilaGonzalezOk"
                             target="_blank"
                             rel="noreferrer"
+                            aria-label="Go to my Twitter"
                         >
                             <FaSquareXTwitter className="about-icons"/>
                         </a>
