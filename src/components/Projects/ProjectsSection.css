@@ -29,7 +29,7 @@
     border-top: var(--border-main);
     background: var(--white-body);
     color: var(--black);
-    padding: 20px;
+    padding: 50px 20px;
     row-gap: 50px;
 }
 
