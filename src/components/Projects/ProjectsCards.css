@@ -15,7 +15,7 @@
     width: 355px;
     padding: 30px;
     border: var(--border-btn);
-    border-radius: 10px;
+    border-radius: 8px;
 
     display: flex;
     flex-direction: column;
