@@ -5,7 +5,6 @@
     background: #fff;
     scroll-margin-top: calc(var(--sm-block) * 2);
     background: var(--nb-green);
-
 }
 
 .projects-logo {
@@ -15,7 +14,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
 
     border-right: var(--border-main);
     background: var(--nb-blue);
@@ -40,7 +38,7 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
-    padding: 30px 0 0 0;
+    padding: 30px 10px 0 10px;
     color: var(--black);
     background: var(--nb-yellow);
     border-top: var(--border-main);
