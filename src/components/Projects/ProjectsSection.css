@@ -29,6 +29,7 @@
     color: var(--black);
     padding: 50px 20px;
     row-gap: 50px;
+    column-gap: 20px;
 }
 
 .projects-release {

@@ -9,7 +9,8 @@ import riverPlate from "../../assets/projects/river-plate.webp";
 import olga from "../../assets/projects/olga.webp";
 import wooltrip from "../../assets/projects/wooltrip.webp";
 import integral from "../../assets/projects/integral.webp";
-import bauchbaum from "../../assets/projects/bauchbaum.webp";
+// import bauchbaum from "../../assets/projects/bauchbaum.webp";
+import akpica from "../../assets/projects/akpica.webp";
 import ProjectsRelease from "./ProjectsRelease.jsx";
 
 import releaseGrid from "../..//assets/release-grid.svg";
@@ -89,14 +90,14 @@ const ProjectsSection = () => {
 
                 {/* CARD #6 */}
                 <ProjectsCards
-                    title={"bauchbaum"}
+                    title={"akpica ecommerce"}
                     bgCard={"hsl(65, 80%, 76%)"}
-                    image={bauchbaum}
+                    image={akpica}
                     span={"span-5"}
                     widthSpan={"15%"}
                     time1={"1:01"}
                     time2={"3:54"}
-                    url={"https://pilag6.github.io/Buchsbaum/"}
+                    url={"https://akpica.netlify.app/"}
                 />
             </div>
 
