@@ -31,13 +31,25 @@
             font-size: 1.5rem;
             text-align: center;
             box-shadow: var(--shadow-square);
+            transition: all 0.3s ease-in;
+            overflow: hidden;
+
+            &:hover {
+                box-shadow: none;
+            }
 
                 img {
                     width: 250px;
-                    height: 310px;
+                    height: 320px;
                     display: block;
                     object-fit: cover;
                     object-position: top;
+                    transition: all 0.3s ease-in;
+
+                    &:hover {
+                        object-position: bottom;
+                    }
+                    
                 }
             
         }
