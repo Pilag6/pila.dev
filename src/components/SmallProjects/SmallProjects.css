@@ -39,8 +39,8 @@
             }
 
                 img {
-                    width: 250px;
-                    height: 320px;
+                    width: 240px;
+                    height: 300px;
                     display: block;
                     object-fit: cover;
                     object-position: top;
