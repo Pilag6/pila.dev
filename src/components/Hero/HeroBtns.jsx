@@ -1,7 +1,7 @@
 import "./HeroBtns.css"
 import drawHeroArrow from "../../assets/draw-hero-arrow.svg";
 import drawHeroCircle from "../../assets/draw-hero-circle.svg";
-import Curriculum from "../../assets/ezequielGonzalez_CV";
+import Curriculum from "../../assets/ezequielGonzalez_CV.pdf";
 
 const HeroBtns = () => {
     return (
