@@ -1,5 +1,5 @@
 import "./HeroImg.css"
-import pilaHero from "../../assets/pila-hero.avif";
+import pilaHero from "../../assets/pila-hero.webp";
 import draqHeroWawe from "../../assets/draw-hero-wawe.svg";
 
 const HeroImg = () => {
