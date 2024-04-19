@@ -56,6 +56,40 @@
         justify-content: center;
         gap: 30px;
         font-family: var(--font-secondary);
+        margin-bottom: 3rem;
+    }
+}
+
+.starter-kits {
+    display: flex;
+    flex-direction: column;
+    background: var(--white-body);
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px 0 10px;
+    color: var(--black);
+    border-top: var(--border-main);
+
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+        font-family: var(--font-secondary);
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.3rem;
+        width: 70%;
+        margin-bottom: 50px;
+    }
+
+    .starter-kits-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        font-family: var(--font-secondary);
+        margin-bottom: 2rem;
     }
 }
 
@@ -65,7 +99,7 @@
     align-items: center;
     gap: 20px;
     padding: 50px;
-    background: var(--nb-yellow);
+    background: var(--white-body);
     color: var(--black);
     font-family: var(--font-secondary);
     font-size: 1.5rem;
@@ -102,5 +136,12 @@
     .projects-logo {
         width: 100%;
         border-right: 0;
+    }
+
+    .starter-kits {
+        p {
+            width: 90%;
+            font-size: 1rem;
+        }
     }
 }
