@@ -12,6 +12,9 @@ import integral from "../../assets/projects/integral.webp";
 // import bauchbaum from "../../assets/projects/bauchbaum.webp";
 import akpica from "../../assets/projects/akpica.webp";
 import ProjectsRelease from "./ProjectsRelease.jsx";
+import mern from "../../assets/projects/mern.webp";
+import server from "../../assets/projects/server.webp";
+import reactV from "../../assets/projects/react.webp";
 
 import releaseGrid from "../..//assets/release-grid.svg";
 import releaseFlex from "../../assets/release-flex.svg";
@@ -19,6 +22,7 @@ import releaseAnimation from "../../assets/release-animations.svg";
 import js from "../../assets/js.svg";
 import react from "../../assets/react.svg";
 import next from "../../assets/next.svg";
+import StarterKits from "./StarterKits.jsx";
 
 const ProjectsSection = () => {
     return (
@@ -30,6 +34,18 @@ const ProjectsSection = () => {
             <div className="projects-cards">
                 {/* CARD #1 */}
                 <ProjectsCards
+                    title={"akpica ecommerce"}
+                    bgCard={"hsl(65, 80%, 76%)"}
+                    image={akpica}
+                    span={"span-5"}
+                    widthSpan={"15%"}
+                    time1={"1:01"}
+                    time2={"3:54"}
+                    url={"https://akpica.netlify.app/"}
+                />
+
+                {/* CARD #2 */}
+                <ProjectsCards
                     title={"Crusaders eCommerce"}
                     bgCard={"hsl(328, 97%, 88%)"}
                     image={ecommerce}
@@ -38,18 +54,6 @@ const ProjectsSection = () => {
                     time1={"0:39"}
                     time2={"3:14"}
                     url={"https://crusaders-ecommerce.netlify.app/"}
-                />
-
-                {/* CARD #2 */}
-                <ProjectsCards
-                    title={"Olga Photos"}
-                    bgCard={"hsl(43, 100%, 80%)"}
-                    image={olga}
-                    span={"span-2"}
-                    widthSpan={"46%"}
-                    time1={"3:31"}
-                    time2={"5:55"}
-                    url={"https://olgaphotos.com/"}
                 />
 
                 {/* CARD #3 */}
@@ -90,14 +94,14 @@ const ProjectsSection = () => {
 
                 {/* CARD #6 */}
                 <ProjectsCards
-                    title={"akpica ecommerce"}
-                    bgCard={"hsl(65, 80%, 76%)"}
-                    image={akpica}
-                    span={"span-5"}
-                    widthSpan={"15%"}
-                    time1={"1:01"}
-                    time2={"3:54"}
-                    url={"https://akpica.netlify.app/"}
+                    title={"Olga Photos"}
+                    bgCard={"hsl(43, 100%, 80%)"}
+                    image={olga}
+                    span={"span-2"}
+                    widthSpan={"46%"}
+                    time1={"3:31"}
+                    time2={"5:55"}
+                    url={"https://olgaphotos.com/"}
                 />
             </div>
 
@@ -113,7 +117,9 @@ const ProjectsSection = () => {
                         releaseTitle={"The Projects JS"}
                         imgTitleRelease={js}
                         imgRelease={releaseGrid}
-                        releaseDescription={"JavaScript Projects for mastering the art of web development through hands-on practice with Vanilla JavaScript!"}
+                        releaseDescription={
+                            "JavaScript Projects for mastering the art of web development through hands-on practice with Vanilla JavaScript!"
+                        }
                     />
 
                     {/* Release #2 */}
@@ -124,7 +130,9 @@ const ProjectsSection = () => {
                         releaseTitle={"Clean Template"}
                         imgTitleRelease={react}
                         imgRelease={releaseAnimation}
-                        releaseDescription={"This template provides a minimal setup to get React working in Vite, completely clean, without any extra noise."}
+                        releaseDescription={
+                            "This template provides a minimal setup to get React working in Vite, completely clean, without any extra noise."
+                        }
                     />
 
                     {/* Release #3 */}
@@ -136,13 +144,31 @@ const ProjectsSection = () => {
                         releaseTitle={"Pizza/restaurant"}
                         imgTitleRelease={next}
                         imgRelease={releaseFlex}
-                        releaseDescription={"Responisve restaurant website using the powerful combination of React, Next.js, TypeScript, and Tailwind CSS."}
+                        releaseDescription={
+                            "Responisve restaurant website using the powerful combination of React, Next.js, TypeScript, and Tailwind CSS."
+                        }
                     />
                 </div>
             </div>
 
+            <div className="starter-kits">
+                <h2>STARTER KITS</h2>
+
+                <p>💻 This are a serie of <strong>Starter Kits</strong> that I created to save fellow developers the hassle of configuration and setup, allowing you to dive straight into what you love most: <code>coding!</code> With this starting kits, you can focus more on bringing your ideas to life and less on the intricacies of setting up your projects from scratch.</p>
+
+                <div className="starter-kits-container">
+                    <StarterKits startingImg={server} starterLink={"https://github.com/Pilag6/basicServer"}/>
+                    <StarterKits startingImg={reactV}  starterLink={"https://github.com/Pilag6/rvct"}/>
+                    <StarterKits startingImg={mern} starterLink={"https://github.com/Pilag6/MERN"}/>
+                </div>
+            </div>
+
             <div className="more-projects">
-                <a  href="https://github.com/Pilag6">Find More Projects in my GitHub <FaGithubSquare className="more-projects-icon"/></a></div>
+                <a href="https://github.com/Pilag6">
+                    Find More Projects in my GitHub{" "}
+                    <FaGithubSquare className="more-projects-icon" />
+                </a>
+            </div>
         </section>
     );
 };

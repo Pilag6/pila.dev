@@ -1,0 +1,32 @@
+.starter-article {
+    border: var(--border-btn); ;
+    box-shadow: var(--shadow-square);
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover {
+        box-shadow: none;
+
+    }
+    
+
+    .starter-img {
+        width: 300px;
+        aspect-ratio: 16/9 ;
+       
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            transition: all 0.3s ease-in;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+    }
+    
+}
