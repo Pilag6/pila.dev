@@ -1,5 +1,5 @@
 .starter-article {
-    border: var(--border-btn); ;
+    border: var(--border-btn);
     box-shadow: var(--shadow-square);
     transition: all 0.3s ease-in;
     cursor: pointer;
@@ -8,15 +8,13 @@
 
     &:hover {
         box-shadow: none;
-        
     }
-    
-    
+
     .starter-img {
         overflow: hidden;
         width: 300px;
-        aspect-ratio: 16/9 ;
-       
+        aspect-ratio: 16/9;
+
         img {
             width: 100%;
             height: 100%;
@@ -28,15 +26,11 @@
                 transform: scale(1.1);
             }
         }
-
     }
-    
 }
 
-/* Make a half circle */
-
 .starter-article::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -10px;
     left: 6px;
@@ -47,8 +41,6 @@
     z-index: -1;
     transition: all 0.3s ease-in;
 }
-
-/* When hover in starter-article move de ::before 6px to the left */
 
 .starter-article:hover::before {
     left: 2px;
