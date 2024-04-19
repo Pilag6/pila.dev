@@ -3,15 +3,17 @@
     box-shadow: var(--shadow-square);
     transition: all 0.3s ease-in;
     cursor: pointer;
-    overflow: hidden;
+    position: relative;
+    z-index: 11;
 
     &:hover {
         box-shadow: none;
-
+        
     }
     
-
+    
     .starter-img {
+        overflow: hidden;
         width: 300px;
         aspect-ratio: 16/9 ;
        
@@ -29,4 +31,25 @@
 
     }
     
+}
+
+/* Make a half circle */
+
+.starter-article::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 6px;
+    width: 100%;
+    height: 100%;
+    background: var(--black);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 50% 0);
+    z-index: -1;
+    transition: all 0.3s ease-in;
+}
+
+/* When hover in starter-article move de ::before 6px to the left */
+
+.starter-article:hover::before {
+    left: 2px;
 }
