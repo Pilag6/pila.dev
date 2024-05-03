@@ -107,7 +107,6 @@ const ProjectsSection = () => {
 
             <div className="projects-release">
                 <h2>LATEST REALEASE</h2>
-
                 <div className="release-container">
                     {/* Release #1 */}
                     <ProjectsRelease
