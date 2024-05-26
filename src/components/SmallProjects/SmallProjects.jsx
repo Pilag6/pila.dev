@@ -3,6 +3,9 @@ import passGen from "../../assets/projects/passGen.jpg";
 import banckgroundGen from "../../assets/projects/backgroundGen.webp";
 import wordCount from "../../assets/projects/wordCount.webp";
 import drum from "../../assets/projects/drum.webp";
+import flip from "../../assets/projects/flip.png";
+import snake from "../../assets/projects/snake.png";
+import todo from "../../assets/projects/todo.png";
 
 const SmallProjects = () => {
     return (
@@ -22,6 +25,17 @@ const SmallProjects = () => {
                 <article className="small-article">
                     <a href="https://virtualdrumbypila.netlify.app/" target="_blank" rel="noreferrer"><img src={drum} alt="" /></a>
                 </article>
+                <article className="small-article">
+                    <a href="https://the-projects-js.netlify.app/14-cardflip/" target="_blank" rel="noreferrer"><img src={flip} alt="" /></a>
+                </article>
+                <article className="small-article">
+                    <a href="https://supersnakepro.netlify.app/" target="_blank" rel="noreferrer"><img src={snake} alt="" /></a>
+                </article>
+                <article className="small-article">
+                    <a href="https://the-projects-js.netlify.app/05-todoapp/" target="_blank" rel="noreferrer"><img src={todo} alt
+                    ="" /></a>
+                </article>
+
             </div>
         </div>
     );

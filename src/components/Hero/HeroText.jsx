@@ -8,7 +8,7 @@ const HeroText = () => {
         <div className="hero-text">
             <div className="hero-frontend">
                 <h1>
-                    Frontend <br />
+                    Full-Stack <br />
                     Developer
                 </h1>
                 <img
