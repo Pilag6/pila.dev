@@ -7,9 +7,9 @@ import { FaGithubSquare } from "react-icons/fa";
 import ecommerce from "../../assets/projects/ecommerce-crusaders.webp";
 import riverPlate from "../../assets/projects/river-plate.webp";
 import olga from "../../assets/projects/olga.webp";
-import wooltrip from "../../assets/projects/wooltrip.webp";
+// import wooltrip from "../../assets/projects/wooltrip.webp";
 import integral from "../../assets/projects/integral.webp";
-// import bauchbaum from "../../assets/projects/bauchbaum.webp";
+import descubre from "../../assets/projects/descubre.webp";
 import akpica from "../../assets/projects/akpica.webp";
 import ProjectsRelease from "./ProjectsRelease.jsx";
 import mern from "../../assets/projects/mern.webp";
@@ -82,14 +82,14 @@ const ProjectsSection = () => {
 
                 {/* CARD #5 */}
                 <ProjectsCards
-                    title={"WoolTrip"}
+                    title={"Descubre Balcanes"}
                     bgCard={"hsl(177, 61%, 73%) "}
-                    image={wooltrip}
+                    image={descubre}
                     span={"span-5"}
                     widthSpan={"15%"}
                     time1={"1:01"}
                     time2={"3:54"}
-                    url={"https://pilag6.github.io/Wooltrip---Tour-Travel/"}
+                    url={"https://descubrebalcanes.com/"}
                 />
 
                 {/* CARD #6 */}
