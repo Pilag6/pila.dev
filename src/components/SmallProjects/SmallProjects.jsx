@@ -6,6 +6,7 @@ import drum from "../../assets/projects/drum.webp";
 import flip from "../../assets/projects/flip.png";
 import snake from "../../assets/projects/snake.png";
 import todo from "../../assets/projects/todo.png";
+import perfect4 from "../../assets/projects/perfect4.webp";
 
 const SmallProjects = () => {
     return (
@@ -13,6 +14,9 @@ const SmallProjects = () => {
             <h2>Small projects, big personal achievements</h2>
 
             <div className="small-card-wrapper">
+                <article className="small-article">
+                    <a href="https://perfect-4.netlify.app/" target="_blank" rel="noreferrer"><img src={perfect4} alt="" /></a>
+                </article>
                 <article className="small-article">
                     <a href="https://the-projects-js.netlify.app/03-passgen/" target="_blank" rel="noreferrer"><img src={passGen} alt="" /></a>
                 </article>

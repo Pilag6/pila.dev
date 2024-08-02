@@ -13,6 +13,8 @@ import descubre from "../../assets/projects/descubre.webp";
 import akpica from "../../assets/projects/akpica.webp";
 import ProjectsRelease from "./ProjectsRelease.jsx";
 import mern from "../../assets/projects/mern.webp";
+import mernMono from "../../assets/projects/monorepo.webp";
+import pern from "../../assets/projects/pern.webp";
 import server from "../../assets/projects/server.webp";
 import reactV from "../../assets/projects/react.webp";
 
@@ -159,6 +161,8 @@ const ProjectsSection = () => {
                     <StarterKits startingImg={server} starterLink={"https://github.com/Pilag6/basicServer"}/>
                     <StarterKits startingImg={reactV}  starterLink={"https://github.com/Pilag6/rvct"}/>
                     <StarterKits startingImg={mern} starterLink={"https://github.com/Pilag6/MERN"}/>
+                    <StarterKits startingImg={mernMono} starterLink={"https://github.com/Pilag6/mern-monorepo"}/>
+                    <StarterKits startingImg={pern} starterLink={"https://github.com/Pilag6/basicServer-PostgreSQL"}/>
                 </div>
             </div>
 
