@@ -22,6 +22,15 @@ const NavTop = () => {
                 >
                     About
                 </a>
+                <a
+                    className="nav-blog"
+                    href="https://pilagonzalez.com/"
+                    aria-label="Blog Button Menu"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    Blog
+                </a>
 
                 <div className="nav-top__curvyArrow">
                     <img

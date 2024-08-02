@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const SmallProjectCard = ({ title, image, url }) => {
     return (
         <article className="small-article">

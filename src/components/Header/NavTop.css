@@ -53,4 +53,8 @@
     left: 80px;
 }
 
+.nav-blog:hover ~ .nav-top__curvyArrow {
+    left: 160px;
+}
+
 /* NAV TOP END */
