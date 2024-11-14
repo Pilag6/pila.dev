@@ -156,7 +156,7 @@ const ProjectsSection = () => {
             <div className="starter-kits">
                 <h2>STARTER KITS</h2>
 
-                <p>💻 These are a serie of <strong>Starter Kits</strong> that I created to save fellow developers the hassle of configuration and setup, allowing you to dive straight into what you love most: <code>coding!</code> With this starting kits, you can focus more on bringing your ideas to life and less on the intricacies of setting up your projects from scratch 💻</p>
+                <p>💻 These are a serie of <strong>Starter Kits</strong> that I created to save fellow developers the hassle of configuration and setup, allowing them to dive straight into what them love most: <code>coding!</code> <br />With this starting kits, developers can focus more on bringing their ideas to life and less on the intricacies of setting up your projects from scratch 💻</p>
 
                 <div className="starter-kits-container">
                     <StarterKits startingImg={myNext} starterLink={"https://github.com/Pilag6/my-next"}/>
