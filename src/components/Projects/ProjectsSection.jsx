@@ -17,6 +17,7 @@ import mernMono from "../../assets/projects/monorepo.webp";
 import pern from "../../assets/projects/pern.webp";
 import server from "../../assets/projects/server.webp";
 import reactV from "../../assets/projects/react.webp";
+import myNext from "../../assets/projects/next-supabase.webp";
 
 import releaseGrid from "../..//assets/release-grid.svg";
 import releaseFlex from "../../assets/release-flex.svg";
@@ -158,6 +159,7 @@ const ProjectsSection = () => {
                 <p>💻 These are a serie of <strong>Starter Kits</strong> that I created to save fellow developers the hassle of configuration and setup, allowing you to dive straight into what you love most: <code>coding!</code> With this starting kits, you can focus more on bringing your ideas to life and less on the intricacies of setting up your projects from scratch 💻</p>
 
                 <div className="starter-kits-container">
+                    <StarterKits startingImg={myNext} starterLink={"https://github.com/Pilag6/my-next"}/>
                     <StarterKits startingImg={server} starterLink={"https://github.com/Pilag6/basicServer"}/>
                     <StarterKits startingImg={reactV}  starterLink={"https://github.com/Pilag6/rvct"}/>
                     <StarterKits startingImg={mern} starterLink={"https://github.com/Pilag6/MERN"}/>
