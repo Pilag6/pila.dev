@@ -23,9 +23,9 @@ import releaseGrid from "../..//assets/release-grid.svg";
 import releaseFlex from "../../assets/release-flex.svg";
 import releaseAnimation from "../../assets/release-animations.svg";
 import js from "../../assets/js.svg";
-import react from "../../assets/react.svg";
 import next from "../../assets/next.svg";
 import StarterKits from "./StarterKits.jsx";
+import NPM from "../../assets/NPM.svg";
 
 const ProjectsSection = () => {
     return (
@@ -126,14 +126,14 @@ const ProjectsSection = () => {
 
                     {/* Release #2 */}
                     <ProjectsRelease
-                        title={"React/Vite"}
+                        title={"npm package"}
                         bgRelease={"hsl(209, 82%, 83%)"}
                         urlRelease={"https://github.com/Pilag6/rvct"}
-                        releaseTitle={"Clean Template"}
-                        imgTitleRelease={react}
+                        releaseTitle={"CSV Downloader"}
+                        imgTitleRelease={NPM}
                         imgRelease={releaseAnimation}
                         releaseDescription={
-                            "This template provides a minimal setup to get React working in Vite, completely clean, without any extra noise."
+                            "A lightweight, fast utility to export data as CSV directly from the browser, compatible with Vue, React, and JS/TS project"
                         }
                     />
 
@@ -142,12 +142,12 @@ const ProjectsSection = () => {
                     <ProjectsRelease
                         title={"Next.js"}
                         bgRelease={"hsl(177, 61%, 73%)"}
-                        urlRelease={"https://001-restaurant.netlify.app/"}
-                        releaseTitle={"Pizza/restaurant"}
+                        urlRelease={"https://fliplingua.com/"}
+                        releaseTitle={"Fliplingua"}
                         imgTitleRelease={next}
                         imgRelease={releaseFlex}
                         releaseDescription={
-                            "Responisve restaurant website using the powerful combination of React, Next.js, TypeScript, and Tailwind CSS."
+                            "Responsive language learning website using the powerful combination of Next.js, TypeScript, and Tailwind CSS."
                         }
                     />
                 </div>

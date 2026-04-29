@@ -34,7 +34,7 @@ const ProjectsRelease = ({
 
             {/* <!-- Release Card Content --> */}
 
-            <a href={urlRelease}>
+            <a href={urlRelease} target="_blank" rel="noreferrer">
                 <div
                     className="release-card__content"
                     style={{ background: bgRelease }}
