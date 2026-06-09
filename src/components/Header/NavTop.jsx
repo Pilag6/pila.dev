@@ -24,10 +24,8 @@ const NavTop = () => {
                 </a>
                 <a
                     className="nav-blog"
-                    href="https://pilablog.netlify.app/"
+                    href="#blog"
                     aria-label="Blog Button Menu"
-                    target="_blank"
-                    rel="noreferrer"
                 >
                     Blog
                 </a>

@@ -22,7 +22,7 @@ const AboutSection = () => {
 
                     <div className="about-short">
                         <h3>50 WORDS <span>(OR LESS)</span></h3>
-                        <p>I am a versatile <strong>Frontend UX/UI Developer</strong> with a creative flair. My passion lies in crafting impactful websites, blending design aesthetics with a digital mindset that help brands make an impact and get the Next Level through immersive user experiences.</p>
+                        <p>I am a versatile <strong>Senior Frontend Engineer</strong> with a creative flair. My passion lies in crafting impactful websites, blending design aesthetics with a digital mindset that help brands make an impact and get the Next Level through immersive user experiences.</p>
                     </div>
                 </div>
 
@@ -30,13 +30,13 @@ const AboutSection = () => {
                 <div className="about-content__right">
                     <div className="about-text">
                         <p>
-                            Hi, I&apos;m <strong>Ezequiel &quot;Pila&quot; Gonzalez</strong>, a professional  <strong>Frontend UX/UI Developer</strong> based in Berlin, with +10 years of experience.
+                            Hi, I&apos;m <strong>Ezequiel &quot;Pila&quot; Gonzalez</strong>, a professional  <strong>Senior Frontend Engineer</strong> based in Berlin, with +10 years of experience.
                         </p>
                         <p>
-                            After working as a consultant for entrepreneurs, I decided that it was time to make a major change in my life and I went on a trip around the world. I visited more than 45 countries on 5 continents. I have lived and worked, mainly in the tourism sector, in Spain, Croatia, Japan, New Zealand, Montenegro, Albania, Morocco, Argentina and now in Germany.
+                            After working as a consultant for entrepreneurs, I decided that it was time to make a major change in my life and I went on a trip around the world. I visited more than 45 countries on 5 continents. I have lived and worked, mainly in the tourism sector, in Spain, Croatia, Japan, New Zealand, Montenegro, Albania, Argentina and now in Germany.
                         </p>
 
-                        <p>For more than 10 years I have been dedicated to Web Development, Content Creation, and Digital Marketing, with a focus on copywriting, design trends, and SEO.</p>
+                        <p>For more than 15 years I have been dedicated to Web Development, Content Creation, and Digital Marketing, with a focus on copywriting, design trends, and SEO.</p>
 
                         <p>
                         With a track record of creating over <strong>100 websites and successfully completing various web development projects</strong>, I&apos;ve authored <strong>300+ articles and published 3 books</strong> in Spanish. Now, I reside in Berlin with my wife and my daughter, and am eager to bring my wealth of experience to assist you with your Web Development and Design projects.

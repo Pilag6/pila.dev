@@ -1,4 +1,5 @@
 import AboutSection from "@components/About/AboutSection.jsx";
+import BlogSection from "@components/Blog/BlogSection.jsx";
 import CaseOfStudy from "@components/CaseOfStudy/CaseOfStudy.jsx";
 import Header from "@components/Header/Header.jsx";
 import Hero from "@components/Hero/Hero.jsx";
@@ -15,6 +16,7 @@ const Home = () => {
             <Hero />
             <ProjectsSection />
             <SmallProjects />
+            <BlogSection />
             <AboutSection />
             <CaseOfStudy />
 

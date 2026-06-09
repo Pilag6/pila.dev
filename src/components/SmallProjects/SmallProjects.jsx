@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import "./SmallProjects.css";
 
 import SmallProjectCard from "./SmallProjectCard.jsx";
