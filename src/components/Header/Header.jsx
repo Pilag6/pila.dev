@@ -4,7 +4,7 @@ import "./Header.css";
 
 const Header = () => {
     return (
-        <header>
+        <header className="site-header">
             <NavTop />
 
             <NavBottom />

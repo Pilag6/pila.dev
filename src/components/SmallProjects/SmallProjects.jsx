@@ -41,7 +41,7 @@ const projectsData = [
   {
     title: "Card Flip",
     image: flip,
-    url: "https://the-projects-js.netlify.app/14-cardflip/",
+    url: "https://fliplingua.com/",
   },
   {
     title: "Super Snake Pro",

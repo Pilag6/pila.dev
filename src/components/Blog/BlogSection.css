@@ -68,7 +68,7 @@
 
 .blog-card__eyebrow {
     width: fit-content;
-    padding: 0.2rem 0.6rem;
+    padding: 0.1rem 0.6rem;
     border: 2px solid var(--black);
     background: var(--nb-green);
     font-family: var(--font-secondary);

@@ -12,19 +12,19 @@ const NavTop = () => {
             />
 
             <div className="nav-top__list">
-                <a href="#projects" aria-label="Projects Button Menu">
+                <a href="/#projects" aria-label="Projects Button Menu">
                     Projects
                 </a>
                 <a
                     className="nav-about"
-                    href="#about"
+                    href="/#about"
                     aria-label="About Button Menu"
                 >
                     About
                 </a>
                 <a
                     className="nav-blog"
-                    href="#blog"
+                    href="/#blog"
                     aria-label="Blog Button Menu"
                 >
                     Blog

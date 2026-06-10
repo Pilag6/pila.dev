@@ -13,15 +13,15 @@ const BlogSection = () => {
                     <div className="blog-card__icon" aria-hidden="true">
                         <FaCode />
                     </div>
-                    <p className="blog-card__eyebrow">Coming soon</p>
+                    <p className="blog-card__eyebrow">Now publishing</p>
                     <h3 id="blog-dev-title">Development Notes</h3>
                     <p>
                         Practical writing about frontend, tools, architecture,
                         and the decisions behind building software.
                     </p>
-                    <button className="blog-card__action" type="button" disabled>
-                        Not available yet
-                    </button>
+                    <a className="blog-card__action" href="/development-notes">
+                        Read the notes <FaArrowRightLong aria-hidden="true" />
+                    </a>
                 </article>
 
                 <article className="blog-card blog-card--literary" aria-labelledby="blog-literary-title">

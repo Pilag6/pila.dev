@@ -50,11 +50,11 @@
 }
 
 .nav-about:hover ~ .nav-top__curvyArrow {
-    left: 80px;
+    left: 85px;
 }
 
 .nav-blog:hover ~ .nav-top__curvyArrow {
-    left: 160px;
+    left: 165px;
 }
 
 /* NAV TOP END */
