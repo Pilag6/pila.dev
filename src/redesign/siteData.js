@@ -64,7 +64,7 @@ export const journey = [
         year: "2025 – 2026",
         role: "Frontend Software Engineer",
         org: "Konvo GmbH · Berlin",
-        note: "Led the platform's frontend rebuild from scratch in Vue + TypeScript, and designed a company-wide design system of reusable components. Shipped a complex, business-critical feature with zero production regressions.",
+        note: "Contributed to the platform's frontend rebuild from scratch in Vue + TypeScript, and helped build a company-wide design system of reusable components. Shipped a complex, business-critical feature with zero production regressions.",
     },
     {
         year: "2024 – 2025",
