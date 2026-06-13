@@ -105,6 +105,52 @@ export default function CaseStudy() {
                                 </div>
                             )}
 
+                            {block.compare && (
+                                <div className="sg-compare">
+                                    {["before", "after"].map((side) => {
+                                        const panel = block.compare[side];
+                                        const isExternalView = side === "before";
+                                        return (
+                                            <Reveal
+                                                key={side}
+                                                delay={side === "after" ? 0.08 : 0}
+                                            >
+                                                <Link
+                                                    to={panel.href}
+                                                    className="sg-compare__card"
+                                                    data-side={side}
+                                                    data-cursor="view"
+                                                >
+                                                    <span className="sg-compare__tag sg-mono-label">
+                                                        {side}
+                                                    </span>
+                                                    <div className="sg-compare__media">
+                                                        {panel.image ? (
+                                                            <img src={panel.image} alt={panel.label} loading="lazy" />
+                                                        ) : (
+                                                            <div className="sg-compare__live" aria-hidden="true">
+                                                                <span className="sg-compare__brand">
+                                                                    Ezequiel Gonzalez
+                                                                    <span className="sg-compare__dot" />
+                                                                </span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                    <div className="sg-compare__meta">
+                                                        <span className="sg-compare__label">{panel.label}</span>
+                                                        <span className="sg-compare__sub">{panel.sub}</span>
+                                                        <span className="sg-compare__cta">
+                                                            {panel.cta}{" "}
+                                                            {isExternalView ? "→" : "↗"}
+                                                        </span>
+                                                    </div>
+                                                </Link>
+                                            </Reveal>
+                                        );
+                                    })}
+                                </div>
+                            )}
+
                             {block.diagram && <ArchitectureDiagram />}
                         </div>
                     </section>

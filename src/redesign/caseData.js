@@ -11,7 +11,20 @@ import descubre from "@/assets/projects/descubre.webp";
 import olga from "@/assets/projects/olga.webp";
 import integral from "@/assets/projects/integral.webp";
 
+// Legacy portfolio screenshot lives in /public and is served at site root.
+const legacyShot = "/pila-portfolio-home.webp";
+const signalShot = "/signal.webp";
+
 export const work = [
+    {
+        slug: "signal-redesign",
+        title: "The Signal Redesign",
+        year: "2026",
+        role: "Creative Direction, Design & Frontend",
+        outcome: "Rebuilding this portfolio from a playful template into a cinematic, senior-grade experience.",
+        tags: ["React", "Design System", "Motion", "A11y"],
+        image: legacyShot,
+    },
     {
         slug: "river-plate-berlin",
         title: "River Plate Berlin",
@@ -51,6 +64,133 @@ export const work = [
 ];
 
 export const caseStudies = {
+    "signal-redesign": {
+        slug: "signal-redesign",
+        title: "The Signal Redesign",
+        eyebrow: "Case Study · This Site",
+        image: legacyShot,
+        problem:
+            "My own portfolio was working against me. It was friendly and colourful · and it made a Senior Frontend Engineer look like a bootcamp graduate. So I rebuilt it from the ground up.",
+        meta: {
+            Role: "Direction, Design & Build",
+            Type: "Portfolio redesign",
+            Year: "2026",
+            Stack: "React · Vite · Framer Motion",
+        },
+        blocks: [
+            {
+                heading: "The problem",
+                body: [
+                    "The previous site (still live at **/legacy**) leaned on a hand-drawn, neobrutalist style: doodled arrows, squiggly underlines, pastel blocks and hard drop-shadows. It was warm and personal · and that was exactly the issue.",
+                    "For the audience that matters · recruiters, hiring managers, CTOs and engineering leads · doodles quietly signal *junior*. The site also showed **~30 project thumbnails** in one wall, which reads as volume over judgement. Nothing about it said *fourteen years of architectural maturity*.",
+                    "The brief I gave myself was blunt: make the first ten seconds prove seniority · taste, restraint, and technical depth · without saying a word.",
+                ],
+            },
+            {
+                heading: "Goals",
+                list: [
+                    "Reposition from “friendly developer” to **Senior Frontend Engineer** in the first viewport.",
+                    "Replace volume with **curation**: a handful of deep case studies, not a thumbnail wall.",
+                    "Make the medium the message · the site itself should be proof of frontend craft.",
+                    "Stay fast, accessible and calm. Cinematic where it counts; quiet everywhere else.",
+                ],
+            },
+            {
+                heading: "Before & after",
+                body: [
+                    "The fastest way to judge a redesign is to put both versions side by side. The old portfolio is still one click away · honesty is part of the story.",
+                ],
+                compare: {
+                    before: {
+                        label: "Before · 2023",
+                        sub: "Hand-drawn doodles, pastel neobrutalism, a 30-project wall.",
+                        href: "/legacy",
+                        cta: "View the legacy site",
+                        image: legacyShot,
+                    },
+                    after: {
+                        label: "After · 2025",
+                        sub: "Cinematic dark editorial, four curated cases, motion with intent.",
+                        href: "/",
+                        cta: "You’re looking at it",
+                        image: signalShot,
+                    },
+                },
+            },
+            {
+                heading: "Creative direction",
+                body: [
+                    "I explored three directions · an editorial “atelier”, a full generative-WebGL “runtime”, and a cinematic-minimal concept I called **“Signal”**. Signal won because it shows the senior superpower: *judgement*.",
+                    "The narrative arc is **Noise → Signal**: the experience gets sharper and more substantial as you scroll, from a resolving particle field in the hero to precise, metric-backed case studies. The hero canvas literally starts as scattered noise and settles into an ordered grid · the concept, made visible.",
+                    "A full-WebGL site is a coin flip · one stutter on a recruiter's laptop destroys credibility in the exact moment it matters. Spending the expensive interactions only where they earn attention *is* the seniority signal.",
+                ],
+            },
+            {
+                heading: "Visual identity",
+                body: [
+                    "Dark-first and filmic. The palette is near-black (**#0A0A0B**), warm off-white text, and a **single** electric cyan accent (**#4DE1C1**) used with discipline · one accent, never a rainbow.",
+                    "Typography is a deliberate pairing of just two families: **Fraunces** (a high-contrast serif) for cinematic headlines, and **JetBrains Mono** for body, labels and data · a quietly technical voice that suits an engineer. Everything sits on a 4px spacing scale and a 12-column grid with generous negative space.",
+                ],
+            },
+            {
+                heading: "UX & information architecture",
+                body: [
+                    "The old site was a flat scroll of sections. The redesign is a deliberate **story**: hero → positioning → philosophy → curated work → capabilities → journey → proof → contact, each answering one question and handing off to the next.",
+                    "The thirty-thumbnail grid became **four curated case studies**, each with an eleven-part structure · problem, constraints, decisions, trade-offs, results, and *what I'd improve next*. The trade-offs and retrospective sections are what separate senior from mid, so they lead rather than hide.",
+                ],
+            },
+            {
+                heading: "Motion & interaction",
+                list: [
+                    "A performance-budgeted canvas hero that resolves noise into signal and reacts to the cursor.",
+                    "A state-aware custom cursor that grows over interactive media · pointer-fine only.",
+                    "Magnetic buttons, masked line-by-line text reveals, and a scroll-driven timeline that draws itself.",
+                    "A self-building SVG architecture diagram and count-up performance metrics inside each case study.",
+                    "One easing family and a single motion language · so it feels composed, not busy.",
+                ],
+            },
+            {
+                heading: "Architecture",
+                body: [
+                    "The site is scoped entirely under a **`.signal-root`** token layer, so the redesign could be built and validated alongside the live site without touching it · then promoted to the homepage with the legacy version preserved at /legacy.",
+                    "Motion is abstracted into a small set of declarative primitives · **Reveal**, **SplitReveal**, **Magnetic** · that own their own reduced-motion fallbacks in one place. Content lives in typed data modules, cleanly separated from presentation.",
+                ],
+                diagram: true,
+            },
+            {
+                heading: "Performance & accessibility",
+                metrics: [
+                    { value: 134, suffix: "kb", label: "Home JS · gzipped", delta: "code-split, lazy canvas" },
+                    { value: 60, suffix: "fps", label: "Motion target", delta: "compositor-only transforms" },
+                    { value: 100, suffix: "%", label: "Reduced-motion safe", delta: "every animation has an off-switch" },
+                    { value: 2, suffix: "", label: "Font families", delta: "Fraunces + JetBrains Mono" },
+                ],
+                body: [
+                    "Beauty never delays information. The canvas is paused off-screen and on tab-blur, capped at 2× DPR, and falls back to a static frame under **`prefers-reduced-motion`**. Every interaction is keyboard-reachable, contrast targets AA, and there's a calm path through the content for anyone who scrolls fast.",
+                ],
+            },
+            {
+                heading: "Content strategy",
+                body: [
+                    "Copy was rewritten from playful to **confident but human**. The hero leads with a position · *Senior Frontend Engineer, Berlin* · not a wave hello.",
+                    "Vanity stats were cut. “5 languages spoken” became a **1.2s LCP budget**; a wall of logos became a grouped capability map; a thumbnail grid became evidence. Every number on the page is something I can defend in an interview.",
+                ],
+            },
+            {
+                heading: "Results",
+                body: [
+                    "The portfolio now does in ten seconds what the old one never did: it positions me as a senior engineer with taste, and it backs that claim with the craft of the site itself. The medium became the strongest piece of evidence in the room.",
+                ],
+            },
+            {
+                heading: "What I'd improve next",
+                body: [
+                    "Migrate the codebase to **TypeScript** (the one honest gap for a senior frontend site), move case-study content to typed MDX, and add visual-regression and automated accessibility checks in CI. Longer term, a move to a static-rendering framework for first-class SEO and dynamic Open Graph images.",
+                ],
+            },
+        ],
+    },
+
     "river-plate-berlin": {
         slug: "river-plate-berlin",
         title: "River Plate Berlin",
