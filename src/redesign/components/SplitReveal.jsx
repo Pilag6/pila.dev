@@ -31,7 +31,7 @@ export default function SplitReveal({
                 <span
                     key={line + i}
                     aria-hidden="true"
-                    style={{ display: "block", overflow: "hidden" }}
+                    className="sg-split__mask"
                 >
                     <motion.span
                         className={lineClassName}

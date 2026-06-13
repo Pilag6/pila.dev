@@ -21,7 +21,7 @@ export const work = [
         title: "The Signal Redesign",
         year: "2026",
         role: "Creative Direction, Design & Frontend",
-        outcome: "Rebuilding this portfolio from a playful template into a cinematic, senior-grade experience.",
+        outcome: "Rebuilding this portfolio from a playful template into a cinematic, craft-led experience.",
         tags: ["React", "Design System", "Motion", "A11y"],
         image: legacyShot,
     },
@@ -70,7 +70,7 @@ export const caseStudies = {
         eyebrow: "Case Study · This Site",
         image: legacyShot,
         problem:
-            "My own portfolio was working against me. It was friendly and colourful · and it made a Senior Frontend Engineer look like a bootcamp graduate. So I rebuilt it from the ground up.",
+            "My own portfolio was working against the work inside it. It was friendly and colourful · but you couldn't get past the decoration to the work itself. So I rebuilt it from the ground up.",
         meta: {
             Role: "Direction, Design & Build",
             Type: "Portfolio redesign",
@@ -81,15 +81,15 @@ export const caseStudies = {
             {
                 heading: "The problem",
                 body: [
-                    "The previous site (still live at **/legacy**) leaned on a hand-drawn, neobrutalist style: doodled arrows, squiggly underlines, pastel blocks and hard drop-shadows. It was warm and personal · and that was exactly the issue.",
-                    "For the audience that matters · recruiters, hiring managers, CTOs and engineering leads · doodles quietly signal *junior*. The site also showed **~30 project thumbnails** in one wall, which reads as volume over judgement. Nothing about it said *fourteen years of architectural maturity*.",
-                    "The brief I gave myself was blunt: make the first ten seconds prove seniority · taste, restraint, and technical depth · without saying a word.",
+                    "The previous site (still live at **/legacy**) leaned on a hand-drawn, neobrutalist style: doodled arrows, squiggly underlines, pastel blocks and hard drop-shadows. It was warm and personal · and that warmth came at a cost.",
+                    "The site showed **~30 project thumbnails** in one wall · volume over depth. Visitors got a mood, not a story. There was no room to explain constraints, trade-offs, or what I'd do differently next time.",
+                    "The brief I gave myself was blunt: lead with craft · taste, restraint, and technical depth · and let the first ten seconds set the tone without shouting.",
                 ],
             },
             {
                 heading: "Goals",
                 list: [
-                    "Reposition from “friendly developer” to **Senior Frontend Engineer** in the first viewport.",
+                    "Replace playful surface with **intentional** tone · confident, calm, and precise.",
                     "Replace volume with **curation**: a handful of deep case studies, not a thumbnail wall.",
                     "Make the medium the message · the site itself should be proof of frontend craft.",
                     "Stay fast, accessible and calm. Cinematic where it counts; quiet everywhere else.",
@@ -120,9 +120,9 @@ export const caseStudies = {
             {
                 heading: "Creative direction",
                 body: [
-                    "I explored three directions · an editorial “atelier”, a full generative-WebGL “runtime”, and a cinematic-minimal concept I called **“Signal”**. Signal won because it shows the senior superpower: *judgement*.",
+                    "I explored three directions · an editorial “atelier”, a full generative-WebGL “runtime”, and a cinematic-minimal concept I called **“Signal”**. Signal won because it rewards *judgement* · knowing what to leave out.",
                     "The narrative arc is **Noise → Signal**: the experience gets sharper and more substantial as you scroll, from a resolving particle field in the hero to precise, metric-backed case studies. The hero canvas literally starts as scattered noise and settles into an ordered grid · the concept, made visible.",
-                    "A full-WebGL site is a coin flip · one stutter on a recruiter's laptop destroys credibility in the exact moment it matters. Spending the expensive interactions only where they earn attention *is* the seniority signal.",
+                    "A full-WebGL site is a coin flip · one stutter on a laptop destroys credibility in the exact moment it matters. Spending the expensive interactions only where they earn attention is the whole point.",
                 ],
             },
             {
@@ -136,7 +136,7 @@ export const caseStudies = {
                 heading: "UX & information architecture",
                 body: [
                     "The old site was a flat scroll of sections. The redesign is a deliberate **story**: hero → positioning → philosophy → curated work → capabilities → journey → proof → contact, each answering one question and handing off to the next.",
-                    "The thirty-thumbnail grid became **four curated case studies**, each with an eleven-part structure · problem, constraints, decisions, trade-offs, results, and *what I'd improve next*. The trade-offs and retrospective sections are what separate senior from mid, so they lead rather than hide.",
+                    "The thirty-thumbnail grid became **four curated case studies**, each with an eleven-part structure · problem, constraints, decisions, trade-offs, results, and *what I'd improve next*. The trade-offs and retrospective sections are where the real story lives, so they lead rather than hide.",
                 ],
             },
             {
@@ -172,20 +172,20 @@ export const caseStudies = {
             {
                 heading: "Content strategy",
                 body: [
-                    "Copy was rewritten from playful to **confident but human**. The hero leads with a position · *Senior Frontend Engineer, Berlin* · not a wave hello.",
+                    "Copy was rewritten from playful to **confident but human**. The hero leads with what I do and where I work · not a wave hello.",
                     "Vanity stats were cut. “5 languages spoken” became a **1.2s LCP budget**; a wall of logos became a grouped capability map; a thumbnail grid became evidence. Every number on the page is something I can defend in an interview.",
                 ],
             },
             {
                 heading: "Results",
                 body: [
-                    "The portfolio now does in ten seconds what the old one never did: it positions me as a senior engineer with taste, and it backs that claim with the craft of the site itself. The medium became the strongest piece of evidence in the room.",
+                    "The portfolio now does in ten seconds what the old one never did: it shows how I think, build, and edit · and the site itself is the first piece of evidence. The medium became the strongest argument in the room.",
                 ],
             },
             {
                 heading: "What I'd improve next",
                 body: [
-                    "Migrate the codebase to **TypeScript** (the one honest gap for a senior frontend site), move case-study content to typed MDX, and add visual-regression and automated accessibility checks in CI. Longer term, a move to a static-rendering framework for first-class SEO and dynamic Open Graph images.",
+                    "Migrate the codebase to **TypeScript**, move case-study content to typed MDX, and add visual-regression and automated accessibility checks in CI. Longer term, a move to a static-rendering framework for first-class SEO and dynamic Open Graph images.",
                 ],
             },
         ],

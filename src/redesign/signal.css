@@ -104,6 +104,13 @@
     font-size: clamp(2.8rem, 8.5vw, 8.5rem);
 }
 
+/* SplitReveal mask — room for descenders (g, y, p) inside overflow clip */
+.sg-split__mask {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.12em;
+}
+
 .sg-h2 {
     font-family: var(--sg-display);
     font-weight: 360;
@@ -744,6 +751,11 @@
     padding-top: clamp(140px, 22vh, 280px);
     padding-bottom: var(--section-pad);
 }
+.sg-case__title {
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 1.05;
+    margin-top: var(--sp-6);
+}
 .sg-case__problem {
     font-family: var(--sg-display);
     font-weight: 340;
@@ -751,7 +763,15 @@
     line-height: 1.08;
     letter-spacing: -0.015em;
     max-width: 22ch;
-    margin-top: var(--sp-6);
+    margin-top: var(--sp-4);
+}
+@media (min-width: 821px) and (max-width: 1600px) {
+    .sg-case__title {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+    }
+    .sg-case__problem {
+        font-size: clamp(1.35rem, 2.2vw, 2.1rem);
+    }
 }
 .sg-case__metaGrid {
     display: grid;

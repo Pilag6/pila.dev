@@ -58,7 +58,7 @@ export default function CaseStudy() {
                 <Reveal y={0} trigger="mount">
                     <span className="sg-eyebrow">{data.eyebrow}</span>
                 </Reveal>
-                <h1 className="sg-display" style={{ marginTop: 24, fontSize: "clamp(3rem,10vw,8rem)" }}>
+                <h1 className="sg-display sg-case__title">
                     <SplitReveal lines={[data.title]} trigger="mount" />
                 </h1>
                 <p className="sg-case__problem">{data.problem}</p>
