@@ -155,11 +155,7 @@ export default function SignalShowcase() {
                         </h1>
                         <Reveal delay={0.5} trigger="mount">
                             <p className="sg-lead sg-hero__lead">
-                                Ezequiel “Pila” Gonzalez. Fourteen years turning complex products
-                                into fast, accessible interfaces with <strong>React</strong>,{" "}
-                                <strong>Next</strong>, <strong>Vue</strong> and{" "}
-                                <strong>Nuxt</strong>, plus the design systems that keep them
-                                coherent as teams grow.
+                            Fourteen years. <strong>Multiple frameworks, one way of working.</strong> From large-scale products to zero-to-one startups, I own the frontend <strong>end-to-end: architecture, performance, accessibility</strong> and the <strong>design systems</strong> that make teams ship with confidence.
                             </p>
                         </Reveal>
                         <div className="sg-hero__cta">
