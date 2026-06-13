@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------------------------
  * Site content for the Signal homepage narrative · sourced from Ezequiel's CV.
- * Testimonial quotes are placeholders (real wording / attribution to confirm).
+ * Testimonials sourced from LinkedIn recommendations (summarized for brevity).
  * ------------------------------------------------------------------------- */
 
 export const profile = {
@@ -19,7 +19,7 @@ export const profile = {
     linkedinLabel: "in/pila-gonzalez",
     availability: "Open to senior frontend roles",
     // brands worth name-dropping, most recognisable first
-    previously: ["Skyscanner", "Konvo GmbH", "Cileria GmbH", "DCI Berlin"],
+    previously: ["Skyscanner", "Konvo GmbH", "Cileria GmbH"],
 };
 
 export const capabilities = [
@@ -103,20 +103,20 @@ export const journey = [
 export const testimonials = [
     {
         quote:
-            "Pila rebuilt our frontend from the ground up and gave us a design system the whole team now relies on. He ships complex, critical work without drama, and without regressions.",
-        name: "Engineering Lead",
-        org: "Konvo GmbH",
+            "An exceptional full-stack developer — React, Next.js, Node — with a gift for intuitive, fluid web experiences. His technical and human skills make him invaluable to any team.",
+        name: "Jenny Tejedor",
+        org: "Growth Marketing · Web3",
     },
     {
         quote:
-            "He thinks in systems and names every trade-off out loud. Performance, UX and clean code all improved measurably while he was on the team.",
-        name: "Product Lead",
-        org: "Cileria GmbH",
+            "Built our website from scratch in weeks with outstanding professionalism — design, branding, and delivery above expectations, with a client-first mindset throughout.",
+        name: "Matias Canil",
+        org: "River Plate Berlin Fan Club",
     },
 ];
 
 export const proofMetrics = [
-    { value: 14, suffix: "+", label: "Years shipping" },
-    { value: 30, suffix: "%", label: "Faster load times (Skyscanner)" },
-    { value: 25, suffix: "%", label: "Perf gain (Cileria)" },
+    { value: 50, suffix: "+", label: "Projects involved" },
+    { value: 25, suffix: "%", label: "Perf gain · Cileria" },
+    { value: 20, suffix: "%", label: "Faster turnaround · Cripto" },
 ];

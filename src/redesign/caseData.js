@@ -18,7 +18,7 @@ export const work = [
         year: "2024",
         role: "Design & Frontend",
         outcome: "A digital home for the official River Plate supporters' club in Berlin.",
-        tags: ["Vue", "Nuxt", "Tailwind", "UX"],
+        tags: ["Astro", "Tailwind", "UX", "Content"],
         image: riverPlate,
     },
     {
@@ -27,7 +27,7 @@ export const work = [
         year: "2023",
         role: "Product, Design & Dev",
         outcome: "A travel brand's storefront for discovering the Balkans · built to convert.",
-        tags: ["React", "Next.js", "Performance", "SEO"],
+        tags: ["Astro", "Tailwind", "SEO", "Performance"],
         image: descubre,
     },
     {
@@ -36,7 +36,7 @@ export const work = [
         year: "2023",
         role: "Design & Frontend",
         outcome: "A cinematic portfolio that lets the photography lead, not the interface.",
-        tags: ["React", "Image perf", "Motion", "A11y"],
+        tags: ["HTML/CSS", "Performance", "Motion", "Gallery"],
         image: olga,
     },
     {
@@ -45,7 +45,7 @@ export const work = [
         year: "2022",
         role: "Design & Frontend",
         outcome: "A credible, conversion-focused site for a pool design & build company.",
-        tags: ["Vue", "Tailwind", "SEO", "Forms"],
+        tags: ["Bootstrap", "SEO", "Forms", "Responsive"],
         image: integral,
     },
 ];
@@ -62,7 +62,7 @@ export const caseStudies = {
             Role: "Design & Frontend",
             Type: "Community platform",
             Year: "2024",
-            Stack: "Vue · Nuxt · Tailwind",
+            Stack: "Astro · Tailwind",
         },
         blocks: [
             {
@@ -90,14 +90,14 @@ export const caseStudies = {
             {
                 heading: "Technical decisions",
                 body: [
-                    "I built on **Nuxt for static generation**: fast, crawlable, and cheap to host on the edge · the right call for a content site that changes weekly, not by the second.",
+                    "I built on **Astro for static generation**: fast, crawlable, and cheap to host on the edge · the right call for a content site that changes weekly, not by the second.",
                     "Content was structured so members can update matches and events without touching code, keeping the club self-sufficient after handoff.",
                 ],
             },
             {
                 heading: "Architecture",
                 body: [
-                    "A statically generated Nuxt site served from the edge, a lightweight content layer the club owns, and a small, reusable component system carrying the brand consistently across every page.",
+                    "A statically generated Astro site served from the edge, a lightweight content layer the club owns, and a small, reusable component system carrying the brand consistently across every page.",
                 ],
                 diagram: true,
             },
@@ -134,7 +134,7 @@ export const caseStudies = {
             Role: "Product, Design & Dev",
             Type: "Travel storefront",
             Year: "2023",
-            Stack: "React · Next.js · Tailwind",
+            Stack: "Astro · Tailwind",
         },
         blocks: [
             {
@@ -160,7 +160,7 @@ export const caseStudies = {
             {
                 heading: "Technical decisions",
                 body: [
-                    "**Next.js with static generation + incremental updates** gave us crawlable, instant-feeling pages that still reflected fresh trip content.",
+                    "**Astro with static generation + incremental updates** gave us crawlable, instant-feeling pages that still reflected fresh trip content.",
                     "I made images earn their place: modern formats, responsive sizing, priority loading for the hero and lazy-loading everything below the fold · so a gallery-heavy page still felt instant.",
                 ],
             },
@@ -222,7 +222,7 @@ export const caseStudies = {
             Role: "Design & Frontend",
             Type: "Portfolio",
             Year: "2023",
-            Stack: "React · Vite · Tailwind",
+            Stack: "HTML/CSS · Swiper",
         },
         blocks: [
             {
@@ -294,7 +294,7 @@ export const caseStudies = {
             Role: "Design & Frontend",
             Type: "Business / lead-gen",
             Year: "2022",
-            Stack: "Vue · Tailwind",
+            Stack: "Bootstrap · jQuery",
         },
         blocks: [
             {
