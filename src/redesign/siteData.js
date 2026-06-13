@@ -8,7 +8,6 @@ export const profile = {
     alias: "Pila",
     role: "Senior Frontend Engineer",
     location: "Berlin, Germany",
-    timezone: "Europe/Berlin",
     email: "pilag6@gmail.com",
     phone: "+49 1745735026",
     website: "https://pilagonzalez.com",
@@ -17,7 +16,6 @@ export const profile = {
     githubLabel: "github.com/Pilag6",
     linkedin: "https://www.linkedin.com/in/pila-gonzalez",
     linkedinLabel: "in/pila-gonzalez",
-    availability: "Open to senior frontend roles",
     // brands worth name-dropping, most recognisable first
     previously: ["Skyscanner", "Konvo GmbH", "Cileria GmbH"],
 };

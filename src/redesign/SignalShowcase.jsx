@@ -14,7 +14,6 @@ import Capabilities from "./components/Capabilities.jsx";
 import Journey from "./components/Journey.jsx";
 import Proof from "./components/Proof.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
-import LocalClock from "./components/LocalClock.jsx";
 import cvFile from "@/assets/ezequielGonzalez.pdf";
 import portrait from "@/assets/pila-hero.webp";
 
@@ -118,21 +117,6 @@ export default function SignalShowcase() {
                     <SignalField />
                 </div>
 
-                {/* status row · availability + live local time */}
-                <div className="sg-shell sg-hero__status">
-                    <Reveal y={0} trigger="mount">
-                        <span className="sg-status">
-                            <span className="sg-status__dot" aria-hidden="true" />
-                            {profile.availability}
-                        </span>
-                    </Reveal>
-                    <Reveal y={0} delay={0.1} trigger="mount">
-                        <span className="sg-mono-label">
-                            <LocalClock timezone={profile.timezone} />
-                        </span>
-                    </Reveal>
-                </div>
-
                 <div className="sg-shell sg-hero__inner">
                     <div className="sg-hero__text">
                         <Reveal y={0} trigger="mount">
@@ -155,7 +139,7 @@ export default function SignalShowcase() {
                         </h1>
                         <Reveal delay={0.5} trigger="mount">
                             <p className="sg-lead sg-hero__lead">
-                            Fourteen years. <strong>Multiple frameworks, one way of working.</strong> From large-scale products to zero-to-one startups, I own the frontend <strong>end-to-end: architecture, performance, accessibility</strong> and the <strong>design systems</strong> that make teams ship with confidence.
+                            Fourteen years. <strong>Multiple frameworks, one way of working.</strong> From large-scale products to zero-to-one startups, I own the frontend <strong>end-to-end: architecture, performance, accessibility</strong> and the <strong>design systems</strong> behind them.
                             </p>
                         </Reveal>
                         <div className="sg-hero__cta">
