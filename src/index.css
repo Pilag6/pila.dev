@@ -55,8 +55,7 @@
 
 body {
     font-family: var(--font-primary);
-    background-color: var(--black);
-    
+    background-color: #0a0a0b;
 }
 
 /* SELECTION */
@@ -66,20 +65,37 @@ body {
     background: var(--nb-green);
 }
 
-/* SCROLLBAR */
+/* SCROLLBAR — elegant, sober, matches the Signal dark system */
 
-html::-webkit-scrollbar {
-    width: 1.6rem;
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #2c2c32 transparent;
 }
 
-html::-webkit-scrollbar-track {
-    background: var(--nb-yellow);
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
 }
 
-html::-webkit-scrollbar-thumb {
-    background: var(--nb-green);
-    box-shadow: 3px 3px 0 var(--black);
-    border: var(--border-btn);
+::-webkit-scrollbar-track {
+    background: #0a0a0b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2c2c32;
+    border-radius: 100px;
+    border: 2px solid #0a0a0b;
+    background-clip: padding-box;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4a4a52;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+    background: #0a0a0b;
 }
 
 img {

@@ -17,4 +17,12 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
+  overrides: [
+    {
+      // Redesign slice is slated for a TypeScript migration, which supersedes
+      // runtime prop-types. Disable the rule here to avoid redundant noise.
+      files: ['src/redesign/**/*.{js,jsx}'],
+      rules: { 'react/prop-types': 'off' },
+    },
+  ],
 }
