@@ -99,6 +99,11 @@ export default function SignalField() {
         };
 
         const onMove = (e) => {
+            if (e.target.closest("[data-cursor]")) {
+                pointer.x = -9999;
+                pointer.y = -9999;
+                return;
+            }
             pointer.x = e.clientX;
             pointer.y = e.clientY;
         };

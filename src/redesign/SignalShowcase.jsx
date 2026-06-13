@@ -69,7 +69,7 @@ function WorkList() {
                 {work.map((p, i) => (
                     <Reveal key={p.slug} delay={i * 0.05}>
                         <Link
-                            to={`/signal/work/${p.slug}`}
+                            to={`/work/${p.slug}`}
                             className="sg-work__item"
                             data-cursor="view"
                             onMouseEnter={() => setActive(p.image)}
@@ -229,7 +229,7 @@ export default function SignalShowcase() {
                         {[
                             { n: "14+", l: "Years shipping" },
                             { n: "30%", l: "Faster (Skyscanner)" },
-                            { n: "5", l: "Languages spoken" },
+                            { n: "1.2s", l: "LCP budget" },
                             { n: "AA", l: "Accessibility baseline" },
                         ].map((f, i) => (
                             <Reveal key={f.l} delay={i * 0.08}>
@@ -338,7 +338,7 @@ export default function SignalShowcase() {
             <footer className="sg-footer">
                 <div className="sg-shell sg-footer__row">
                     <span className="sg-mono-label">
-                        Ezequiel Gonzalez · Built with React · Framer Motion · Canvas
+                        Ezequiel Gonzalez · Built with React · Framer Motion · GSAP · Lenis
                     </span>
                     <span className="sg-mono-label">
                         Berlin · AA · reduced-motion aware · {new Date().getFullYear()}

@@ -1,6 +1,9 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 
 const EASE = [0.16, 1, 0.3, 1];
+
+const DEFAULT_VIEWPORT = { once: true, amount: 0, margin: "0px 0px -15% 0px" };
 
 /**
  * SplitReveal — line-by-line masked reveal for headlines.
@@ -14,16 +17,16 @@ export default function SplitReveal({
     delay = 0,
     stagger = 0.09,
     trigger = "view",
+    viewport = DEFAULT_VIEWPORT,
 }) {
+    const ref = useRef(null);
     const reduce = useReducedMotion();
+    const inView = useInView(ref, viewport);
     const target = { y: 0, opacity: 1 };
-    const playProps =
-        trigger === "mount"
-            ? { animate: target }
-            : { whileInView: target, viewport: { once: true } };
+    const shouldPlay = trigger === "mount" || inView;
 
     return (
-        <span className={className} aria-label={lines.join(" ")}>
+        <span ref={ref} className={className} aria-label={lines.join(" ")}>
             {lines.map((line, i) => (
                 <span
                     key={line + i}
@@ -34,7 +37,7 @@ export default function SplitReveal({
                         className={lineClassName}
                         style={{ display: "block", willChange: "transform" }}
                         initial={{ y: reduce ? 0 : "115%", opacity: reduce ? 0 : 1 }}
-                        {...playProps}
+                        animate={shouldPlay ? target : undefined}
                         transition={{
                             duration: reduce ? 0.2 : 1,
                             ease: EASE,

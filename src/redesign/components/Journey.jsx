@@ -24,7 +24,7 @@ export default function Journey() {
                 </Reveal>
                 <Reveal delay={0.05}>
                     <p className="sg-h2" style={{ maxWidth: "22ch", marginTop: "var(--sp-6)" }}>
-                        Fourteen years of earning the word “senior.”
+                        +14 years of earning the word “senior.”
                     </p>
                 </Reveal>
 

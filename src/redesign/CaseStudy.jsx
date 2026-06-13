@@ -38,7 +38,7 @@ export default function CaseStudy() {
             <div className="signal-root">
                 <div className="sg-shell sg-section">
                     <p className="sg-h2">This route didn’t render.</p>
-                    <Link to="/signal" className="sg-btn" style={{ marginTop: 24 }}>
+                    <Link to="/" className="sg-btn" style={{ marginTop: 24 }}>
                         ← Back to work
                     </Link>
                 </div>
@@ -117,7 +117,7 @@ export default function CaseStudy() {
                     <div className="sg-shell">
                         <span className="sg-mono-label">Next case</span>
                         <Link
-                            to={`/signal/work/${next.slug}`}
+                            to={`/work/${next.slug}`}
                             className="sg-work__item"
                             data-cursor="view"
                             style={{ borderBottom: "1px solid var(--sg-line)" }}
@@ -129,7 +129,7 @@ export default function CaseStudy() {
                         </Link>
                         <div style={{ marginTop: 40 }}>
                             <Magnetic>
-                                <Link to="/signal" className="sg-btn" data-cursor="view">
+                                <Link to="/#work" className="sg-btn" data-cursor="view">
                                     ← All work
                                 </Link>
                             </Magnetic>

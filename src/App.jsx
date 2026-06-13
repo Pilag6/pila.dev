@@ -9,13 +9,17 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                {/* Signal redesign — full-bleed, rendered outside the legacy .wrapper */}
+                {/* Signal — the live homepage, full-bleed (outside the legacy .wrapper) */}
+                <Route path="/" element={<SignalShowcase />} />
+                <Route path="/work/:slug" element={<CaseStudy />} />
+
+                {/* Legacy aliases — keep old /signal links working */}
                 <Route path="/signal" element={<SignalShowcase />} />
                 <Route path="/signal/work/:slug" element={<CaseStudy />} />
 
-                {/* Legacy site — keeps the original centered wrapper layout */}
+                {/* Previous site — preserved at /legacy */}
                 <Route
-                    path="/"
+                    path="/legacy"
                     element={
                         <div className="wrapper">
                             <Home />
