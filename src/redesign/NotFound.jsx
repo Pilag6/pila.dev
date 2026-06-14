@@ -925,18 +925,48 @@ export default function NotFound() {
                                     <span />
                                     <span />
                                 </div>
-                                {game.entities.map((entity) => (
-                                    <span
-                                        key={entity.id}
-                                        className={`sg-not-found__entity sg-not-found__entity--${entity.type}`}
-                                        style={{
-                                            "--entity-x": `${entity.x}%`,
-                                            "--entity-y": `${entity.y}%`,
-                                        }}
-                                    >
-                                        {POWERUP_GLYPHS[entity.type] ?? null}
-                                    </span>
-                                ))}
+                                {game.entities.map((entity) => {
+                                    const entityStyle = {
+                                        "--entity-x": `${entity.x}%`,
+                                        "--entity-y": `${entity.y}%`,
+                                    };
+
+                                    if (entity.type === "enemy") {
+                                        return (
+                                            <span
+                                                key={entity.id}
+                                                className={`sg-not-found__entity sg-not-found__entity--enemy sg-not-found__entity--${entity.behavior}`}
+                                                data-facing={entity.vx >= 0 ? "right" : "left"}
+                                                style={entityStyle}
+                                            >
+                                                <span className="sg-not-found__enemy-streak" aria-hidden="true" />
+                                                <span className="sg-not-found__enemy-body" aria-hidden="true">
+                                                    <span className="sg-not-found__enemy-shell">
+                                                        <span className="sg-not-found__enemy-scan" />
+                                                        <span className="sg-not-found__enemy-grid" />
+                                                        <span className="sg-not-found__enemy-label">
+                                                            <span className="sg-not-found__enemy-label-glitch">404</span>
+                                                            <span>{entity.behavior === "homing" ? "ERR" : "404"}</span>
+                                                        </span>
+                                                        <span className="sg-not-found__enemy-spark sg-not-found__enemy-spark--a" />
+                                                        <span className="sg-not-found__enemy-spark sg-not-found__enemy-spark--b" />
+                                                    </span>
+                                                    <span className="sg-not-found__enemy-ring" />
+                                                </span>
+                                            </span>
+                                        );
+                                    }
+
+                                    return (
+                                        <span
+                                            key={entity.id}
+                                            className={`sg-not-found__entity sg-not-found__entity--${entity.type}`}
+                                            style={entityStyle}
+                                        >
+                                            {POWERUP_GLYPHS[entity.type] ?? null}
+                                        </span>
+                                    );
+                                })}
                                 {game.particles.map((particle) => (
                                     <span
                                         key={particle.id}
