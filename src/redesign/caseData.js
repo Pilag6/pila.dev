@@ -146,8 +146,13 @@ export const caseStudies = {
                     "A state-aware custom cursor that grows over interactive media · pointer-fine only.",
                     "Magnetic buttons, masked line-by-line text reveals, and a scroll-driven timeline that draws itself.",
                     "A self-building SVG architecture diagram and count-up performance metrics inside each case study.",
+                    "A small surprise for anyone who wanders off-route and lands where a page should not exist.",
                     "One easing family and a single motion language · so it feels composed, not busy.",
                 ],
+                cta: {
+                    href: "/lost-signal",
+                    label: "Lose the signal",
+                },
             },
             {
                 heading: "Architecture",

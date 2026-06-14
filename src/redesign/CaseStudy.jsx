@@ -89,6 +89,16 @@ export default function CaseStudy() {
                                 </Reveal>
                             )}
 
+                            {block.cta && (
+                                <Reveal>
+                                    <Magnetic>
+                                        <Link to={block.cta.href} className="sg-btn" data-cursor="view">
+                                            {block.cta.label}
+                                        </Link>
+                                    </Magnetic>
+                                </Reveal>
+                            )}
+
                             {block.metrics && (
                                 <div className="sg-metrics">
                                     {block.metrics.map((m) => (

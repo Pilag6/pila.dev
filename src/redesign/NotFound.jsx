@@ -11,7 +11,7 @@ const PLAYER_SPEED = 58;
 const PLAYER_RADIUS = 3.2;
 const TOKEN_RADIUS = 1.9;
 const ENEMY_RADIUS = 2.6;
-const MAX_ENTITIES = 16;
+const MAX_ENTITIES = 22;
 const HIT_COOLDOWN = 650;
 const COUNTDOWN_SECONDS = 5;
 const GAME_OVER_RETURN_DELAY = 4000;
@@ -34,6 +34,22 @@ function randomBetween(min, max) {
     return min + Math.random() * (max - min);
 }
 
+function getDifficulty(score) {
+    return Math.min(1 + score / 140, 2.85);
+}
+
+function getEnemyChance(score) {
+    return Math.min(0.42 + score / 420, 0.74);
+}
+
+function getMaxEntities(score) {
+    return Math.min(8 + Math.floor(score / 40), MAX_ENTITIES);
+}
+
+function getSpawnDelay(score) {
+    return Math.max(0.34, 1.16 - score / 360);
+}
+
 function createInitialGame() {
     return {
         player: START_PLAYER,
@@ -52,10 +68,10 @@ function createInitialGame() {
     };
 }
 
-function createEntity(elapsed) {
+function createEntity(score) {
     const fromLeft = Math.random() > 0.5;
-    const difficulty = Math.min(1 + elapsed / 34, 2.45);
-    const type = Math.random() > 0.42 ? "token" : "enemy";
+    const difficulty = getDifficulty(score);
+    const type = Math.random() > getEnemyChance(score) ? "token" : "enemy";
     const baseSpeed = type === "token" ? randomBetween(13, 20) : randomBetween(17, 27);
 
     return {
@@ -65,10 +81,6 @@ function createEntity(elapsed) {
         y: randomBetween(14, 86),
         vx: (fromLeft ? 1 : -1) * baseSpeed * difficulty,
     };
-}
-
-function getSpawnDelay(elapsed) {
-    return Math.max(0.42, 1.18 - elapsed / 80);
 }
 
 function getDistance(a, b) {
@@ -99,10 +111,10 @@ function advanceGame(currentGame, deltaTime, now, pressedKeys) {
 
     let spawnIn = currentGame.spawnIn - deltaTime;
     const entities = [...movedEntities];
-    while (spawnIn <= 0 && entities.length < MAX_ENTITIES) {
-        entities.push(createEntity(elapsed));
+    while (spawnIn <= 0 && entities.length < getMaxEntities(currentGame.score)) {
+        entities.push(createEntity(currentGame.score));
         nextEntityId += 1;
-        spawnIn += getSpawnDelay(elapsed) + randomBetween(0, 0.35);
+        spawnIn += getSpawnDelay(currentGame.score) + randomBetween(0, 0.3);
     }
 
     let score = currentGame.score;
@@ -497,7 +509,7 @@ export default function NotFound() {
                                     Game over · Score {game.score} · Returning to intro
                                 </div>
                             )}
-                            <p className="sg-not-found__code">404</p>
+                            <p className="sg-not-found__code">{isIdle ? "404" : game.score}</p>
                         </div>
                     </div>
                 </section>
