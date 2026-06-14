@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import "./signal.css";
 import useLenis from "./useLenis.js";
 import { caseStudies, work } from "./caseData.js";
+import NotFound from "./NotFound.jsx";
 import SignalNav from "./components/SignalNav.jsx";
 import CustomCursor from "./components/CustomCursor.jsx";
 import Reveal from "./components/Reveal.jsx";
@@ -34,16 +35,7 @@ export default function CaseStudy() {
     }, [slug]);
 
     if (!data) {
-        return (
-            <div className="signal-root">
-                <div className="sg-shell sg-section">
-                    <p className="sg-h2">This route didn’t render.</p>
-                    <Link to="/" className="sg-btn" style={{ marginTop: 24 }}>
-                        ← Back to work
-                    </Link>
-                </div>
-            </div>
-        );
+        return <NotFound />;
     }
 
     const next = work.find((w) => w.slug !== slug);

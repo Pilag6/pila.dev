@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Magnetic from "./Magnetic.jsx";
 
 const NAV_LINKS = [
@@ -14,8 +14,10 @@ const NAV_LINKS = [
  * mobile uses a hamburger menu with a full-screen panel.
  */
 export default function SignalNav({ cvHref }) {
+    const { pathname } = useLocation();
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const isSignalLanding = pathname === "/" || pathname === "/signal";
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 24);
@@ -32,6 +34,7 @@ export default function SignalNav({ cvHref }) {
     }, [menuOpen]);
 
     const closeMenu = () => setMenuOpen(false);
+    const getSectionHref = (href) => (isSignalLanding ? href : `/${href}`);
 
     return (
         <>
@@ -49,7 +52,7 @@ export default function SignalNav({ cvHref }) {
 
                 <div className="sg-nav__links">
                     {NAV_LINKS.map((link) => (
-                        <a key={link.href} href={link.href} data-cursor="view">
+                        <a key={link.href} href={getSectionHref(link.href)} data-cursor="view">
                             {link.label}
                         </a>
                     ))}
@@ -82,7 +85,7 @@ export default function SignalNav({ cvHref }) {
                     {NAV_LINKS.map((link, i) => (
                         <a
                             key={link.href}
-                            href={link.href}
+                            href={getSectionHref(link.href)}
                             className="sg-nav__menuLink"
                             data-cursor="view"
                             style={{ transitionDelay: menuOpen ? `${i * 50}ms` : "0ms" }}

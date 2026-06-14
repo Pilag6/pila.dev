@@ -3,6 +3,7 @@ import Home from "./components/Home.jsx";
 import DevelopmentNotesPage from "./pages/DevelopmentNotesPage.jsx";
 import SignalShowcase from "./redesign/SignalShowcase.jsx";
 import CaseStudy from "./redesign/CaseStudy.jsx";
+import NotFound from "./redesign/NotFound.jsx";
 import "./App.css";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                         </div>
                     }
                 />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     );
