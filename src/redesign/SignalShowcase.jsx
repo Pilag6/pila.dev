@@ -140,41 +140,70 @@ function WorkList() {
                 {active && <img src={active} alt="" />}
             </div>
 
-            <div>
+            <div className="sg-work__list">
                 {work.map((p, i) => (
-                    <Reveal key={p.slug} delay={i * 0.05}>
-                        <Link
-                            to={`/work/${p.slug}`}
-                            className="sg-work__item"
-                            data-cursor="view"
-                            onMouseEnter={() => setActive(p.image)}
-                            onMouseLeave={() => setActive(null)}
-                        >
-                            <div className="sg-work__row">
-                                <div>
-                                    <span className="sg-mono-label">{`0${i + 1} / ${p.year}`}</span>
-                                    <h3 className="sg-work__title">{p.title}</h3>
-                                    <div className="sg-work__meta">
-                                        {p.tags.map((t) => (
-                                            <span className="sg-tag" key={t}>
-                                                {t}
-                                            </span>
-                                        ))}
-                                    </div>
-                                    <p
-                                        className="sg-lead"
-                                        style={{ marginTop: 16, fontSize: "1rem" }}
-                                    >
-                                        {p.outcome}
-                                    </p>
-                                </div>
-                                <span className="sg-work__arrow">View case →</span>
-                            </div>
-                        </Link>
-                    </Reveal>
+                    <WorkFocusItem
+                        key={p.slug}
+                        project={p}
+                        index={i}
+                        onPreviewEnter={() => setActive(p.image)}
+                        onPreviewLeave={() => setActive(null)}
+                    />
                 ))}
             </div>
         </>
+    );
+}
+
+function WorkFocusItem({ project, index, onPreviewEnter, onPreviewLeave }) {
+    const ref = useRef(null);
+    const reduceMotion = useReducedMotion();
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start 72%", "end 36%"],
+    });
+    const focus = useTransform(scrollYProgress, [0, 0.42, 1], [0, 1, 0]);
+    const titleX = useTransform(focus, [0, 1], [0, 18]);
+    const scanOpacity = useTransform(focus, [0, 1], [0, 0.42]);
+
+    return (
+        <motion.div ref={ref} className="sg-work__focus">
+            <Link
+                to={`/work/${project.slug}`}
+                className="sg-work__item"
+                data-cursor="view"
+                onMouseEnter={onPreviewEnter}
+                onMouseLeave={onPreviewLeave}
+            >
+                <motion.span
+                    className="sg-work__scan"
+                    style={reduceMotion ? undefined : { opacity: scanOpacity }}
+                    aria-hidden="true"
+                />
+                <div className="sg-work__row">
+                    <div>
+                        <span className="sg-mono-label">{`0${index + 1} / ${project.year}`}</span>
+                        <motion.h3
+                            className="sg-work__title"
+                            style={reduceMotion ? undefined : { x: titleX }}
+                        >
+                            {project.title}
+                        </motion.h3>
+                        <div className="sg-work__meta">
+                            {project.tags.map((t) => (
+                                <span className="sg-tag" key={t}>
+                                    {t}
+                                </span>
+                            ))}
+                        </div>
+                        <p className="sg-lead" style={{ marginTop: 16, fontSize: "1rem" }}>
+                            {project.outcome}
+                        </p>
+                    </div>
+                    <span className="sg-work__arrow">View case →</span>
+                </div>
+            </Link>
+        </motion.div>
     );
 }
 
