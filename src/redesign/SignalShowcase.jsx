@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./signal.css";
 import useLenis from "./useLenis.js";
@@ -36,6 +37,68 @@ const PRINCIPLES = [
         body: "A 4px misalignment is a bug. I can tell you why an interface feels off, and then I fix it.",
     },
 ];
+
+const POSITIONING_STATEMENT =
+    "I turn ambiguous product ideas into resilient, performant frontends.";
+const SCROLL_TEXT_INITIAL_LETTERS = 5;
+
+function ScrollRevealLetter({ char, index, progress, total }) {
+    const start = (index - SCROLL_TEXT_INITIAL_LETTERS) / total;
+    const end = Math.min(start + 0.18, 1);
+    const opacity = useTransform(progress, [start, end], [0.24, 1]);
+    const y = useTransform(progress, [start, end], [10, 0]);
+
+    return (
+        <motion.span className="sg-scroll-text__letter" style={{ opacity, y }} aria-hidden="true">
+            {char}
+        </motion.span>
+    );
+}
+
+function ScrollTextReveal({ text }) {
+    const ref = useRef(null);
+    const reduceMotion = useReducedMotion();
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start 76%", "end 36%"],
+    });
+    const words = text.split(" ");
+    const letterCount = words.join("").length;
+    let charIndex = 0;
+
+    return (
+        <p ref={ref} className="sg-h2 sg-scroll-text" style={{ maxWidth: "20ch" }}>
+            <span className="sg-visually-hidden">{text}</span>
+            <span className="sg-scroll-text__visual" aria-hidden="true">
+                {words.map((word, wordIndex) => (
+                    <Fragment key={`${word}-${wordIndex}`}>
+                        <span className="sg-scroll-text__word">
+                            {[...word].map((char) => {
+                                const index = charIndex;
+                                charIndex += 1;
+
+                                return reduceMotion ? (
+                                    <span key={`${char}-${index}`} className="sg-scroll-text__letter">
+                                        {char}
+                                    </span>
+                                ) : (
+                                    <ScrollRevealLetter
+                                        key={`${char}-${index}`}
+                                        char={char}
+                                        index={index}
+                                        progress={scrollYProgress}
+                                        total={letterCount}
+                                    />
+                                );
+                            })}
+                        </span>
+                        {wordIndex < words.length - 1 ? " " : null}
+                    </Fragment>
+                ))}
+            </span>
+        </p>
+    );
+}
 
 function WorkList() {
     const previewRef = useRef(null);
@@ -201,11 +264,7 @@ export default function SignalShowcase() {
             {/* ---------- POSITIONING ---------- */}
             <section className="sg-section">
                 <div className="sg-shell">
-                    <Reveal>
-                        <p className="sg-h2" style={{ maxWidth: "20ch" }}>
-                            I turn ambiguous product ideas into resilient, performant frontends.
-                        </p>
-                    </Reveal>
+                    <ScrollTextReveal text={POSITIONING_STATEMENT} />
                     <div className="sg-facts" style={{ marginTop: "var(--sp-10)" }}>
                         {[
                             { n: "14+", l: "Years shipping" },

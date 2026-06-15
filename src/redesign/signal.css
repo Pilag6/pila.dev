@@ -126,6 +126,23 @@
     line-height: 1.75;
 }
 
+.sg-scroll-text {
+    display: block;
+}
+
+.sg-scroll-text__visual {
+    display: block;
+}
+
+.sg-scroll-text__word,
+.sg-scroll-text__letter {
+    display: inline-block;
+}
+
+.sg-scroll-text__letter {
+    will-change: opacity, transform;
+}
+
 .sg-mono-label {
     font-family: var(--sg-mono);
     font-size: 0.74rem;
