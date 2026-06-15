@@ -264,6 +264,33 @@ function SectionSignalTuning({ label }) {
     );
 }
 
+function PrincipleCard({ principle, index }) {
+    const ref = useRef(null);
+    const reduceMotion = useReducedMotion();
+    const isInView = useInView(ref, { once: false, margin: "-24% 0px -24% 0px" });
+
+    return (
+        <motion.div
+            ref={ref}
+            className="sg-principle"
+            data-active={reduceMotion || isInView}
+            initial={false}
+            animate={reduceMotion || isInView ? { opacity: 1 } : { opacity: 0.72 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: index * 0.04 }}
+        >
+            <div className="sg-principle__idxWrap">
+                <span className="sg-principle__idx">
+                    {String(index + 1).padStart(2, "0")}
+                </span>
+            </div>
+            <div>
+                <h3 className="sg-principle__title">{principle.title}</h3>
+                <p className="sg-principle__body">{principle.body}</p>
+            </div>
+        </motion.div>
+    );
+}
+
 export default function SignalShowcase() {
     useLenis();
 
@@ -395,17 +422,7 @@ export default function SignalShowcase() {
                     </Reveal>
                     <div style={{ marginTop: "var(--sp-8)" }}>
                         {PRINCIPLES.map((p, i) => (
-                            <Reveal key={p.title} delay={i * 0.04}>
-                                <div className="sg-principle">
-                                    <div className="sg-principle__idx">
-                                        {String(i + 1).padStart(2, "0")}
-                                    </div>
-                                    <div>
-                                        <h3 className="sg-principle__title">{p.title}</h3>
-                                        <p className="sg-principle__body">{p.body}</p>
-                                    </div>
-                                </div>
-                            </Reveal>
+                            <PrincipleCard key={p.title} principle={p} index={i} />
                         ))}
                     </div>
                 </div>

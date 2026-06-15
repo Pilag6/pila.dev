@@ -677,18 +677,71 @@
 
 /* ---------- philosophy ---------- */
 .sg-principle {
+    position: relative;
     display: grid;
     grid-template-columns: 80px 1fr;
     gap: var(--sp-6);
     padding-block: var(--sp-8);
     border-top: 1px solid var(--sg-line);
     align-items: start;
+    overflow: hidden;
+}
+.sg-principle::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(77, 225, 193, 0.08), transparent);
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+}
+.sg-principle::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 1px;
+    background: linear-gradient(90deg, var(--sg-accent), transparent 48%);
+    opacity: 0.18;
+    transform: scaleX(0.28);
+    transform-origin: left center;
+    transition: transform 0.9s var(--ease-signal), opacity 0.9s var(--ease-signal);
+}
+.sg-principle[data-active="true"]::after {
+    opacity: 0.5;
+    transform: scaleX(1);
+}
+.sg-principle[data-active="true"]::before {
+    animation: sg-principle-sweep 1.05s var(--ease-signal) both;
+}
+.sg-principle__idxWrap {
+    display: grid;
+    gap: var(--sp-2);
 }
 .sg-principle__idx {
+    position: relative;
+    width: fit-content;
     font-family: var(--sg-mono);
     color: var(--sg-accent);
     font-size: 0.9rem;
     padding-top: 0.6em;
+    text-shadow: 0 0 18px rgba(77, 225, 193, 0.28);
+}
+.sg-principle__idx::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.18;
+    transform: scaleX(0.35);
+    transform-origin: left center;
+    transition: opacity 0.8s var(--ease-signal), transform 0.8s var(--ease-signal);
+}
+.sg-principle[data-active="true"] .sg-principle__idx::after {
+    opacity: 0.55;
+    transform: scaleX(1);
 }
 .sg-principle__title {
     font-family: var(--sg-display);
@@ -707,6 +760,11 @@
         grid-template-columns: 1fr;
         gap: var(--sp-2);
     }
+}
+@keyframes sg-principle-sweep {
+    0% { opacity: 0; transform: translateX(-100%); }
+    26% { opacity: 1; }
+    100% { opacity: 0; transform: translateX(100%); }
 }
 
 /* ---------- work ---------- */
