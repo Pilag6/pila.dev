@@ -176,6 +176,70 @@
     position: relative;
 }
 
+.sg-tuning {
+    pointer-events: none;
+    position: relative;
+    z-index: 1;
+    margin-block: calc(var(--section-pad) * -0.46);
+}
+
+.sg-tuning__inner {
+    position: relative;
+    max-width: var(--content-max);
+    height: clamp(72px, 10vw, 124px);
+    margin-inline: auto;
+    padding-inline: clamp(20px, 5vw, 64px);
+    overflow: hidden;
+}
+
+.sg-tuning__track {
+    position: absolute;
+    top: 18%;
+    bottom: 18%;
+    left: clamp(20px, 5vw, 64px);
+    right: clamp(20px, 5vw, 64px);
+}
+
+.sg-tuning__line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--sg-accent), transparent);
+    transform-origin: left center;
+    box-shadow: 0 0 24px rgba(77, 225, 193, 0.34);
+}
+
+.sg-tuning__noise {
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(90deg, rgba(77, 225, 193, 0.13) 0 1px, transparent 1px 18px),
+        repeating-linear-gradient(0deg, rgba(237, 237, 239, 0.05) 0 1px, transparent 1px 11px);
+    mask-image: radial-gradient(ellipse at center, #000 0 42%, transparent 74%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 0 42%, transparent 74%);
+}
+
+.sg-tuning__dot {
+    position: absolute;
+    top: calc(50% - 4px);
+    left: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--sg-accent);
+    box-shadow: 0 0 24px rgba(77, 225, 193, 0.75);
+    transform: translateX(-50%);
+}
+
+.sg-tuning__label {
+    position: absolute;
+    top: calc(50% + 14px);
+    right: clamp(20px, 5vw, 64px);
+    color: rgba(77, 225, 193, 0.72);
+}
+
 /* ---------- nav ---------- */
 .sg-nav {
     position: fixed;
@@ -906,22 +970,92 @@
     margin-top: var(--sp-6);
 }
 .sg-metric {
+    position: relative;
+    overflow: hidden;
     border: 1px solid var(--sg-line);
     border-radius: 10px;
     padding: var(--sp-6);
     background: var(--sg-surface);
 }
+.sg-metric::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(120deg, transparent 0 42%, rgba(77, 225, 193, 0.12) 50%, transparent 58% 100%),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 8px);
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+}
+.sg-metric[data-locked="false"]::before {
+    animation: sg-metric-scan 1.4s var(--ease-signal) forwards;
+    opacity: 1;
+}
+.sg-metric__hud {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-4);
+    color: rgba(77, 225, 193, 0.62);
+    font-family: var(--sg-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+.sg-metric__signal {
+    display: inline-flex;
+    align-items: end;
+    gap: 3px;
+    height: 12px;
+}
+.sg-metric__signal span {
+    display: block;
+    width: 3px;
+    height: 5px;
+    background: currentColor;
+    opacity: 0.35;
+}
+.sg-metric__signal span:nth-child(2) { height: 8px; }
+.sg-metric__signal span:nth-child(3) { height: 12px; }
+.sg-metric[data-locked="true"] .sg-metric__signal span { opacity: 0.9; }
 .sg-metric__value {
+    position: relative;
     font-family: var(--sg-display);
     font-size: clamp(2.2rem, 4vw, 3.2rem);
     line-height: 1;
     color: var(--sg-accent);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 28px rgba(77, 225, 193, 0.2);
+}
+.sg-metric__trace {
+    position: relative;
+    width: min(120px, 72%);
+    height: 1px;
+    margin-top: var(--sp-4);
+    background: linear-gradient(90deg, var(--sg-accent), transparent);
+    opacity: 0.45;
+    transform-origin: left center;
+}
+.sg-metric[data-locked="false"] .sg-metric__trace {
+    animation: sg-metric-trace 1.4s var(--ease-signal) both;
 }
 .sg-metric__delta {
     font-family: var(--sg-mono);
     font-size: 0.75rem;
     color: var(--sg-muted);
     margin-top: var(--sp-3);
+}
+@keyframes sg-metric-scan {
+    0% { transform: translateX(-100%); opacity: 0; }
+    18% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+}
+@keyframes sg-metric-trace {
+    0% { transform: scaleX(0.16); opacity: 0.18; }
+    68% { transform: scaleX(1); opacity: 0.72; }
+    100% { transform: scaleX(0.72); opacity: 0.45; }
 }
 
 /* before / after compare */

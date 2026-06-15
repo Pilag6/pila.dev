@@ -43,6 +43,17 @@ const POSITIONING_STATEMENT =
 const SCROLL_TEXT_INITIAL_LETTERS = 5;
 const AIRPORT_BOARD_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.+%";
 
+const SECTION_TUNING_LINES = [
+    "IDEA → SYSTEM",
+    "NOISE → SIGNAL",
+    "PRINCIPLE → EVIDENCE",
+    "OUTPUT → LEVERAGE",
+    "SKILL → SYSTEM",
+    "TOOLS → JUDGMENT",
+    "CRAFT → OUTCOME",
+    "PROOF → TRUST",
+];
+
 function ScrollRevealLetter({ char, index, progress, total }) {
     const start = (index - SCROLL_TEXT_INITIAL_LETTERS) / total;
     const end = Math.min(start + 0.18, 1);
@@ -218,6 +229,41 @@ function AirportBoardValue({ value }) {
     );
 }
 
+function SectionSignalTuning({ label }) {
+    const ref = useRef(null);
+    const reduceMotion = useReducedMotion();
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start 88%", "end 42%"],
+    });
+    const lineScale = useTransform(scrollYProgress, [0, 0.52, 1], [0.18, 1, 0.34]);
+    const lineOpacity = useTransform(scrollYProgress, [0, 0.4, 1], [0.16, 0.78, 0.24]);
+    const noiseOpacity = useTransform(scrollYProgress, [0, 0.45, 1], [0.55, 0.08, 0.24]);
+    const dotLeft = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+    return (
+        <div className="sg-tuning" ref={ref} aria-hidden="true">
+            <div className="sg-tuning__inner">
+                <div className="sg-tuning__track">
+                    <motion.div
+                        className="sg-tuning__line"
+                        style={reduceMotion ? undefined : { scaleX: lineScale, opacity: lineOpacity }}
+                    />
+                    <motion.div
+                        className="sg-tuning__noise"
+                        style={reduceMotion ? undefined : { opacity: noiseOpacity }}
+                    />
+                    <motion.div
+                        className="sg-tuning__dot"
+                        style={reduceMotion ? undefined : { left: dotLeft }}
+                    />
+                </div>
+                <span className="sg-tuning__label sg-mono-label">{label}</span>
+            </div>
+        </div>
+    );
+}
+
 export default function SignalShowcase() {
     useLenis();
 
@@ -313,6 +359,8 @@ export default function SignalShowcase() {
                 </div>
             </header>
 
+            <SectionSignalTuning label={SECTION_TUNING_LINES[0]} />
+
             {/* ---------- POSITIONING ---------- */}
             <section className="sg-section">
                 <div className="sg-shell">
@@ -336,6 +384,8 @@ export default function SignalShowcase() {
                     </div>
                 </div>
             </section>
+
+            <SectionSignalTuning label={SECTION_TUNING_LINES[1]} />
 
             {/* ---------- PHILOSOPHY ---------- */}
             <section className="sg-section" id="philosophy">
@@ -361,6 +411,8 @@ export default function SignalShowcase() {
                 </div>
             </section>
 
+            <SectionSignalTuning label={SECTION_TUNING_LINES[2]} />
+
             {/* ---------- SELECTED WORK ---------- */}
             <section className="sg-section" id="work">
                 <div className="sg-shell">
@@ -376,17 +428,27 @@ export default function SignalShowcase() {
                 </div>
             </section>
 
+            <SectionSignalTuning label={SECTION_TUNING_LINES[3]} />
+
             {/* ---------- CAPABILITIES ---------- */}
             <Capabilities />
+
+            <SectionSignalTuning label={SECTION_TUNING_LINES[4]} />
 
             {/* ---------- STACK ---------- */}
             <Stack />
 
+            <SectionSignalTuning label={SECTION_TUNING_LINES[5]} />
+
             {/* ---------- JOURNEY ---------- */}
             <Journey />
 
+            <SectionSignalTuning label={SECTION_TUNING_LINES[6]} />
+
             {/* ---------- PROOF ---------- */}
             <Proof />
+
+            <SectionSignalTuning label={SECTION_TUNING_LINES[7]} />
 
             {/* ---------- CONTACT ---------- */}
             <section className="sg-section" id="contact">
