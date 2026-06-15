@@ -11,6 +11,7 @@ export default function MetricCounter({ value, suffix = "", decimals = 0, label,
     const inView = useInView(ref, { once: true, margin: "-20%" });
     const [display, setDisplay] = useState(reduce ? value : 0);
     const [locked, setLocked] = useState(reduce);
+    const finalValue = `${value.toFixed(decimals)}${suffix}`;
 
     useEffect(() => {
         if (!inView || reduce) {
@@ -49,7 +50,8 @@ export default function MetricCounter({ value, suffix = "", decimals = 0, label,
                     <span />
                 </span>
             </div>
-            <div className="sg-metric__value" aria-label={`${value.toFixed(decimals)}${suffix}`}>
+            <span className="sg-visually-hidden">{finalValue}</span>
+            <div className="sg-metric__value" aria-hidden="true">
                 {display.toFixed(decimals)}
                 {suffix}
             </div>

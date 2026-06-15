@@ -31,7 +31,17 @@ export default function CaseStudy() {
     useLenis();
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        const scrollToTop = () => {
+            window.__signalLenis?.scrollTo(0, { immediate: true, force: true });
+            window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        };
+
+        scrollToTop();
+        const frame = requestAnimationFrame(scrollToTop);
+
+        return () => cancelAnimationFrame(frame);
     }, [slug]);
 
     if (!data) {

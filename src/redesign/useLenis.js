@@ -16,6 +16,7 @@ export default function useLenis() {
             smoothWheel: true,
             anchors: true,
         });
+        window.__signalLenis = lenis;
 
         let raf = 0;
         const loop = (time) => {
@@ -27,6 +28,9 @@ export default function useLenis() {
         return () => {
             cancelAnimationFrame(raf);
             lenis.destroy();
+            if (window.__signalLenis === lenis) {
+                delete window.__signalLenis;
+            }
         };
     }, []);
 }
