@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./signal.css";
 import useLenis from "./useLenis.js";
@@ -41,6 +41,7 @@ const PRINCIPLES = [
 const POSITIONING_STATEMENT =
     "I turn ambiguous product ideas into resilient, performant frontends.";
 const SCROLL_TEXT_INITIAL_LETTERS = 5;
+const AIRPORT_BOARD_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.+%";
 
 function ScrollRevealLetter({ char, index, progress, total }) {
     const start = (index - SCROLL_TEXT_INITIAL_LETTERS) / total;
@@ -166,6 +167,57 @@ function WorkList() {
     );
 }
 
+function AirportBoardValue({ value }) {
+    const ref = useRef(null);
+    const reduceMotion = useReducedMotion();
+    const isInView = useInView(ref, { once: true, margin: "-20% 0px -20% 0px" });
+    const [letters, setLetters] = useState(() => value.split(""));
+
+    useEffect(() => {
+        if (!isInView || reduceMotion) {
+            setLetters(value.split(""));
+            return undefined;
+        }
+
+        let frame = 0;
+        const totalFrames = 18;
+        const interval = window.setInterval(() => {
+            frame += 1;
+            setLetters(
+                value.split("").map((char, index) => {
+                    const lockFrame = totalFrames - (value.length - index) * 3;
+
+                    if (frame >= lockFrame) return char;
+
+                    return AIRPORT_BOARD_CHARS[
+                        (frame * 7 + index * 11) % AIRPORT_BOARD_CHARS.length
+                    ];
+                }),
+            );
+
+            if (frame >= totalFrames) {
+                window.clearInterval(interval);
+                setLetters(value.split(""));
+            }
+        }, 55);
+
+        return () => window.clearInterval(interval);
+    }, [isInView, reduceMotion, value]);
+
+    return (
+        <>
+            <span className="sg-visually-hidden">{value}</span>
+            <div ref={ref} className="sg-airport-board" aria-hidden="true">
+            {letters.map((letter, index) => (
+                <span className="sg-airport-board__tile" key={index}>
+                    {letter}
+                </span>
+            ))}
+            </div>
+        </>
+    );
+}
+
 export default function SignalShowcase() {
     useLenis();
 
@@ -274,7 +326,9 @@ export default function SignalShowcase() {
                         ].map((f, i) => (
                             <Reveal key={f.l} delay={i * 0.08}>
                                 <div>
-                                    <div className="sg-fact__num">{f.n}</div>
+                                    <div className="sg-fact__num">
+                                        <AirportBoardValue value={f.n} />
+                                    </div>
                                     <div className="sg-fact__label sg-mono-label">{f.l}</div>
                                 </div>
                             </Reveal>

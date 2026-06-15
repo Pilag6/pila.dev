@@ -575,6 +575,38 @@
     line-height: 1;
     color: var(--sg-text);
 }
+.sg-airport-board {
+    display: inline-flex;
+    gap: 0.08em;
+    padding: 0.12em;
+    background: #050506;
+    border: 1px solid rgba(237, 237, 239, 0.12);
+    border-radius: 0.18em;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04), 0 18px 48px rgba(0, 0, 0, 0.32);
+    vertical-align: -0.05em;
+}
+.sg-airport-board__tile {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-width: 0.72em;
+    padding: 0.08em 0.1em 0.1em;
+    background: linear-gradient(180deg, #222229 0%, #121216 49%, #070708 50%, #19191e 100%);
+    border-radius: 0.08em;
+    color: var(--sg-accent);
+    font-family: var(--sg-mono);
+    font-size: 0.74em;
+    font-weight: 500;
+    line-height: 1;
+    text-shadow: 0 0 16px rgba(77, 225, 193, 0.4);
+}
+.sg-airport-board__tile::after {
+    content: "";
+    position: absolute;
+    inset: 50% 0 auto;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.7);
+}
 .sg-fact__label {
     margin-top: var(--sp-2);
 }
