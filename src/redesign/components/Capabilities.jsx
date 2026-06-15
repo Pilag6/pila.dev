@@ -10,7 +10,7 @@ export default function Capabilities() {
                 </Reveal>
                 <Reveal delay={0.05}>
                     <p className="sg-h2" style={{ maxWidth: "18ch", marginTop: "var(--sp-6)" }}>
-                        Tools are means, not identity.
+                    The thinking that shapes better products.
                     </p>
                 </Reveal>
 

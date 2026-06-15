@@ -11,6 +11,7 @@ import Reveal from "./components/Reveal.jsx";
 import SplitReveal from "./components/SplitReveal.jsx";
 import Magnetic from "./components/Magnetic.jsx";
 import Capabilities from "./components/Capabilities.jsx";
+import Stack from "./components/Stack.jsx";
 import Journey from "./components/Journey.jsx";
 import Proof from "./components/Proof.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
@@ -264,6 +265,9 @@ export default function SignalShowcase() {
 
             {/* ---------- CAPABILITIES ---------- */}
             <Capabilities />
+
+            {/* ---------- STACK ---------- */}
+            <Stack />
 
             {/* ---------- JOURNEY ---------- */}
             <Journey />

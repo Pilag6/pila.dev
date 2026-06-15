@@ -1044,6 +1044,150 @@
     margin-top: var(--sp-6);
 }
 
+/* ---------- stack · arc carousel ---------- */
+.sg-stack {
+    overflow: hidden;
+}
+.sg-stack__title {
+    max-width: 20ch;
+    margin-top: var(--sp-6);
+}
+.sg-stack__lead {
+    margin-top: var(--sp-4);
+}
+
+.sg-stack__stage {
+    /* circle geometry — large radius so only the top cap reads as a gentle arc */
+    --stack-r: 900px;
+    --stack-card-w: 108px;
+    --stack-card-h: 122px;
+    position: relative;
+    height: 360px;
+    margin-top: var(--sp-10);
+    width: 100%;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        #000 14%,
+        #000 86%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        #000 14%,
+        #000 86%,
+        transparent 100%
+    );
+}
+
+.sg-stack__glow {
+    position: absolute;
+    left: 50%;
+    top: 38%;
+    width: min(900px, 92vw);
+    height: 340px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        ellipse at center,
+        var(--sg-accent-dim) 0%,
+        transparent 68%
+    );
+    pointer-events: none;
+}
+
+.sg-stack__ring {
+    position: absolute;
+    left: 50%;
+    /* push the arc down so the top card clears the stage edge */
+    top: calc(var(--stack-r) + 100px);
+    width: 0;
+    height: 0;
+    transform-origin: center;
+    will-change: transform;
+}
+
+.sg-stack__card {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: var(--card-z, 1);
+    width: var(--stack-card-w);
+    height: var(--stack-card-h);
+    margin-left: calc(var(--stack-card-w) / -2);
+    margin-top: calc(var(--stack-card-h) / -2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    padding: var(--sp-3);
+    border: 1px solid var(--sg-line);
+    border-radius: 14px;
+    background: linear-gradient(160deg, var(--sg-surface), var(--sg-bg-2));
+    box-shadow: 0 24px 60px -32px rgba(0, 0, 0, 0.9);
+    transition: border-color 0.4s var(--ease-signal),
+        box-shadow 0.4s var(--ease-signal), z-index 0s;
+}
+.sg-stack__card:hover {
+    z-index: 200;
+    border-color: var(--card-color);
+    box-shadow: 0 28px 70px -30px color-mix(in srgb, var(--card-color) 50%, transparent);
+}
+
+.sg-stack__icon {
+    font-size: 2rem;
+    line-height: 0;
+    color: var(--sg-muted);
+    transition: color 0.4s var(--ease-signal),
+        filter 0.4s var(--ease-signal), transform 0.4s var(--ease-signal);
+}
+.sg-stack__card:hover .sg-stack__icon {
+    color: var(--card-color);
+    filter: drop-shadow(0 0 18px color-mix(in srgb, var(--card-color) 55%, transparent));
+}
+
+.sg-stack__label {
+    font-family: var(--sg-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.08em;
+    color: var(--sg-faint);
+    transition: color 0.4s var(--ease-signal);
+}
+.sg-stack__card:hover .sg-stack__label {
+    color: var(--sg-text);
+}
+
+@media (max-width: 900px) {
+    .sg-stack__stage {
+        --stack-r: 740px;
+        --stack-card-w: 96px;
+        --stack-card-h: 108px;
+        height: 320px;
+    }
+    .sg-stack__icon {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .sg-stack__stage {
+        --stack-r: 580px;
+        --stack-card-w: 84px;
+        --stack-card-h: 96px;
+        height: 280px;
+    }
+    .sg-stack__icon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sg-stack__card {
+        transition: none;
+    }
+}
+
 /* ---------- journey timeline ---------- */
 .sg-journey {
     position: relative;

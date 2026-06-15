@@ -59,6 +59,29 @@ export const capabilities = [
     },
 ];
 
+/* Tech stack · ids map to icons in components/Stack.jsx, colors are brand hues.
+   Order matters: React, Vue, Next, TypeScript sit in the middle of the arc. */
+export const stack = [
+    { id: "posthog", label: "PostHog", color: "#f9bd2b" },
+    { id: "javascript", label: "JavaScript", color: "#f7df1e" },
+    { id: "node", label: "Node.js", color: "#5fa04e" },
+    { id: "postgres", label: "PostgreSQL", color: "#4f8edb" },
+    { id: "zod", label: "Zod", color: "#3e63dd" },
+    { id: "tanstack", label: "TanStack", color: "#ff4154" },
+    { id: "storybook", label: "Storybook", color: "#ff4785" },
+    { id: "nuxt", label: "Nuxt", color: "#00dc82" },
+    { id: "react", label: "React", color: "#61dafb" },
+    { id: "vue", label: "Vue", color: "#42b883" },
+    { id: "next", label: "Next.js", color: "#e8e8ea" },
+    { id: "typescript", label: "TypeScript", color: "#3178c6" },
+    { id: "turborepo", label: "Turborepo", color: "#ef4444" },
+    { id: "tailwind", label: "Tailwind", color: "#38bdf8" },
+    { id: "vite", label: "Vite", color: "#b07cff" },
+    { id: "three", label: "Three.js", color: "#e8e8ea" },
+    { id: "docker", label: "Docker", color: "#2496ed" },
+    { id: "figma", label: "Figma", color: "#f24e1e" },
+];
+
 export const journey = [
     {
         year: "2025 – 2026",
