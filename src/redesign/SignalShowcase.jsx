@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./signal.css";
 import useLenis from "./useLenis.js";
 import { work } from "./caseData.js";
-import { profile } from "./siteData.js";
+import { profile, sideProjects } from "./siteData.js";
 import SignalField from "./components/SignalField.jsx";
 import SignalNav from "./components/SignalNav.jsx";
 import CustomCursor from "./components/CustomCursor.jsx";
@@ -204,6 +204,65 @@ function WorkFocusItem({ project, index, onPreviewEnter, onPreviewLeave }) {
                 </div>
             </Link>
         </motion.div>
+    );
+}
+
+function SideProjectCard({ project, index }) {
+    const content = (
+        <>
+            <div className="sg-side-project__topline">
+                <span className="sg-mono-label">{String(index + 1).padStart(2, "0")}</span>
+                <span className="sg-tag">{project.type}</span>
+            </div>
+            <h3 className="sg-side-project__title">{project.title}</h3>
+            <p className="sg-side-project__focus">{project.focus}</p>
+            {project.url ? <span className="sg-side-project__link">View project →</span> : null}
+        </>
+    );
+
+    if (project.url) {
+        return (
+            <a
+                href={project.url}
+                className="sg-side-project"
+                target="_blank"
+                rel="noreferrer"
+                data-cursor="view"
+            >
+                {content}
+            </a>
+        );
+    }
+
+    return <article className="sg-side-project">{content}</article>;
+}
+
+function SideProjects() {
+    return (
+        <section className="sg-section sg-side-projects" id="side-projects">
+            <div className="sg-shell">
+                <Reveal>
+                    <span className="sg-eyebrow">Practice lab</span>
+                </Reveal>
+                <div className="sg-side-projects__intro">
+                    <Reveal delay={0.05}>
+                        <h2 className="sg-h2">Small projects, sharp edges.</h2>
+                    </Reveal>
+                    <Reveal delay={0.1}>
+                        <p className="sg-lead">
+                            Side projects have been a steady way to stay sharp, learn fast, and explore new development ideas outside product constraints.
+                        </p>
+                    </Reveal>
+                </div>
+                <div className="sg-side-projects__grid">
+                    {sideProjects.map((project, index) => (
+                        <Reveal key={project.title} delay={(index % 3) * 0.05}>
+                            <SideProjectCard project={project} index={index} />
+                        </Reveal>
+                    ))}
+                </div>
+            </div>
+        </section>
     );
 }
 
@@ -476,25 +535,30 @@ export default function SignalShowcase() {
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[3]} />
 
+            {/* ---------- SIDE PROJECTS ---------- */}
+            <SideProjects />
+
+            <SectionSignalTuning label={SECTION_TUNING_LINES[4]} />
+
             {/* ---------- CAPABILITIES ---------- */}
             <Capabilities />
 
-            <SectionSignalTuning label={SECTION_TUNING_LINES[4]} />
+            <SectionSignalTuning label={SECTION_TUNING_LINES[5]} />
 
             {/* ---------- STACK ---------- */}
             <Stack />
 
-            <SectionSignalTuning label={SECTION_TUNING_LINES[5]} />
+            <SectionSignalTuning label={SECTION_TUNING_LINES[6]} />
 
             {/* ---------- JOURNEY ---------- */}
             <Journey />
 
-            <SectionSignalTuning label={SECTION_TUNING_LINES[6]} />
+            <SectionSignalTuning label={SECTION_TUNING_LINES[7]} />
 
             {/* ---------- PROOF ---------- */}
             <Proof />
 
-            <SectionSignalTuning label={SECTION_TUNING_LINES[7]} />
+            <SectionSignalTuning label={SECTION_TUNING_LINES[0]} />
 
             {/* ---------- CONTACT ---------- */}
             <section className="sg-section" id="contact">

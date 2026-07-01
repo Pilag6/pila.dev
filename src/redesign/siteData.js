@@ -59,6 +59,60 @@ export const capabilities = [
     },
 ];
 
+export const sideProjects = [
+    {
+        title: "Perfect Four",
+        type: "Logic game",
+        url: "https://perfect-4.netlify.app/",
+        focus: "Deduction, trial-and-error loops, and turning a childhood paper-and-pen number game into an interactive web experience.",
+    },
+    {
+        title: "Password Generator",
+        type: "Vanilla JavaScript utility",
+        url: "https://the-projects-js.netlify.app/03-passgen/",
+        focus: "Core logic, DOM manipulation, and practical password generation without framework dependencies.",
+    },
+    {
+        title: "Gradient Color Generator",
+        type: "Vanilla JavaScript visual tool",
+        url: "https://the-projects-js.netlify.app/04-gradientgen/",
+        focus: "Events, simple state, dynamic styles, and UX fundamentals for fast visual feedback.",
+    },
+    {
+        title: "Word Counter Pro",
+        type: "Text analysis app",
+        url: "https://the-projects-js.netlify.app/08-wordscounter/",
+        focus: "String processing, forms, and immediate feedback for word, character, and related metrics.",
+    },
+    {
+        title: "Fliplingua",
+        type: "Mobile-first React app",
+        url: "https://fliplingua.com/",
+        focus: "Language-learning flashcards, interactive study flows, and mobile-first interface design.",
+    },
+    {
+        title: "Codingify",
+        type: "Developer typing game",
+        url: "https://codinify.vercel.app/",
+        focus: "Speed, accuracy, and code-oriented typing practice for developers.",
+    },
+    {
+        title: "Writing Hearth",
+        type: "Long-form writing app",
+        focus: "Novel and book writing organized by chapters, narrative structure, and creative continuity.",
+    },
+    {
+        title: "Macondo",
+        type: "Daily writing app",
+        focus: "Habit-building, idea capture, and a simple personal workflow for daily writing.",
+    },
+    {
+        title: "Workout App",
+        type: "Personal training app",
+        focus: "Practical dumbbell and bodyweight routines adapted to a real exercise context.",
+    },
+];
+
 /* Tech stack · ids map to icons in components/Stack.jsx, colors are brand hues.
    Order matters: React, Vue, Next, TypeScript sit in the middle of the arc. */
 export const stack = [
