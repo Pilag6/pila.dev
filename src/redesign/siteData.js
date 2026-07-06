@@ -109,6 +109,7 @@ export const sideProjects = [
     {
         title: "Workout App",
         type: "Personal training app",
+        url: "https://pila-workout.vercel.app/",
         focus: "Practical dumbbell and bodyweight routines adapted to a real exercise context.",
     },
 ];
