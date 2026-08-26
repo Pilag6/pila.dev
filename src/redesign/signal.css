@@ -456,6 +456,10 @@
 .sg-btn--solid::after {
     background: #ffffff;
 }
+.sg-btn__icon {
+    font-size: 1em;
+    flex-shrink: 0;
+}
 
 /* ---------- hero ---------- */
 .sg-hero {
@@ -517,7 +521,7 @@
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--sg-line);
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 6;
     box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.8);
 }
 .sg-hero__portrait img {

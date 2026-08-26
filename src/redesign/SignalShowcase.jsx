@@ -1,6 +1,8 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FaArrowRight, FaGithub, FaDownload, FaGamepad, FaComment } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
 import "./signal.css";
 import useLenis from "./useLenis.js";
 import { work } from "./caseData.js";
@@ -423,6 +425,7 @@ export default function SignalShowcase() {
                             <Reveal delay={0.6} trigger="mount">
                                 <Magnetic>
                                     <a href="#work" className="sg-btn sg-btn--solid" data-cursor="view">
+                                        <FaArrowRight className="sg-btn__icon" aria-hidden="true" />
                                         View selected work
                                     </a>
                                 </Magnetic>
@@ -430,6 +433,7 @@ export default function SignalShowcase() {
                             <Reveal delay={0.66} trigger="mount">
                                 <Magnetic>
                                     <a href="#contact" className="sg-btn" data-cursor="view">
+                                        <FaComment className="sg-btn__icon" aria-hidden="true" />
                                         Start a conversation
                                     </a>
                                 </Magnetic>
@@ -437,14 +441,39 @@ export default function SignalShowcase() {
                             <Reveal delay={0.72} trigger="mount">
                                 <Magnetic>
                                     <a href={cvFile} download className="sg-btn" data-cursor="view">
+                                        <FaDownload className="sg-btn__icon" aria-hidden="true" />
                                         Download CV
+                                    </a>
+                                </Magnetic>
+                            </Reveal>
+                            <Reveal delay={0.78} trigger="mount">
+                                <Magnetic>
+                                    <Link to="/game" className="sg-btn" data-cursor="view">
+                                        <FaGamepad className="sg-btn__icon" aria-hidden="true" />
+                                        Play the game
+                                    </Link>
+                                </Magnetic>
+                            </Reveal>
+                            <Reveal delay={0.84} trigger="mount">
+                                <Magnetic>
+                                    <a href={profile.github} target="_blank" rel="noreferrer" className="sg-btn" data-cursor="view">
+                                        <FaGithub className="sg-btn__icon" aria-hidden="true" />
+                                        Visit GitHub
+                                    </a>
+                                </Magnetic>
+                            </Reveal>
+                            <Reveal delay={0.9} trigger="mount">
+                                <Magnetic>
+                                    <a href={profile.linkedin} target="_blank" rel="noreferrer" className="sg-btn" data-cursor="view">
+                                        <FaLinkedin className="sg-btn__icon" aria-hidden="true" />
+                                        LinkedIn
                                     </a>
                                 </Magnetic>
                             </Reveal>
                         </div>
 
                         {/* "previously at" wordmark strip */}
-                        <Reveal delay={0.8} trigger="mount">
+                        <Reveal delay={0.96} trigger="mount">
                             <div className="sg-hero__prev">
                                 <span className="sg-mono-label">Previously</span>
                                 <div className="sg-hero__prevList">
