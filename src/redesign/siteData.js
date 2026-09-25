@@ -79,64 +79,69 @@ export const capabilities = [
 
 export const sideProjects = [
   {
-    title: "Perfect 4",
-    type: "Logic game",
-    url: "https://perfect-4.netlify.app/",
+    title: "Pretty JSON",
+    type: "Open-source developer tool",
+    url: "https://github.com/Pilag6/pretty-json",
     focus:
-      "Deduction, trial-and-error loops, and turning a childhood paper-and-pen number game into an interactive web experience."
-  },
-  {
-    title: "Fliplingua 🦜",
-    type: "Mobile-first React app",
-    url: "https://fliplingua.com/",
-    focus:
-      "Language-learning flashcards, interactive study flows, and mobile-first interface design."
+      "A dependency-free TypeScript package for inspecting JSON locally in the browser, published to npm for both Node.js and frontend workflows."
   },
   {
     title: "<Codinify />",
-    type: "Developer typing game",
+    type: "Developer typing product",
     url: "https://codinify.vercel.app/",
-    focus: "Speed, accuracy, and code-oriented typing practice for developers."
+    focus:
+      "Code-based typing practice with multiple languages, progression, scoring, achievements, authentication, and leaderboards."
+  },
+  {
+    title: "Fliplingua 🦜",
+    type: "Language-learning product",
+    url: "https://fliplingua.com/",
+    focus:
+      "A mobile-first language-learning experience built around flashcards, interactive study flows, localization, and repeatable practice."
   },
   {
     title: "Writing Hearth",
-    type: "Long-form writing app",
+    type: "Long-form writing workspace",
     focus:
-      "Novel and book writing organized by chapters, narrative structure, and creative continuity."
+      "A React and TypeScript workspace for novels: chapters, characters, world building, timelines, goals, notes, export, and structured creative work."
   },
   {
     title: "Macondo",
-    type: "Daily writing app",
+    type: "Personal journaling product",
     focus:
-      "Habit-building, idea capture, and a simple personal workflow for daily writing."
+      "A full-stack journaling app focused on daily writing, habit building, idea capture, authentication, and a durable personal writing workflow."
   },
   {
     title: "Workout App",
-    type: "Personal training app",
+    type: "Personal training product",
     url: "https://pila-workout.vercel.app/",
     focus:
-      "Practical dumbbell and bodyweight routines adapted to a real exercise context."
+      "A tool I built for my own training with 80+ exercises, configurable routines, timers, progress flow, local persistence, and workout export."
+  },
+  {
+    title: "Word Counter Pro",
+    type: "Everyday writing utility",
+    url: "https://the-projects-js.netlify.app/08-wordscounter/",
+    focus:
+      "A small text-analysis tool I still use regularly while writing and editing, with immediate word, character, and related text metrics."
+  }
+];
+
+export const playgroundProjects = [
+  {
+    title: "Perfect 4",
+    type: "Logic game",
+    url: "https://perfect-4.netlify.app/"
   },
   {
     title: "Password Generator",
     type: "Vanilla JavaScript utility",
-    url: "https://the-projects-js.netlify.app/03-passgen/",
-    focus:
-      "Core logic, DOM manipulation, and practical password generation without framework dependencies."
+    url: "https://the-projects-js.netlify.app/03-passgen/"
   },
   {
     title: "Gradient Color Generator",
-    type: "Vanilla JavaScript visual tool",
-    url: "https://the-projects-js.netlify.app/04-gradientgen/",
-    focus:
-      "Events, simple state, dynamic styles, and UX fundamentals for fast visual feedback."
-  },
-  {
-    title: "Word Counter Pro",
-    type: "Text analysis app",
-    url: "https://the-projects-js.netlify.app/08-wordscounter/",
-    focus:
-      "String processing, forms, and immediate feedback for word, character, and related metrics."
+    type: "Vanilla JavaScript experiment",
+    url: "https://the-projects-js.netlify.app/04-gradientgen/"
   }
 ];
 
