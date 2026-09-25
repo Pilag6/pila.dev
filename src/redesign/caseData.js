@@ -1,8 +1,8 @@
 /* ---------------------------------------------------------------------------
  * Curated work + case studies for the "Signal" portfolio.
  *
- * These four are Ezequiel's selected projects. The narrative framing is
- * written to read as senior, end-to-end work; confirm/adjust the specifics
+ * Curated selected projects. The narrative framing is written to read as
+ * senior, end-to-end work; confirm/adjust the specifics
  * and replace any metric you can't back with a real number before shipping
  * (search "confirm").
  * ------------------------------------------------------------------------- */
@@ -91,7 +91,7 @@ export const caseStudies = {
         image: theBerlinAround,
         featuredImage: theBerlinAround,
         problem:
-            "A multilingual travel publication sounds like a content problem until it starts scaling. Then it becomes a systems problem: six locales, stable article identities, translated routes, image ownership, internal links, structured metadata, freshness, indexability, and hundreds of relationships that all have to remain correct together.",
+            "A multilingual travel publication sounds like a content problem until it starts scaling. Then it becomes a systems problem: six locales, stable article identities, translated routes, image ownership, internal links, structured metadata, freshness, indexability, and a growing relationship graph that all have to remain correct together.",
         meta: {
             Role: "Product, Architecture & Frontend Engineering",
             Type: "Multilingual publishing platform",
