@@ -6,6 +6,7 @@
  * and replace any metric you can't back with a real number before shipping
  * (search "confirm").
  * ------------------------------------------------------------------------- */
+import hutlifyBanner from "@/assets/projects/hutlify-banner.webp";
 import riverPlate from "@/assets/projects/river-plate.webp";
 import descubre from "@/assets/projects/descubre.webp";
 import olga from "@/assets/projects/olga.webp";
@@ -17,6 +18,15 @@ const signalShot = "/signal.webp";
 
 export const work = [
     {
+        slug: "hutlify",
+        title: "Hutlify",
+        year: "2026",
+        role: "Product, Architecture & Full-Stack Engineering",
+        outcome: "A local-first developer control center for importing projects, inspecting their stack, and running local workflows from one workspace.",
+        tags: ["Vue 3", "TypeScript", "tRPC", "Local-first"],
+        image: hutlifyBanner,
+    },
+    {
         slug: "signal-redesign",
         title: "The Signal Redesign",
         year: "2026",
@@ -26,15 +36,6 @@ export const work = [
         image: legacyShot,
     },
     {
-        slug: "river-plate-berlin",
-        title: "River Plate Berlin",
-        year: "2024",
-        role: "Design & Frontend",
-        outcome: "A digital home for the official River Plate supporters' club in Berlin.",
-        tags: ["Astro", "Tailwind", "UX", "Content"],
-        image: riverPlate,
-    },
-    {
         slug: "descubre-balcanes",
         title: "Descubre Balcanes",
         year: "2023",
@@ -42,6 +43,15 @@ export const work = [
         outcome: "A travel brand's storefront for discovering the Balkans · built to convert.",
         tags: ["Astro", "Tailwind", "SEO", "Performance"],
         image: descubre,
+    },
+    {
+        slug: "river-plate-berlin",
+        title: "River Plate Berlin",
+        year: "2024",
+        role: "Design & Frontend",
+        outcome: "A digital home for the official River Plate supporters' club in Berlin.",
+        tags: ["Astro", "Tailwind", "UX", "Content"],
+        image: riverPlate,
     },
     {
         slug: "olga-photos",
@@ -64,6 +74,121 @@ export const work = [
 ];
 
 export const caseStudies = {
+    "hutlify": {
+        slug: "hutlify",
+        title: "Hutlify",
+        eyebrow: "Case Study · Developer Tooling",
+        image: hutlifyBanner,
+        featuredImage: hutlifyBanner,
+        problem:
+            "Side projects tend to fragment across folders, terminals, package scripts, ports, logs, and deployment tools. Hutlify brings the local development surface into one browser-based workspace without turning a local workflow into a cloud dependency.",
+        meta: {
+            Role: "Product, Architecture & Full-Stack Engineering",
+            Type: "Local-first developer dashboard",
+            Year: "2026",
+            Stack: "Vue 3 · TypeScript · Fastify · tRPC · SQLite",
+        },
+        links: [
+            {
+                label: "View source on GitHub",
+                href: "https://github.com/Pilag6/Hutlify",
+            },
+        ],
+        blocks: [
+            {
+                heading: "The problem",
+                body: [
+                    "A growing collection of local projects creates a surprisingly fragmented workflow: finding the right folder, remembering the package manager, checking available scripts, identifying the dev port, starting processes, and jumping between terminals to inspect logs.",
+                    "I built **Hutlify as a local-first developer control center**. The product imports JavaScript and TypeScript projects from the filesystem, reads their metadata and scripts, persists a local catalog, and exposes common development controls from one workspace.",
+                ],
+            },
+            {
+                heading: "What the product does today",
+                list: [
+                    "Imports local JavaScript and TypeScript projects from a filesystem path.",
+                    "Reads package metadata, scripts, package manager, framework stack, dev ports, and workspace scripts.",
+                    "Persists the project catalog locally with SQLite and Drizzle.",
+                    "Provides dashboard, catalog, and project-detail views.",
+                    "Starts and stops known package scripts and exposes runtime status plus recent logs.",
+                ],
+            },
+            {
+                heading: "Architecture",
+                body: [
+                    "Hutlify is a **pnpm + Turborepo monorepo** organized as a TypeScript end-to-end modular monolith. The Vue application and Fastify server share explicit contract packages rather than duplicating transport types.",
+                    "The central rule is intentionally boring and strict: **component → query / mutation → service → tRPC client → server router → service → repository → database**. Each layer has one job, which keeps UI code away from transport details and domain code away from persistence details.",
+                ],
+                diagram: "hutlify",
+            },
+            {
+                heading: "Frontend boundaries",
+                body: [
+                    "The web app is built with **Vue 3, TypeScript, Vite, Pinia, Pinia Colada and Tailwind**. Pages orchestrate route-level behavior, resource queries own server-state access and cache invalidation, and client services are the only layer allowed to call tRPC procedures.",
+                    "That boundary matters more than the library choice. Vue components never import tRPC directly, so presentation stays testable and the transport can evolve without leaking through the component tree.",
+                ],
+            },
+            {
+                heading: "Why tRPC instead of a REST API",
+                body: [
+                    "The web app and server live in the same monorepo, are owned together, and do not currently need a public third-party API. For that constraint set, **tRPC v11 removes duplicated request and response types** and turns many contract mistakes into compile-time failures.",
+                    "Fastify routes remain available where RPC is the wrong transport, specifically OAuth callbacks and WebSocket log streaming. The trade-off is deliberate: a future non-TypeScript consumer would need a REST or webhook adapter rather than consuming the internal API directly.",
+                ],
+            },
+            {
+                heading: "Modular monolith over microservices",
+                body: [
+                    "The backend is split into domain modules with **service, repository port, router and optional Fastify route** boundaries. SQLite implementations live in infrastructure and are wired at the composition root.",
+                    "I chose a modular monolith because the product benefits from strong internal boundaries without paying the operational and coordination cost of distributed services. Repository interfaces also make it possible to test domain services with in-memory adapters while keeping persistence replaceable.",
+                ],
+            },
+            {
+                heading: "Local-first state",
+                body: [
+                    "Durable state lives in **SQLite through Drizzle**. Runtime process state and rolling log buffers stay in memory because persisting every log line would add unnecessary writes and complexity.",
+                    "This keeps the core product offline by default and makes setup intentionally small: the local database appears alongside the server. The downside is equally explicit: there is no multi-machine synchronization today, and process state disappears when the local server restarts.",
+                ],
+            },
+            {
+                heading: "One source of truth for contracts",
+                body: [
+                    "Shared runtime validation and TypeScript types live in **@hutlify/schemas**. Types are inferred directly from Zod schemas instead of maintaining a parallel types package.",
+                    "That decision removed schema/type drift from the architecture. The cost is a small increase in places where Zod exists at runtime, but contract changes now originate from one canonical definition used by both applications.",
+                ],
+            },
+            {
+                heading: "Realtime where it earns its complexity",
+                body: [
+                    "Process logs stream through a **Fastify WebSocket endpoint** into the terminal experience. The rest of the reactive UI relies on Pinia Colada cache invalidation after mutations.",
+                    "I kept WebSockets scoped to the one feature that actually needs a stream rather than making realtime infrastructure the default communication model for the entire product.",
+                ],
+            },
+            {
+                heading: "Testing strategy",
+                body: [
+                    "Vitest runs across every workspace. Schemas test validation directly, backend services test against repository ports, SQLite adapters run against temporary databases, client services stub the tRPC client, and Vue components focus on rendered behavior and interaction.",
+                    "The testing boundaries intentionally mirror the production architecture. End-to-end coverage with Playwright is documented as a next step rather than presented as something already shipped.",
+                ],
+            },
+            {
+                heading: "Trade-offs",
+                list: [
+                    "tRPC optimizes the TypeScript monorepo but is not a public cross-language API.",
+                    "The modular monolith creates more files per domain in exchange for predictable boundaries and replaceable adapters.",
+                    "SQLite keeps the product local and zero-setup but does not solve multi-machine synchronization.",
+                    "Runtime process state is intentionally ephemeral and must recover cleanly after a server restart.",
+                    "WebSocket streaming sits beside tRPC instead of forcing every communication path through one abstraction.",
+                ],
+            },
+            {
+                heading: "Where it goes next",
+                body: [
+                    "The current direction is to grow Hutlify from a project catalog into a broader developer control center: environment-variable management, richer logs and terminal UX, GitHub import, upload flows, analytics, and deployment integrations.",
+                    "The important part is preserving the same architectural constraint as the surface grows: **features can expand without making components responsible for infrastructure**.",
+                ],
+            },
+        ],
+    },
+
     "signal-redesign": {
         slug: "signal-redesign",
         title: "The Signal Redesign",
