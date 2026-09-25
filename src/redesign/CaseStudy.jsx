@@ -73,6 +73,30 @@ export default function CaseStudy() {
                         </Reveal>
                     ))}
                 </div>
+
+                {data.links?.length ? (
+                    <div className="sg-case__links">
+                        {data.links.map((link) => (
+                            <Magnetic key={link.href}>
+                                <a
+                                    href={link.href}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="sg-btn"
+                                    data-cursor="view"
+                                >
+                                    {link.label}
+                                </a>
+                            </Magnetic>
+                        ))}
+                    </div>
+                ) : null}
+
+                {data.featuredImage ? (
+                    <Reveal className="sg-case__featured" delay={0.08}>
+                        <img src={data.featuredImage} alt={`${data.title} project banner`} />
+                    </Reveal>
+                ) : null}
             </header>
 
             {/* ---------- BLOCKS ---------- */}
@@ -163,7 +187,7 @@ export default function CaseStudy() {
                                 </div>
                             )}
 
-                            {block.diagram && <ArchitectureDiagram />}
+                            {block.diagram && <ArchitectureDiagram variant={block.diagram === "hutlify" ? "hutlify" : "default"} />}
                         </div>
                     </section>
                 ))}

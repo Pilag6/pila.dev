@@ -1049,6 +1049,27 @@
 /* =====================================================================
    CASE STUDY
    ===================================================================== */
+.sg-case__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: var(--sp-8);
+}
+
+.sg-case__featured {
+    margin-top: var(--sp-10);
+    overflow: hidden;
+    border: 1px solid var(--sg-line);
+    border-radius: 20px;
+    background: var(--sg-surface);
+}
+
+.sg-case__featured img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .sg-case__hero {
     padding-top: clamp(140px, 22vh, 280px);
     padding-bottom: var(--section-pad);
