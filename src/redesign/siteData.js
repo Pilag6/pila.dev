@@ -6,7 +6,7 @@
 export const profile = {
   name: "Ezequiel Gonzalez",
   alias: "Pila",
-  role: "Senior Frontend Engineer",
+  role: "Senior / Lead Frontend Engineer",
   location: "Berlin, Germany",
   email: "pilag6@gmail.com",
   phone: "+49 1745735026",
