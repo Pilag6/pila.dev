@@ -187,7 +187,17 @@ export default function CaseStudy() {
                                 </div>
                             )}
 
-                            {block.diagram && <ArchitectureDiagram variant={block.diagram === "hutlify" ? "hutlify" : "default"} />}
+                            {block.diagram && (
+                                <ArchitectureDiagram
+                                    variant={
+                                        block.diagram === "hutlify"
+                                            ? "hutlify"
+                                            : block.diagram === "tba"
+                                              ? "tba"
+                                              : "default"
+                                    }
+                                />
+                            )}
                         </div>
                     </section>
                 ))}

@@ -35,14 +35,32 @@ const HUTLIFY_EDGES = [
     ["domain", "db"],
 ];
 
+const TBA_NODES = [
+    { id: "content", x: 10, y: 120, w: 125, label: "Content", sub: "MDX · JSON · YAML", accent: true },
+    { id: "collections", x: 165, y: 120, w: 135, label: "Collections", sub: "Typed schemas" },
+    { id: "context", x: 330, y: 120, w: 135, label: "Build context", sub: "Cached indexes" },
+    { id: "graph", x: 495, y: 120, w: 130, label: "Validation", sub: "Content graph" },
+    { id: "routes", x: 655, y: 120, w: 110, label: "Routes", sub: "View models" },
+    { id: "output", x: 795, y: 120, w: 95, label: "Output", sub: "Static HTML", accent: true },
+];
+
+const TBA_EDGES = [
+    ["content", "collections"],
+    ["collections", "context"],
+    ["context", "graph"],
+    ["graph", "routes"],
+    ["routes", "output"],
+];
+
 const center = (nodes, n) => ({ x: n.x + n.w / 2, y: n.y + 30 });
 const byId = (nodes, id) => nodes.find((n) => n.id === id);
 
 export default function ArchitectureDiagram({ variant = "default" }) {
     const reduce = useReducedMotion();
     const isHutlify = variant === "hutlify";
-    const nodes = isHutlify ? HUTLIFY_NODES : DEFAULT_NODES;
-    const edges = isHutlify ? HUTLIFY_EDGES : DEFAULT_EDGES;
+    const isTba = variant === "tba";
+    const nodes = isHutlify ? HUTLIFY_NODES : isTba ? TBA_NODES : DEFAULT_NODES;
+    const edges = isHutlify ? HUTLIFY_EDGES : isTba ? TBA_EDGES : DEFAULT_EDGES;
 
     const edgePath = (a, b) => {
         const from = byId(nodes, a);
@@ -61,7 +79,9 @@ export default function ArchitectureDiagram({ variant = "default" }) {
             aria-label={
                 isHutlify
                     ? "Hutlify data flow: Vue component to query or mutation, client service, tRPC server router, domain service, and SQLite persistence."
-                    : "Frontend architecture: Edge/CDN feeds the App Shell, which drives the data layer and lazy-loaded feature islands, all composed from a shared design system."
+                    : isTba
+                      ? "The Berlin Around publishing pipeline: structured content flows through typed collections, a cached build context, content graph validation, route view models, and static HTML output."
+                      : "Frontend architecture: Edge/CDN feeds the App Shell, which drives the data layer and lazy-loaded feature islands, all composed from a shared design system."
             }
         >
             {edges.map(([a, b], i) => (
