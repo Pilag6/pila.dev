@@ -79,6 +79,13 @@ export const capabilities = [
 
 export const sideProjects = [
   {
+    title: "Perfect Four",
+    type: "Personal logic game",
+    url: "https://perfect-4.netlify.app/",
+    focus:
+      "One of my earliest web projects: a digital version of a paper-and-pencil number game I used to play as a kid. Technically simple, but still one of the projects I feel most connected to."
+  },
+  {
     title: "Pretty JSON",
     type: "Open-source developer tool",
     url: "https://github.com/Pilag6/pretty-json",
@@ -128,11 +135,6 @@ export const sideProjects = [
 ];
 
 export const playgroundProjects = [
-  {
-    title: "Perfect 4",
-    type: "Logic game",
-    url: "https://perfect-4.netlify.app/"
-  },
   {
     title: "Password Generator",
     type: "Vanilla JavaScript utility",
