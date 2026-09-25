@@ -7,6 +7,7 @@
  * (search "confirm").
  * ------------------------------------------------------------------------- */
 import hutlifyBanner from "@/assets/projects/hutlify-banner.webp";
+import theBerlinAround from "@/assets/projects/the-berlin-around.webp";
 import riverPlate from "@/assets/projects/river-plate.webp";
 import descubre from "@/assets/projects/descubre.webp";
 import olga from "@/assets/projects/olga.webp";
@@ -25,6 +26,15 @@ export const work = [
         outcome: "A local-first developer control center for importing projects, inspecting their stack, and running local workflows from one workspace.",
         tags: ["Vue 3", "TypeScript", "tRPC", "Local-first"],
         image: hutlifyBanner,
+    },
+    {
+        slug: "the-berlin-around",
+        title: "The Berlin Around",
+        year: "2026",
+        role: "Product, Architecture & Frontend Engineering",
+        outcome: "A multilingual publishing system with typed content, build-time validation, route intelligence, editorial tooling, and a deliberately small runtime surface.",
+        tags: ["Astro", "TypeScript", "Content Graph", "Build-time Validation"],
+        image: theBerlinAround,
     },
     {
         slug: "signal-redesign",
@@ -74,6 +84,179 @@ export const work = [
 ];
 
 export const caseStudies = {
+    "the-berlin-around": {
+        slug: "the-berlin-around",
+        title: "The Berlin Around",
+        eyebrow: "Case Study · Publishing Systems",
+        image: theBerlinAround,
+        featuredImage: theBerlinAround,
+        problem:
+            "A multilingual travel publication sounds like a content problem until it starts scaling. Then it becomes a systems problem: six locales, stable article identities, translated routes, image ownership, internal links, structured metadata, freshness, indexability, and hundreds of relationships that all have to remain correct together.",
+        meta: {
+            Role: "Product, Architecture & Frontend Engineering",
+            Type: "Multilingual publishing platform",
+            Year: "2026",
+            Stack: "Astro · TypeScript · MDX · Tailwind · Storybook",
+        },
+        links: [
+            {
+                label: "Visit The Berlin Around",
+                href: "https://www.theberlinaround.com/",
+            },
+        ],
+        blocks: [
+            {
+                heading: "The real problem",
+                body: [
+                    "The Berlin Around began as a publishing project, but I deliberately engineered it as a **content system rather than a folder of articles**. Once the same logical article can exist in six languages, simple conventions stop being enough: URLs can collide, metadata can drift, translations can lag behind facts, images can lose ownership, and internal links can silently point at unavailable locale variants.",
+                    "The architectural goal became clear: make invalid states visible **before deployment**, keep identity stable across translations, and give editorial work the same kind of contracts, validation and tooling I would expect from product code.",
+                ],
+            },
+            {
+                heading: "The system today",
+                metrics: [
+                    { value: 13, suffix: "", label: "Logical articles", delta: "one stable identity each" },
+                    { value: 78, suffix: "", label: "Localized entries", delta: "six locale variants per article" },
+                    { value: 6, suffix: "", label: "Locales", delta: "EN · ES · DE · PL · IT · FR" },
+                    { value: 0, suffix: "", label: "Editorial orphans", delta: "current generated inventory" },
+                ],
+                body: [
+                    "The current generated inventory contains **13 logical articles and 78 localized public entries across six locales**, with no missing translations and no editorial orphans. Those numbers are not manually maintained: they are derived from the same validated content graph that drives routes, reports and the private admin surface.",
+                ],
+            },
+            {
+                heading: "Architecture: content becomes a compiled system",
+                body: [
+                    "The core pipeline is **localized MDX + shared structured data → Astro content collections → cached build context → global content-graph validation → route-specific selectors and view models → layouts/components → static output plus a very small server surface**.",
+                    "That separation is intentional. Content files own editorial data, schemas parse it, the build context indexes it once, validation reasons about the complete graph, routes select what one URL needs, and presentational components receive prepared models instead of scanning collections themselves.",
+                ],
+                diagram: "tba",
+            },
+            {
+                heading: "Stable identity across six languages",
+                body: [
+                    "Every logical article lives in one directory identified by a stable **translationKey**. Shared metadata and media live once; each locale owns only its localized slug, title, description, dates, review state and prose.",
+                    "That means a German or Polish translation is not a duplicated article tree. It is another localized representation of the same logical entity. Relationships point to stable identities rather than fragile translated slugs, so route changes do not require rewriting the whole content graph.",
+                ],
+            },
+            {
+                heading: "Typed content as a domain model",
+                body: [
+                    "Astro Content Collections and TypeScript define a real domain model for posts, shared metadata, image registries, authors, categories, tags, places, neighborhoods, itineraries and day trips.",
+                    "The schemas enforce things such as canonical stable IDs, locale-specific slugs, finite coordinates, valid taxonomy references and shared image metadata. Editorial files are parsed as application data, not trusted as arbitrary blobs.",
+                ],
+            },
+            {
+                heading: "A cached build content context",
+                body: [
+                    "Instead of repeatedly scanning collections from individual pages, the build assembles a cached **BuildContentContext** with indexed lookups by locale, slug, translation key, primary category, any category, tag, author and place.",
+                    "It also builds relationship adjacency once and exposes instrumentation for context assemblies, indexed lookups and graph creation. This turns the content layer into something closer to an in-memory read model for the build rather than repeated ad hoc filesystem work.",
+                ],
+            },
+            {
+                heading: "Build-time content graph validation",
+                body: [
+                    "A central validation pass checks the complete system as one graph. It detects duplicate localized slugs, duplicate IDs, invalid taxonomy references, inconsistent locale filenames, missing image registries, unresolved editorial images, missing alt text, invalid place references, route collisions and relationship errors.",
+                    "The philosophy is simple: **a broken content graph should fail the build**. I would rather make publishing stricter than let an apparently valid article produce a broken URL, inaccessible media or inconsistent metadata in production.",
+                ],
+            },
+            {
+                heading: "MDX as a constrained authoring API",
+                body: [
+                    "The MDX layer is intentionally not an unrestricted mini-application runtime. A source scanner analyzes imports, JSX, static attributes, links, comments and code fences without executing article code.",
+                    "Semantic article links use stable translation keys and the current locale. The build rejects unknown targets, draft or future targets, unavailable translations and patterns that cannot be statically verified. This keeps authoring flexible while preserving enough structure for automated reasoning.",
+                ],
+            },
+            {
+                heading: "The relationship graph",
+                body: [
+                    "Articles participate in a localized graph made from explicit related content, pillar relationships and semantic links inside prose. Forward and reverse adjacency are generated so the system can reason about both outbound and inbound editorial structure.",
+                    "The build produces a deterministic relationship report with inbound counts and orphan detection. Automatic related-content selection is kept separate from authored editorial edges, so a page is not considered healthy just because an algorithm can fill a card slot.",
+                ],
+            },
+            {
+                heading: "Internal-link intelligence",
+                body: [
+                    "On top of the relationship graph, I built a suggestion engine that finds strong missing connections using category and tag affinity. Candidates are scored deterministically, filtered against existing editorial edges, and capped per source so the report remains actionable.",
+                    "This is not a runtime recommendation widget. It is **editorial engineering tooling**: analysis generated from the content graph to help improve information architecture without replacing editorial judgment.",
+                ],
+            },
+            {
+                heading: "Route inventory before output",
+                body: [
+                    "The project materializes a canonical inventory of every public HTML route across locales: homepages, paginated archives, articles, categories, tags, authors and standing pages.",
+                    "That inventory is validated for ownership and collisions, then reused by link validation and relationship analysis. URLs are therefore treated as first-class data with owners, not just strings produced independently by route files.",
+                ],
+            },
+            {
+                heading: "SEO and indexability as code",
+                body: [
+                    "Canonical URLs, hreflang, Open Graph locale mappings, structured data and sitemap eligibility are generated from shared route and metadata logic instead of being hand-authored page by page.",
+                    "The sitemap goes a step further and reads generated HTML during the build so pages that actually emit a noindex directive can be excluded from final sitemap output. Indexability is verified against what the application produced, not only what configuration intended.",
+                ],
+            },
+            {
+                heading: "Freshness is part of the data model",
+                body: [
+                    "Time-sensitive content carries explicit review metadata. Structured sections can declare when facts were checked, review topics are inferred from authored components, and factual revisions distinguish the shared article truth from what each locale has already applied.",
+                    "The build rejects future review dates, duplicate or incorrectly ordered review topics, unverifiable date props and impossible revision states. The generated inventory can then surface localized variants that are factually lagging instead of relying on someone remembering to check them manually.",
+                ],
+            },
+            {
+                heading: "Generated content inventory and private admin",
+                body: [
+                    "The repository generates and tracks a machine-readable **content-inventory.json** from the validated graph. It summarizes translation coverage, publication state, categories, relationships, orphan state, freshness and link suggestions for every logical article and locale.",
+                    "A private server-rendered admin area consumes validated inventory data to expose coverage, stale entries, taxonomy distributions and recent content. Authentication uses server-side scrypt verification and short-lived signed HttpOnly sessions, keeping editorial operations separate from the public static site.",
+                ],
+            },
+            {
+                heading: "Testing the source and the built product",
+                body: [
+                    "The quality strategy has two layers. Unit and integration tests exercise content schemas, locale mechanics, routes, relationships, places, freshness, metadata and other domain logic. Repository-level output checks then inspect the **actual generated site** for route inventory, indexability, JSON-LD, metadata trust, UX invariants and other build contracts.",
+                    "That distinction matters. A helper can pass its unit tests while the generated HTML is still wrong. Testing both the domain logic and the final artifact catches a different class of regressions.",
+                ],
+            },
+            {
+                heading: "PR CI as a publishing gate",
+                body: [
+                    "Pull requests run a dedicated GitHub Actions validation pipeline on Node 24 with a frozen pnpm lockfile. The gate runs Astro checks, content tests, route tests, indexability checks, SEO serialization, place-output validation and route-inventory checks.",
+                    "CI also regenerates the content inventory and compares it byte-for-byte with the committed version. If a code or content change should have changed the inventory but the generated artifact was not committed, the PR fails instead of allowing repository state to drift.",
+                ],
+            },
+            {
+                heading: "Frontend architecture and runtime restraint",
+                body: [
+                    "Most public pages are prebuilt HTML. Interactive behavior is implemented with Astro scripts and native browser APIs instead of introducing a client application framework for the whole site.",
+                    "That choice keeps the public runtime small while still supporting search, saved content, theme behavior, navigation and forms. Selected UI components are developed in **Storybook**, so visual states can be reviewed independently from the content pipeline.",
+                ],
+            },
+            {
+                heading: "Why this project matters to me",
+                body: [
+                    "The interesting part of The Berlin Around is not that it renders articles. It is that the repository has accumulated **contracts around content, routes, relationships, freshness and output** until publishing starts to behave like software delivery.",
+                    "It is one of the projects where my frontend, product and systems thinking meet most clearly: static rendering where it makes sense, structured data instead of convention-only content, automated analysis instead of manual audits, and build failures instead of silent editorial drift.",
+                ],
+            },
+            {
+                heading: "Trade-offs",
+                list: [
+                    "Strict authoring rules add friction, but that friction buys deterministic validation and safer multilingual growth.",
+                    "Static-first rendering pushes more work into the build, but keeps the public runtime fast and operationally simple.",
+                    "A generated content inventory duplicates some derived information on disk, but makes drift visible in code review and usable by tooling.",
+                    "Stable logical IDs require more modeling than linking directly by slug, but decouple relationships from localized URL changes.",
+                    "Output checks make CI slower than source-only testing, but verify the artifact users and crawlers actually receive.",
+                ],
+            },
+            {
+                heading: "What I'd extend next",
+                body: [
+                    "The foundation now supports deeper editorial tooling without changing the public rendering model. The next engineering opportunities are richer graph visualization, stronger automated accessibility coverage, broader visual regression testing, and more ways to surface build diagnostics directly in the admin experience.",
+                    "The principle would stay the same: add tooling around the content graph while keeping the public site static-first, understandable and inexpensive to run.",
+                ],
+            },
+        ],
+    },
+
     "hutlify": {
         slug: "hutlify",
         title: "Hutlify",
