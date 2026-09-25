@@ -6,7 +6,7 @@ import { FaLinkedin } from "react-icons/fa";
 import "./signal.css";
 import useLenis from "./useLenis.js";
 import { work } from "./caseData.js";
-import { profile, sideProjects } from "./siteData.js";
+import { profile, sideProjects, playgroundProjects } from "./siteData.js";
 import SignalField from "./components/SignalField.jsx";
 import SignalNav from "./components/SignalNav.jsx";
 import CustomCursor from "./components/CustomCursor.jsx";
@@ -244,15 +244,15 @@ function SideProjects() {
         <section className="sg-section sg-side-projects" id="side-projects">
             <div className="sg-shell">
                 <Reveal>
-                    <span className="sg-eyebrow">Practice lab</span>
+                    <span className="sg-eyebrow">Side projects</span>
                 </Reveal>
                 <div className="sg-side-projects__intro">
                     <Reveal delay={0.05}>
-                        <h2 className="sg-h2">Small projects, sharp edges.</h2>
+                        <h2 className="sg-h2">Products I build because I want them to exist.</h2>
                     </Reveal>
                     <Reveal delay={0.1}>
                         <p className="sg-lead">
-                            Side projects have been a steady way to stay sharp, learn fast, and explore new development ideas outside product constraints.
+                            Useful tools and product experiments with enough depth to keep evolving beyond the first prototype.
                         </p>
                     </Reveal>
                 </div>
@@ -262,6 +262,40 @@ function SideProjects() {
                             <SideProjectCard project={project} index={index} />
                         </Reveal>
                     ))}
+                </div>
+
+                <div className="sg-playground">
+                    <Reveal>
+                        <div className="sg-playground__header">
+                            <div>
+                                <span className="sg-eyebrow">Playground</span>
+                                <h3 className="sg-h2">Small experiments. Kept on purpose.</h3>
+                            </div>
+                            <p className="sg-lead">
+                                Focused exercises, interaction ideas, and small utilities that are still part of the path, without asking them to carry the portfolio.
+                            </p>
+                        </div>
+                    </Reveal>
+                    <div className="sg-playground__list">
+                        {playgroundProjects.map((project, index) => (
+                            <Reveal key={project.title} delay={index * 0.04}>
+                                <a
+                                    href={project.url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="sg-playground__item"
+                                    data-cursor="view"
+                                >
+                                    <span className="sg-mono-label">
+                                        {String(index + 1).padStart(2, "0")}
+                                    </span>
+                                    <span className="sg-playground__title">{project.title}</span>
+                                    <span className="sg-tag">{project.type}</span>
+                                    <span className="sg-playground__arrow">↗</span>
+                                </a>
+                            </Reveal>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
