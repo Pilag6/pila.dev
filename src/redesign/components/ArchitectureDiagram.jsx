@@ -2,14 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const EASE = [0.16, 1, 0.3, 1];
 
-/**
- * ArchitectureDiagram — an SVG data-flow diagram that draws itself in on view.
- * Edges stroke-dash animate; nodes fade+scale. Reduced-motion → static.
- *
- * Tailored to the case study's stated architecture: a layered frontend with a
- * clear unidirectional flow (Edge → App shell → feature islands → design system).
- */
-const NODES = [
+const DEFAULT_NODES = [
     { id: "edge", x: 40, y: 120, w: 150, label: "Edge / CDN", sub: "SSG + ISR", accent: true },
     { id: "shell", x: 250, y: 120, w: 160, label: "App Shell", sub: "Router · RSC" },
     { id: "data", x: 470, y: 40, w: 170, label: "Data Layer", sub: "Query cache" },
@@ -17,7 +10,7 @@ const NODES = [
     { id: "ds", x: 700, y: 120, w: 170, label: "Design System", sub: "Tokens · a11y", accent: true },
 ];
 
-const EDGES = [
+const DEFAULT_EDGES = [
     ["edge", "shell"],
     ["shell", "data"],
     ["shell", "features"],
@@ -25,19 +18,39 @@ const EDGES = [
     ["features", "ds"],
 ];
 
-const center = (n) => ({ x: n.x + n.w / 2, y: n.y + 30 });
-const byId = (id) => NODES.find((n) => n.id === id);
+const HUTLIFY_NODES = [
+    { id: "component", x: 20, y: 120, w: 130, label: "Component", sub: "Vue 3", accent: true },
+    { id: "query", x: 185, y: 120, w: 135, label: "Query / mutation", sub: "Pinia Colada" },
+    { id: "service", x: 355, y: 120, w: 120, label: "Client service", sub: "tRPC boundary" },
+    { id: "router", x: 510, y: 120, w: 120, label: "Server router", sub: "tRPC v11" },
+    { id: "domain", x: 665, y: 120, w: 115, label: "Domain service", sub: "Business logic" },
+    { id: "db", x: 815, y: 120, w: 70, label: "DB", sub: "SQLite", accent: true },
+];
 
-export default function ArchitectureDiagram() {
+const HUTLIFY_EDGES = [
+    ["component", "query"],
+    ["query", "service"],
+    ["service", "router"],
+    ["router", "domain"],
+    ["domain", "db"],
+];
+
+const center = (nodes, n) => ({ x: n.x + n.w / 2, y: n.y + 30 });
+const byId = (nodes, id) => nodes.find((n) => n.id === id);
+
+export default function ArchitectureDiagram({ variant = "default" }) {
     const reduce = useReducedMotion();
+    const isHutlify = variant === "hutlify";
+    const nodes = isHutlify ? HUTLIFY_NODES : DEFAULT_NODES;
+    const edges = isHutlify ? HUTLIFY_EDGES : DEFAULT_EDGES;
 
     const edgePath = (a, b) => {
-        const p1 = center(byId(a));
-        const p2 = center(byId(b));
+        const from = byId(nodes, a);
+        const to = byId(nodes, b);
+        const p1 = center(nodes, from);
+        const p2 = center(nodes, to);
         const mx = (p1.x + p2.x) / 2;
-        return `M ${p1.x + byId(a).w / 2} ${p1.y} C ${mx} ${p1.y}, ${mx} ${p2.y}, ${
-            p2.x - byId(b).w / 2
-        } ${p2.y}`;
+        return `M ${p1.x + from.w / 2} ${p1.y} C ${mx} ${p1.y}, ${mx} ${p2.y}, ${p2.x - to.w / 2} ${p2.y}`;
     };
 
     return (
@@ -45,9 +58,13 @@ export default function ArchitectureDiagram() {
             className="sg-diagram"
             viewBox="0 0 900 300"
             role="img"
-            aria-label="Frontend architecture: Edge/CDN feeds the App Shell, which drives the data layer and lazy-loaded feature islands, all composed from a shared design system."
+            aria-label={
+                isHutlify
+                    ? "Hutlify data flow: Vue component to query or mutation, client service, tRPC server router, domain service, and SQLite persistence."
+                    : "Frontend architecture: Edge/CDN feeds the App Shell, which drives the data layer and lazy-loaded feature islands, all composed from a shared design system."
+            }
         >
-            {EDGES.map(([a, b], i) => (
+            {edges.map(([a, b], i) => (
                 <motion.path
                     key={a + b}
                     className="sg-edge"
@@ -59,7 +76,7 @@ export default function ArchitectureDiagram() {
                 />
             ))}
 
-            {NODES.map((n, i) => (
+            {nodes.map((n, i) => (
                 <motion.g
                     key={n.id}
                     className={n.accent ? "sg-node sg-node--accent" : "sg-node"}
