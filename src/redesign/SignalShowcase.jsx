@@ -411,14 +411,14 @@ export default function SignalShowcase() {
                         </Reveal>
                         <h1 className="sg-display sg-hero__title">
                             <SplitReveal
-                                lines={["I design frontend systems", "for complex products."]}
+                                lines={["I design frontend systems for complex products."]}
                                 delay={0.15}
                                 trigger="mount"
                             />
                         </h1>
                         <Reveal delay={0.5} trigger="mount">
                             <p className="sg-lead sg-hero__lead">
-                            Fourteen years building product interfaces across startups and large-scale platforms. I specialize in <strong>TypeScript, React and Vue</strong>, owning <strong>frontend architecture, performance, accessibility</strong> and <strong>design systems</strong> end to end, with current work focused on <strong>AI-powered products</strong>.
+                            14 years building product interfaces across startups and large-scale platforms. I specialize in <strong>TypeScript, React, Vue and Astro</strong>, owning <strong>frontend architecture, performance, accessibility</strong> and <strong>design systems</strong> end to end, with current work focused on <strong>AI-powered products</strong>.
                             </p>
                         </Reveal>
                         <div className="sg-hero__cta">
