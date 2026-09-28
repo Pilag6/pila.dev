@@ -18,7 +18,12 @@ export default function Proof({ inspectActive = false }) {
 
                 <div className="sg-quotes">
                     {testimonials.map((t, i) => (
-                        <Reveal key={t.name + t.org} delay={i * 0.08} className="sg-quote">
+                        <Reveal
+                            key={t.name + t.org}
+                            delay={i * 0.08}
+                            className="sg-quote"
+                            data-inspect-label="Testimonial evidence"
+                        >
                             <div className="sg-quote__mark" aria-hidden="true">
                                 “
                             </div>
@@ -30,7 +35,7 @@ export default function Proof({ inspectActive = false }) {
                     ))}
                 </div>
 
-                <div className="sg-proof__metrics">
+                <div className="sg-proof__metrics" data-inspect-label="Measured outcomes">
                     {proofMetrics.map((m) => (
                         <MetricCounter key={m.label} {...m} />
                     ))}
