@@ -1326,11 +1326,6 @@
     box-shadow: inset 0 0 0 1px rgba(182,90,58,0.22);
 }
 
-.signal-root[data-inspect="true"] .sg-tuning__line,
-.signal-root[data-inspect="true"] .sg-tuning__dot {
-    background: var(--sg-inspect);
-}
-
 .signal-root[data-inspect="true"] .sg-tuning__label {
     color: var(--sg-inspect);
 }
