@@ -18,7 +18,8 @@ import Stack from "./components/Stack.jsx";
 import Journey from "./components/Journey.jsx";
 import Proof from "./components/Proof.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
-import PortfolioModes, { InspectNote } from "./components/PortfolioModes.jsx";
+import PortfolioModes from "./components/PortfolioModes.jsx";
+import InspectNote from "./components/InspectNote.jsx";
 import cvFile from "@/assets/ezequielGonzalez.pdf";
 import portrait from "@/assets/pila-hero.webp";
 
@@ -267,6 +268,7 @@ function SideProjects({ inspectActive }) {
                 {inspectActive ? (
                     <InspectNote
                         title="SideProjectCard"
+                        placement="side-projects"
                         items={[
                             "Projects sourced from siteData.js",
                             "Reusable card for linked and private work",
@@ -311,12 +313,13 @@ function SideProjects({ inspectActive }) {
                     {inspectActive ? (
                         <InspectNote
                             title="Playground boundary"
+                            placement="playground"
                             items={[
                                 "Experiments deliberately de-emphasized",
                                 "Same data-driven rendering pattern",
                                 "Compact DOM and no client state",
                             ]}
-                            align="left"
+                            side="left"
                         />
                     ) : null}
                 </div>
@@ -444,6 +447,7 @@ export default function SignalShowcase() {
 
     return (
         <div className="signal-root" data-inspect={inspectActive}>
+            {inspectActive ? <div className="sg-inspect-xray" aria-hidden="true" /> : null}
             <ScrollProgress />
             <CustomCursor />
             <SignalNav cvHref={cvFile} />
@@ -563,13 +567,14 @@ export default function SignalShowcase() {
                     {inspectActive ? (
                         <InspectNote
                             title="Hero system"
+                            placement="hero"
                             items={[
                                 "React 18 component tree",
                                 "Framer Motion entrance states",
                                 "Reduced-motion aware",
                                 "Responsive media asset",
                             ]}
-                            align="left"
+                            side="left"
                         />
                     ) : null}
                 </div>
@@ -589,6 +594,7 @@ export default function SignalShowcase() {
                     {inspectActive ? (
                         <InspectNote
                             title="ScrollTextReveal"
+                            placement="positioning"
                             items={[
                                 "useScroll drives reveal progress",
                                 "Per-letter transforms, no layout mutation",
@@ -633,12 +639,13 @@ export default function SignalShowcase() {
                     {inspectActive ? (
                         <InspectNote
                             title="PrincipleCard"
+                            placement="philosophy"
                             items={[
                                 "useInView activates each principle",
                                 "Reduced-motion bypasses animated opacity",
                                 "Reusable data model, no duplicated markup",
                             ]}
-                            align="left"
+                            side="left"
                         />
                     ) : null}
                 </div>
@@ -661,6 +668,7 @@ export default function SignalShowcase() {
                     {inspectActive ? (
                         <InspectNote
                             title="Selected Work"
+                            placement="work"
                             items={[
                                 "Data-driven from caseData.js",
                                 "React Router case-study routes",
@@ -680,76 +688,22 @@ export default function SignalShowcase() {
             <SectionSignalTuning label={SECTION_TUNING_LINES[4]} />
 
             {/* ---------- CAPABILITIES ---------- */}
-            <Capabilities />
-            {inspectActive ? (
-                <div className="sg-shell sg-inspect-section-note">
-                    <InspectNote
-                        title="Capability model"
-                        items={[
-                            "Content separated from presentation",
-                            "Semantic section boundaries",
-                            "Design tokens drive spacing and color",
-                        ]}
-                    />
-                </div>
-            ) : null}
+            <Capabilities inspectActive={inspectActive} />
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[5]} />
 
             {/* ---------- STACK ---------- */}
-            <Stack />
-            {inspectActive ? (
-                <div className="sg-shell sg-inspect-section-note">
-                    <InspectNote
-                        title="Stack.jsx"
-                        items={[
-                            "Scroll-driven arc carousel",
-                            "Three tiled copies create continuous travel",
-                            "useSpring smooths derived rotation",
-                            "Static single-copy fallback for reduced motion",
-                            "Hidden semantic list preserves readable content",
-                        ]}
-                        align="left"
-                    />
-                </div>
-            ) : null}
+            <Stack inspectActive={inspectActive} />
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[6]} />
 
             {/* ---------- JOURNEY ---------- */}
-            <Journey />
-            {inspectActive ? (
-                <div className="sg-shell sg-inspect-section-note">
-                    <InspectNote
-                        title="Journey.jsx"
-                        items={[
-                            "Career data lives outside presentation",
-                            "useScroll drives timeline progress",
-                            "useSpring prevents abrupt progress changes",
-                            "Reduced-motion renders full static timeline",
-                        ]}
-                    />
-                </div>
-            ) : null}
+            <Journey inspectActive={inspectActive} />
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[7]} />
 
             {/* ---------- PROOF ---------- */}
-            <Proof />
-            {inspectActive ? (
-                <div className="sg-shell sg-inspect-section-note">
-                    <InspectNote
-                        title="Proof.jsx"
-                        items={[
-                            "Testimonials and metrics are structured data",
-                            "MetricCounter isolates number animation",
-                            "Repeated content uses one Reveal primitive",
-                            "Evidence kept separate from self-description",
-                        ]}
-                        align="left"
-                    />
-                </div>
-            ) : null}
+            <Proof inspectActive={inspectActive} />
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[0]} />
 
@@ -783,6 +737,7 @@ export default function SignalShowcase() {
                     {inspectActive ? (
                         <InspectNote
                             title="Contact surface"
+                            placement="contact"
                             items={[
                                 "Native mailto and download actions",
                                 "External links use safe rel attributes",
