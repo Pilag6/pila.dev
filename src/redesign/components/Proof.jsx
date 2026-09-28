@@ -1,8 +1,9 @@
 import { testimonials, proofMetrics } from "../siteData.js";
 import Reveal from "./Reveal.jsx";
 import MetricCounter from "./MetricCounter.jsx";
+import InspectNote from "./InspectNote.jsx";
 
-export default function Proof() {
+export default function Proof({ inspectActive = false }) {
     return (
         <section className="sg-section" id="proof">
             <div className="sg-shell">
@@ -34,6 +35,19 @@ export default function Proof() {
                         <MetricCounter key={m.label} {...m} />
                     ))}
                 </div>
+                {inspectActive ? (
+                    <InspectNote
+                        title="Proof.jsx"
+                        placement="proof"
+                        side="left"
+                        items={[
+                            "Testimonials and metrics are structured data",
+                            "MetricCounter isolates number animation",
+                            "Repeated content uses one Reveal primitive",
+                            "Evidence stays separate from self-description",
+                        ]}
+                    />
+                ) : null}
             </div>
         </section>
     );
