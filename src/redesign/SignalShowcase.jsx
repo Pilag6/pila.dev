@@ -588,7 +588,7 @@ export default function SignalShowcase() {
             <SectionSignalTuning label={SECTION_TUNING_LINES[0]} />
 
             {/* ---------- POSITIONING ---------- */}
-            <section className="sg-section">
+            <section className="sg-section" id="positioning">
                 <div className="sg-shell">
                     <ScrollTextReveal text={POSITIONING_STATEMENT} />
                     {inspectActive ? (
