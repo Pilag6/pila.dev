@@ -22,7 +22,6 @@ import {
 } from "react-icons/si";
 import { stack } from "../siteData.js";
 import Reveal from "./Reveal.jsx";
-import InspectNote from "./InspectNote.jsx";
 
 const ICONS = {
     react: SiReact,
@@ -66,7 +65,7 @@ const buildLoopItems = (copies) =>
  * re-enter from the other · an infinite scroll-driven carousel.
  * Reduced-motion → a static, centered arc (single copy).
  */
-export default function Stack({ inspectActive = false }) {
+export default function Stack() {
     const reduce = useReducedMotion();
     const ref = useRef(null);
 
@@ -109,11 +108,7 @@ export default function Stack({ inspectActive = false }) {
                 </Reveal>
             </div>
 
-            <div
-                className="sg-stack__stage"
-                aria-hidden="true"
-                data-inspect-label="Scroll-driven technology ring"
-            >
+            <div className="sg-stack__stage" aria-hidden="true">
                 <div className="sg-stack__glow" />
                 <motion.div
                     className="sg-stack__ring"
@@ -126,7 +121,6 @@ export default function Stack({ inspectActive = false }) {
                             <div
                                 key={tech.uid}
                                 className="sg-stack__card"
-                                data-inspect-label={`Tech card · ${tech.label}`}
                                 style={{
                                     "--card-color": tech.color,
                                     "--card-z": tech.zIndex,
@@ -148,20 +142,7 @@ export default function Stack({ inspectActive = false }) {
                     <li key={tech.id}>{tech.label}</li>
                 ))}
             </ul>
-            {inspectActive ? (
-                <InspectNote
-                    title="Stack.jsx"
-                    placement="stack"
-                    side="left"
-                    items={[
-                        "Scroll-driven arc carousel",
-                        "Three tiled copies create continuous travel",
-                        "useSpring smooths derived rotation",
-                        "Static single-copy fallback for reduced motion",
-                        "Hidden semantic list preserves readable content",
-                    ]}
-                />
-            ) : null}
+
         </section>
     );
 }
