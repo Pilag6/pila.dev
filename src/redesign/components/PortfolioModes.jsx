@@ -173,20 +173,6 @@ function EngineeringPanel({ onClose }) {
     );
 }
 
-export function InspectNote({ title, items, align = "right" }) {
-    return (
-        <aside className="sg-inspect-note" data-align={align} aria-hidden="true">
-            <span className="sg-inspect-note__pulse" />
-            <div>
-                <strong>{title}</strong>
-                <ul>
-                    {items.map((item) => <li key={item}>{item}</li>)}
-                </ul>
-            </div>
-        </aside>
-    );
-}
-
 export default function PortfolioModes({ inspectActive, onInspectChange, profile, cvHref, work }) {
     const [panel, setPanel] = useState(null);
     const panelRef = useRef(null);
