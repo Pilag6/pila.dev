@@ -1,7 +1,8 @@
 import { capabilities } from "../siteData.js";
 import Reveal from "./Reveal.jsx";
+import InspectNote from "./InspectNote.jsx";
 
-export default function Capabilities() {
+export default function Capabilities({ inspectActive = false }) {
     return (
         <section className="sg-section" id="capabilities">
             <div className="sg-shell">
@@ -30,6 +31,18 @@ export default function Capabilities() {
                         </Reveal>
                     ))}
                 </div>
+                {inspectActive ? (
+                    <InspectNote
+                        title="Capabilities"
+                        placement="capabilities"
+                        items={[
+                            "Capability data separated from presentation",
+                            "One reusable card pattern",
+                            "Design tokens drive spacing and color",
+                            "Semantic section boundary",
+                        ]}
+                    />
+                ) : null}
             </div>
         </section>
     );
