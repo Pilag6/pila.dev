@@ -451,7 +451,13 @@ export default function SignalShowcase() {
 
     return (
         <div className="signal-root" data-inspect={inspectActive}>
-            {inspectActive ? <div className="sg-inspect-xray" aria-hidden="true" /> : null}
+            {inspectActive ? (
+                <div className="sg-inspect-xray" aria-hidden="true">
+                    <div className="sg-inspect-xray__grid" />
+                    <div className="sg-inspect-xray__scan" />
+                    <div className="sg-inspect-xray__label">INSPECT MODE / UI X-RAY</div>
+                </div>
+            ) : null}
             <ScrollProgress />
             <CustomCursor />
             <SignalNav cvHref={cvFile} />
