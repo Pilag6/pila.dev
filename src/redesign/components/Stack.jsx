@@ -22,6 +22,7 @@ import {
 } from "react-icons/si";
 import { stack } from "../siteData.js";
 import Reveal from "./Reveal.jsx";
+import InspectNote from "./InspectNote.jsx";
 
 const ICONS = {
     react: SiReact,
@@ -65,7 +66,7 @@ const buildLoopItems = (copies) =>
  * re-enter from the other · an infinite scroll-driven carousel.
  * Reduced-motion → a static, centered arc (single copy).
  */
-export default function Stack() {
+export default function Stack({ inspectActive = false }) {
     const reduce = useReducedMotion();
     const ref = useRef(null);
 
@@ -142,6 +143,20 @@ export default function Stack() {
                     <li key={tech.id}>{tech.label}</li>
                 ))}
             </ul>
+            {inspectActive ? (
+                <InspectNote
+                    title="Stack.jsx"
+                    placement="stack"
+                    side="left"
+                    items={[
+                        "Scroll-driven arc carousel",
+                        "Three tiled copies create continuous travel",
+                        "useSpring smooths derived rotation",
+                        "Static single-copy fallback for reduced motion",
+                        "Hidden semantic list preserves readable content",
+                    ]}
+                />
+            ) : null}
         </section>
     );
 }
