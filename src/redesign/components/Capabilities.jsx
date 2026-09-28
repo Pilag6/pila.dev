@@ -17,7 +17,12 @@ export default function Capabilities({ inspectActive = false }) {
 
                 <div className="sg-cap__grid">
                     {capabilities.map((cap, i) => (
-                        <Reveal key={cap.id} delay={(i % 3) * 0.06} className="sg-cap">
+                        <Reveal
+                            key={cap.id}
+                            delay={(i % 3) * 0.06}
+                            className="sg-cap"
+                            data-inspect-label={`Capability · ${cap.title}`}
+                        >
                             <span className="sg-cap__idx">{String(i + 1).padStart(2, "0")}</span>
                             <h3 className="sg-cap__title">{cap.title}</h3>
                             <p className="sg-cap__body">{cap.body}</p>
