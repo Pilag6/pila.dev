@@ -109,7 +109,11 @@ export default function Stack({ inspectActive = false }) {
                 </Reveal>
             </div>
 
-            <div className="sg-stack__stage" aria-hidden="true">
+            <div
+                className="sg-stack__stage"
+                aria-hidden="true"
+                data-inspect-label="Scroll-driven technology ring"
+            >
                 <div className="sg-stack__glow" />
                 <motion.div
                     className="sg-stack__ring"
@@ -122,6 +126,7 @@ export default function Stack({ inspectActive = false }) {
                             <div
                                 key={tech.uid}
                                 className="sg-stack__card"
+                                data-inspect-label={`Tech card · ${tech.label}`}
                                 style={{
                                     "--card-color": tech.color,
                                     "--card-z": tech.zIndex,
