@@ -1344,14 +1344,19 @@
     z-index: 84;
     pointer-events: none;
     overflow: hidden;
+}
+
+.sg-inspect-xray__grid {
+    position: absolute;
+    inset: 0;
     background:
         linear-gradient(rgba(182,90,58,0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(182,90,58,0.05) 1px, transparent 1px);
     background-size: 32px 32px;
-    animation: sg-inspect-grid-flash 1.2s var(--ease-signal) both;
+    animation: sg-inspect-grid-flash 1.35s var(--ease-signal) both;
 }
-.sg-inspect-xray::before {
-    content: "";
+
+.sg-inspect-xray__scan {
     position: absolute;
     left: 0;
     right: 0;
@@ -1370,21 +1375,22 @@
     box-shadow: 0 18px 42px rgba(182,90,58,0.16);
     animation: sg-inspect-scan 1.35s cubic-bezier(.22,.76,.22,1) both;
 }
-.sg-inspect-xray::after {
-    content: "INSPECT MODE / UI X-RAY";
+
+.sg-inspect-xray__label {
     position: absolute;
     top: 84px;
     left: 50%;
     transform: translateX(-50%);
     padding: 6px 10px;
     border: 1px solid rgba(182,90,58,0.46);
-    background: rgba(18,10,8,0.84);
+    background: rgba(18,10,8,0.9);
     color: #f0b7a2;
     font-family: var(--sg-mono);
     font-size: .62rem;
     letter-spacing: .14em;
+    white-space: nowrap;
     opacity: 0;
-    animation: sg-inspect-label 3.2s .18s var(--ease-signal) both;
+    animation: sg-inspect-label 5.2s .18s var(--ease-signal) both;
 }
 
 @keyframes sg-inspect-scan {
@@ -1399,10 +1405,11 @@
 }
 @keyframes sg-inspect-label {
     0% { opacity: 0; transform: translate(-50%, -6px); }
-    10% { opacity: 1; transform: translate(-50%, 0); }
-    82% { opacity: 1; transform: translate(-50%, 0); }
+    6% { opacity: 1; transform: translate(-50%, 0); }
+    90% { opacity: 1; transform: translate(-50%, 0); }
     100% { opacity: 0; transform: translate(-50%, -2px); }
 }
+
 @keyframes sg-inspect-note-in {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
@@ -1479,7 +1486,7 @@
         margin: 18px 0 0;
     }
     .sg-inspect-note::before { display: none; }
-    .sg-inspect-xray::after { top: 70px; }
+    .sg-inspect-xray__label { top: 70px; }
 }
 @media (max-width: 520px) {
     .sg-mode-panel__signals,
