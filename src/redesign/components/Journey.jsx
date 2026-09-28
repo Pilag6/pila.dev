@@ -41,14 +41,22 @@ export default function Journey({ inspectActive = false }) {
                         ]}
                     />
                 ) : null}
-                <div className="sg-journey" ref={ref}>
+                <div
+                    className="sg-journey"
+                    ref={ref}
+                    data-inspect-label="Scroll-linked career timeline"
+                >
                     <div className="sg-journey__track" />
                     <motion.div
                         className="sg-journey__progress"
                         style={{ scaleY: reduce ? 1 : scaleY }}
                     />
                     {journey.map((j) => (
-                        <Reveal key={j.year + j.org} className="sg-journey__item">
+                        <Reveal
+                            key={j.year + j.org}
+                            className="sg-journey__item"
+                            data-inspect-label={`${j.year} · ${j.org}`}
+                        >
                             <div className="sg-journey__dot" />
                             <div className="sg-journey__year">{j.year}</div>
                             <div>
