@@ -144,7 +144,7 @@ function WorkList() {
                 {active && <img src={active} alt="" />}
             </div>
 
-            <div className="sg-work__list">
+            <div className="sg-work__list" data-inspect-label="Mapped from caseData.js">
                 {work.map((p, i) => (
                     <WorkFocusItem
                         key={p.slug}
@@ -176,6 +176,7 @@ function WorkFocusItem({ project, index, onPreviewEnter, onPreviewLeave }) {
                 to={`/work/${project.slug}`}
                 className="sg-work__item"
                 data-cursor="view"
+                data-inspect-label={`Case route · ${project.slug}`}
                 onMouseEnter={onPreviewEnter}
                 onMouseLeave={onPreviewLeave}
             >
@@ -232,13 +233,14 @@ function SideProjectCard({ project, index }) {
                 target="_blank"
                 rel="noreferrer"
                 data-cursor="view"
+                data-inspect-label="External side project"
             >
                 {content}
             </a>
         );
     }
 
-    return <article className="sg-side-project">{content}</article>;
+    return <article className="sg-side-project" data-inspect-label="Private side project">{content}</article>;
 }
 
 function SideProjects({ inspectActive }) {
@@ -258,7 +260,7 @@ function SideProjects({ inspectActive }) {
                         </p>
                     </Reveal>
                 </div>
-                <div className="sg-side-projects__grid">
+                <div className="sg-side-projects__grid" data-inspect-label="Reusable SideProjectCard grid">
                     {sideProjects.map((project, index) => (
                         <Reveal key={project.title} delay={(index % 3) * 0.05}>
                             <SideProjectCard project={project} index={index} />
@@ -290,7 +292,7 @@ function SideProjects({ inspectActive }) {
                             </p>
                         </div>
                     </Reveal>
-                    <div className="sg-playground__list">
+                    <div className="sg-playground__list" data-inspect-label="Low-emphasis experiment list">
                         {playgroundProjects.map((project, index) => (
                             <Reveal key={project.title} delay={index * 0.04}>
                                 <a
@@ -299,6 +301,7 @@ function SideProjects({ inspectActive }) {
                                     rel="noreferrer"
                                     className="sg-playground__item"
                                     data-cursor="view"
+                                    data-inspect-label="Playground link"
                                 >
                                     <span className="sg-mono-label">
                                         {String(index + 1).padStart(2, "0")}
@@ -424,6 +427,7 @@ function PrincipleCard({ principle, index }) {
             ref={ref}
             className="sg-principle"
             data-active={reduceMotion || isInView}
+            data-inspect-label="Scroll-aware principle"
             initial={false}
             animate={reduceMotion || isInView ? { opacity: 1 } : { opacity: 0.72 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: index * 0.04 }}
@@ -466,7 +470,7 @@ export default function SignalShowcase() {
                 </div>
 
                 <div className="sg-shell sg-hero__inner">
-                    <div className="sg-hero__text">
+                    <div className="sg-hero__text" data-inspect-label="Hero copy · content layer">
                         <Reveal y={0} trigger="mount">
                             <span className="sg-eyebrow sg-hero__eyebrow">
                                 {profile.location}
@@ -490,7 +494,7 @@ export default function SignalShowcase() {
                             14 years building product interfaces across startups and large-scale platforms. I specialize in <strong>TypeScript, React, Vue and Astro</strong>, owning <strong>frontend architecture, performance, accessibility</strong> and <strong>design systems</strong> end to end, with current work focused on <strong>AI-powered products</strong>.
                             </p>
                         </Reveal>
-                        <div className="sg-hero__cta">
+                        <div className="sg-hero__cta" data-inspect-label="Primary action group">
                             <Reveal delay={0.6} trigger="mount">
                                 <Magnetic>
                                     <a href="#work" className="sg-btn sg-btn--solid" data-cursor="view">
@@ -543,7 +547,7 @@ export default function SignalShowcase() {
 
                         {/* "previously at" wordmark strip */}
                         <Reveal delay={0.96} trigger="mount">
-                            <div className="sg-hero__prev">
+                            <div className="sg-hero__prev" data-inspect-label="Career proof strip">
                                 <span className="sg-mono-label">Previously</span>
                                 <div className="sg-hero__prevList">
                                     {profile.previously.map((c) => (
@@ -556,7 +560,13 @@ export default function SignalShowcase() {
                         </Reveal>
                     </div>
 
-                    <Reveal className="sg-hero__portrait" delay={0.3} y={0} trigger="mount">
+                    <Reveal
+                        className="sg-hero__portrait"
+                        delay={0.3}
+                        y={0}
+                        trigger="mount"
+                        data-inspect-label="Responsive portrait asset"
+                    >
                         <img
                             src={portrait}
                             alt="Portrait of Ezequiel “Pila” Gonzalez"
@@ -590,7 +600,9 @@ export default function SignalShowcase() {
             {/* ---------- POSITIONING ---------- */}
             <section className="sg-section" id="positioning">
                 <div className="sg-shell">
-                    <ScrollTextReveal text={POSITIONING_STATEMENT} />
+                    <div className="sg-inspect-anchor" data-inspect-label="Scroll-linked text reveal">
+                        <ScrollTextReveal text={POSITIONING_STATEMENT} />
+                    </div>
                     {inspectActive ? (
                         <InspectNote
                             title="ScrollTextReveal"
@@ -603,7 +615,11 @@ export default function SignalShowcase() {
                             ]}
                         />
                     ) : null}
-                    <div className="sg-facts" style={{ marginTop: "var(--sp-10)" }}>
+                    <div
+                        className="sg-facts"
+                        style={{ marginTop: "var(--sp-10)" }}
+                        data-inspect-label="Evidence metrics · structured data"
+                    >
                         {[
                             { n: "14+", l: "Years shipping" },
                             { n: "30%", l: "Faster (Skyscanner)" },
@@ -611,7 +627,7 @@ export default function SignalShowcase() {
                             { n: "AA", l: "Accessibility baseline" },
                         ].map((f, i) => (
                             <Reveal key={f.l} delay={i * 0.08}>
-                                <div>
+                                <div data-inspect-label={`Metric · ${f.l}`}>
                                     <div className="sg-fact__num">
                                         <AirportBoardValue value={f.n} />
                                     </div>
@@ -721,11 +737,12 @@ export default function SignalShowcase() {
                             href={`mailto:${profile.email}`}
                             className="sg-contact__email sg-h2"
                             data-cursor="view"
+                            data-inspect-label="Native mailto action"
                         >
                             {profile.email}
                         </a>
                     </Reveal>
-                    <div className="sg-hero__cta">
+                    <div className="sg-hero__cta" data-inspect-label="Download action">
                         <Reveal delay={0.3}>
                             <Magnetic>
                                 <a href={cvFile} download className="sg-btn sg-btn--solid" data-cursor="view">
@@ -747,7 +764,7 @@ export default function SignalShowcase() {
                         />
                     ) : null}
                     <Reveal delay={0.4}>
-                        <div className="sg-contact__links">
+                        <div className="sg-contact__links" data-inspect-label="External profile links">
                             <a href={profile.github} target="_blank" rel="noreferrer" data-cursor="view">
                                 {profile.githubLabel}
                             </a>
