@@ -715,7 +715,7 @@ export default function SignalShowcase() {
             <SectionSignalTuning label={SECTION_TUNING_LINES[5]} />
 
             {/* ---------- STACK ---------- */}
-            <Stack inspectActive={inspectActive} />
+            <Stack />
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[6]} />
 
