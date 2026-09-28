@@ -2,12 +2,13 @@ import { useRef } from "react";
 import { motion, useScroll, useSpring, useReducedMotion } from "framer-motion";
 import { journey } from "../siteData.js";
 import Reveal from "./Reveal.jsx";
+import InspectNote from "./InspectNote.jsx";
 
 /**
  * Journey — scroll-driven career timeline. The accent line draws itself as the
  * section passes through the viewport. Reduced-motion → full static line.
  */
-export default function Journey() {
+export default function Journey({ inspectActive = false }) {
     const reduce = useReducedMotion();
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -28,6 +29,18 @@ export default function Journey() {
                     </p>
                 </Reveal>
 
+                {inspectActive ? (
+                    <InspectNote
+                        title="Journey.jsx"
+                        placement="journey"
+                        items={[
+                            "Career data lives outside presentation",
+                            "useScroll drives timeline progress",
+                            "useSpring prevents abrupt progress changes",
+                            "Reduced-motion renders full static timeline",
+                        ]}
+                    />
+                ) : null}
                 <div className="sg-journey" ref={ref}>
                     <div className="sg-journey__track" />
                     <motion.div
