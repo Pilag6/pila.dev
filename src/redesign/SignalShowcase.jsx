@@ -18,6 +18,7 @@ import Stack from "./components/Stack.jsx";
 import Journey from "./components/Journey.jsx";
 import Proof from "./components/Proof.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
+import PortfolioModes, { InspectNote } from "./components/PortfolioModes.jsx";
 import cvFile from "@/assets/ezequielGonzalez.pdf";
 import portrait from "@/assets/pila-hero.webp";
 
@@ -417,12 +418,20 @@ function PrincipleCard({ principle, index }) {
 
 export default function SignalShowcase() {
     useLenis();
+    const [inspectActive, setInspectActive] = useState(false);
 
     return (
-        <div className="signal-root">
+        <div className="signal-root" data-inspect={inspectActive}>
             <ScrollProgress />
             <CustomCursor />
             <SignalNav cvHref={cvFile} />
+            <PortfolioModes
+                inspectActive={inspectActive}
+                onInspectChange={setInspectActive}
+                profile={profile}
+                cvHref={cvFile}
+                work={work}
+            />
 
             {/* ---------- HERO ---------- */}
             <header className="sg-hero">
@@ -529,6 +538,18 @@ export default function SignalShowcase() {
                             height="950"
                         />
                     </Reveal>
+                    {inspectActive ? (
+                        <InspectNote
+                            title="Hero system"
+                            items={[
+                                "React 18 component tree",
+                                "Framer Motion entrance states",
+                                "Reduced-motion aware",
+                                "Responsive media asset",
+                            ]}
+                            align="left"
+                        />
+                    ) : null}
                 </div>
 
                 <div className="sg-hero__scroll">
@@ -593,6 +614,17 @@ export default function SignalShowcase() {
                         </p>
                     </Reveal>
                     <WorkList />
+                    {inspectActive ? (
+                        <InspectNote
+                            title="Selected Work"
+                            items={[
+                                "Data-driven from caseData.js",
+                                "React Router case-study routes",
+                                "Pointer preview without layout shift",
+                                "Motion disabled for reduced-motion users",
+                            ]}
+                        />
+                    ) : null}
                 </div>
             </section>
 
@@ -600,11 +632,36 @@ export default function SignalShowcase() {
 
             {/* ---------- SIDE PROJECTS ---------- */}
             <SideProjects />
+            {inspectActive ? (
+                <div className="sg-shell sg-inspect-section-note">
+                    <InspectNote
+                        title="Project hierarchy"
+                        items={[
+                            "Flagship work separated from side projects",
+                            "Playground isolated from recruiter-critical work",
+                            "External links open without taking over app routing",
+                        ]}
+                        align="left"
+                    />
+                </div>
+            ) : null}
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[4]} />
 
             {/* ---------- CAPABILITIES ---------- */}
             <Capabilities />
+            {inspectActive ? (
+                <div className="sg-shell sg-inspect-section-note">
+                    <InspectNote
+                        title="Capability model"
+                        items={[
+                            "Content separated from presentation",
+                            "Semantic section boundaries",
+                            "Design tokens drive spacing and color",
+                        ]}
+                    />
+                </div>
+            ) : null}
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[5]} />
 
