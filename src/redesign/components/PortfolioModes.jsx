@@ -194,8 +194,11 @@ export default function PortfolioModes({ inspectActive, onInspectChange, profile
     useEffect(() => {
         if (!panel) return undefined;
 
-        const previousOverflow = document.body.style.overflow;
+        const previousBodyOverflow = document.body.style.overflow;
+        const previousHtmlOverflow = document.documentElement.style.overflow;
         document.body.style.overflow = "hidden";
+        document.documentElement.style.overflow = "hidden";
+        window.__signalLenis?.stop();
 
         const onKeyDown = (event) => {
             if (event.key === "Escape") setPanel(null);
@@ -205,7 +208,9 @@ export default function PortfolioModes({ inspectActive, onInspectChange, profile
         requestAnimationFrame(() => panelRef.current?.focus());
 
         return () => {
-            document.body.style.overflow = previousOverflow;
+            document.body.style.overflow = previousBodyOverflow;
+            document.documentElement.style.overflow = previousHtmlOverflow;
+            window.__signalLenis?.start();
             window.removeEventListener("keydown", onKeyDown);
         };
     }, [panel]);
@@ -252,6 +257,9 @@ export default function PortfolioModes({ inspectActive, onInspectChange, profile
                         aria-label={panel === "recruiter" ? "Recruiter view" : "Engineering view"}
                         tabIndex={-1}
                         ref={panelRef}
+                        data-lenis-prevent
+                        data-lenis-prevent-wheel
+                        data-lenis-prevent-touch
                         onMouseDown={(event) => event.stopPropagation()}
                     >
                         <button
