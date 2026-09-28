@@ -1303,7 +1303,6 @@
 .sg-inspect-note--side-projects { top: 24%; right: 0; }
 .sg-inspect-note--playground { top: 18%; left: 0; right: auto; }
 .sg-inspect-note--capabilities { top: 18%; right: 0; }
-.sg-inspect-note--stack { top: 22%; left: max(20px, calc((100vw - min(1180px, 90vw)) / 2)); right: auto; }
 .sg-inspect-note--journey { top: 18%; right: 0; }
 .sg-inspect-note--proof { top: 20%; left: 0; right: auto; }
 .sg-inspect-note--contact { top: 22%; right: 0; }
@@ -1313,7 +1312,6 @@
 .signal-root[data-inspect="true"] #side-projects,
 .signal-root[data-inspect="true"] #philosophy,
 .signal-root[data-inspect="true"] #capabilities,
-.signal-root[data-inspect="true"] #stack,
 .signal-root[data-inspect="true"] #journey,
 .signal-root[data-inspect="true"] #proof,
 .signal-root[data-inspect="true"] #contact {
