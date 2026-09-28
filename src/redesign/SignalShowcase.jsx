@@ -240,7 +240,7 @@ function SideProjectCard({ project, index }) {
     return <article className="sg-side-project">{content}</article>;
 }
 
-function SideProjects() {
+function SideProjects({ inspectActive }) {
     return (
         <section className="sg-section sg-side-projects" id="side-projects">
             <div className="sg-shell">
@@ -264,6 +264,17 @@ function SideProjects() {
                         </Reveal>
                     ))}
                 </div>
+                {inspectActive ? (
+                    <InspectNote
+                        title="SideProjectCard"
+                        items={[
+                            "Projects sourced from siteData.js",
+                            "Reusable card for linked and private work",
+                            "External navigation isolated from app routing",
+                            "Content hierarchy separated from flagship cases",
+                        ]}
+                    />
+                ) : null}
 
                 <div className="sg-playground">
                     <Reveal>
@@ -297,6 +308,17 @@ function SideProjects() {
                             </Reveal>
                         ))}
                     </div>
+                    {inspectActive ? (
+                        <InspectNote
+                            title="Playground boundary"
+                            items={[
+                                "Experiments deliberately de-emphasized",
+                                "Same data-driven rendering pattern",
+                                "Compact DOM and no client state",
+                            ]}
+                            align="left"
+                        />
+                    ) : null}
                 </div>
             </div>
         </section>
@@ -564,6 +586,17 @@ export default function SignalShowcase() {
             <section className="sg-section">
                 <div className="sg-shell">
                     <ScrollTextReveal text={POSITIONING_STATEMENT} />
+                    {inspectActive ? (
+                        <InspectNote
+                            title="ScrollTextReveal"
+                            items={[
+                                "useScroll drives reveal progress",
+                                "Per-letter transforms, no layout mutation",
+                                "Visually hidden full sentence for assistive tech",
+                                "Reduced-motion path renders static text",
+                            ]}
+                        />
+                    ) : null}
                     <div className="sg-facts" style={{ marginTop: "var(--sp-10)" }}>
                         {[
                             { n: "14+", l: "Years shipping" },
@@ -597,6 +630,17 @@ export default function SignalShowcase() {
                             <PrincipleCard key={p.title} principle={p} index={i} />
                         ))}
                     </div>
+                    {inspectActive ? (
+                        <InspectNote
+                            title="PrincipleCard"
+                            items={[
+                                "useInView activates each principle",
+                                "Reduced-motion bypasses animated opacity",
+                                "Reusable data model, no duplicated markup",
+                            ]}
+                            align="left"
+                        />
+                    ) : null}
                 </div>
             </section>
 
@@ -631,20 +675,7 @@ export default function SignalShowcase() {
             <SectionSignalTuning label={SECTION_TUNING_LINES[3]} />
 
             {/* ---------- SIDE PROJECTS ---------- */}
-            <SideProjects />
-            {inspectActive ? (
-                <div className="sg-shell sg-inspect-section-note">
-                    <InspectNote
-                        title="Project hierarchy"
-                        items={[
-                            "Flagship work separated from side projects",
-                            "Playground isolated from recruiter-critical work",
-                            "External links open without taking over app routing",
-                        ]}
-                        align="left"
-                    />
-                </div>
-            ) : null}
+            <SideProjects inspectActive={inspectActive} />
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[4]} />
 
@@ -667,16 +698,58 @@ export default function SignalShowcase() {
 
             {/* ---------- STACK ---------- */}
             <Stack />
+            {inspectActive ? (
+                <div className="sg-shell sg-inspect-section-note">
+                    <InspectNote
+                        title="Stack.jsx"
+                        items={[
+                            "Scroll-driven arc carousel",
+                            "Three tiled copies create continuous travel",
+                            "useSpring smooths derived rotation",
+                            "Static single-copy fallback for reduced motion",
+                            "Hidden semantic list preserves readable content",
+                        ]}
+                        align="left"
+                    />
+                </div>
+            ) : null}
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[6]} />
 
             {/* ---------- JOURNEY ---------- */}
             <Journey />
+            {inspectActive ? (
+                <div className="sg-shell sg-inspect-section-note">
+                    <InspectNote
+                        title="Journey.jsx"
+                        items={[
+                            "Career data lives outside presentation",
+                            "useScroll drives timeline progress",
+                            "useSpring prevents abrupt progress changes",
+                            "Reduced-motion renders full static timeline",
+                        ]}
+                    />
+                </div>
+            ) : null}
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[7]} />
 
             {/* ---------- PROOF ---------- */}
             <Proof />
+            {inspectActive ? (
+                <div className="sg-shell sg-inspect-section-note">
+                    <InspectNote
+                        title="Proof.jsx"
+                        items={[
+                            "Testimonials and metrics are structured data",
+                            "MetricCounter isolates number animation",
+                            "Repeated content uses one Reveal primitive",
+                            "Evidence kept separate from self-description",
+                        ]}
+                        align="left"
+                    />
+                </div>
+            ) : null}
 
             <SectionSignalTuning label={SECTION_TUNING_LINES[0]} />
 
@@ -707,6 +780,17 @@ export default function SignalShowcase() {
                             </Magnetic>
                         </Reveal>
                     </div>
+                    {inspectActive ? (
+                        <InspectNote
+                            title="Contact surface"
+                            items={[
+                                "Native mailto and download actions",
+                                "External links use safe rel attributes",
+                                "Magnetic interaction stays progressive enhancement",
+                                "No form dependency for primary contact path",
+                            ]}
+                        />
+                    ) : null}
                     <Reveal delay={0.4}>
                         <div className="sg-contact__links">
                             <a href={profile.github} target="_blank" rel="noreferrer" data-cursor="view">
