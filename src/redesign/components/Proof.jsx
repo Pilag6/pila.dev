@@ -1,8 +1,9 @@
 import { testimonials, proofMetrics } from "../siteData.js";
 import Reveal from "./Reveal.jsx";
 import MetricCounter from "./MetricCounter.jsx";
+import InspectNote from "./InspectNote.jsx";
 
-export default function Proof() {
+export default function Proof({ inspectActive = false }) {
     return (
         <section className="sg-section" id="proof">
             <div className="sg-shell">
@@ -17,7 +18,12 @@ export default function Proof() {
 
                 <div className="sg-quotes">
                     {testimonials.map((t, i) => (
-                        <Reveal key={t.name + t.org} delay={i * 0.08} className="sg-quote">
+                        <Reveal
+                            key={t.name + t.org}
+                            delay={i * 0.08}
+                            className="sg-quote"
+                            data-inspect-label="testimonials.map · index-staggered Reveal"
+                        >
                             <div className="sg-quote__mark" aria-hidden="true">
                                 “
                             </div>
@@ -29,11 +35,24 @@ export default function Proof() {
                     ))}
                 </div>
 
-                <div className="sg-proof__metrics">
+                <div className="sg-proof__metrics" data-inspect-label="Authored proofMetrics → MetricCounter props">
                     {proofMetrics.map((m) => (
                         <MetricCounter key={m.label} {...m} />
                     ))}
                 </div>
+                {inspectActive ? (
+                    <InspectNote
+                        title="Authored targets + count-up state"
+                        placement="proof"
+                        side="left"
+                        items={[
+                            "siteData.js supplies quotes and metric targets",
+                            "useInView starts a requestAnimationFrame count-up",
+                            "MetricCounter formats decimals and suffixes",
+                            "Reduced motion shows final values immediately",
+                        ]}
+                    />
+                ) : null}
             </div>
         </section>
     );

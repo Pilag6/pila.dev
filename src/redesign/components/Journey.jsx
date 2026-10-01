@@ -2,12 +2,13 @@ import { useRef } from "react";
 import { motion, useScroll, useSpring, useReducedMotion } from "framer-motion";
 import { journey } from "../siteData.js";
 import Reveal from "./Reveal.jsx";
+import InspectNote from "./InspectNote.jsx";
 
 /**
  * Journey — scroll-driven career timeline. The accent line draws itself as the
  * section passes through the viewport. Reduced-motion → full static line.
  */
-export default function Journey() {
+export default function Journey({ inspectActive = false }) {
     const reduce = useReducedMotion();
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -28,14 +29,34 @@ export default function Journey() {
                     </p>
                 </Reveal>
 
-                <div className="sg-journey" ref={ref}>
+                {inspectActive ? (
+                    <InspectNote
+                        title="Scroll progress → spring → scaleY"
+                        placement="journey"
+                        items={[
+                            "journey from siteData.js maps to Reveal rows",
+                            "useScroll measures the timeline container ref",
+                            "useSpring smooths progress into scaleY",
+                            "Reduced motion sets the progress line scaleY to 1",
+                        ]}
+                    />
+                ) : null}
+                <div
+                    className="sg-journey"
+                    ref={ref}
+                    data-inspect-label="Container ref → useScroll target"
+                >
                     <div className="sg-journey__track" />
                     <motion.div
                         className="sg-journey__progress"
                         style={{ scaleY: reduce ? 1 : scaleY }}
                     />
                     {journey.map((j) => (
-                        <Reveal key={j.year + j.org} className="sg-journey__item">
+                        <Reveal
+                            key={j.year + j.org}
+                            className="sg-journey__item"
+                            data-inspect-label={`Mapped Reveal row · ${j.year}`}
+                        >
                             <div className="sg-journey__dot" />
                             <div className="sg-journey__year">{j.year}</div>
                             <div>

@@ -142,6 +142,7 @@ export default function Stack() {
                     <li key={tech.id}>{tech.label}</li>
                 ))}
             </ul>
+
         </section>
     );
 }
