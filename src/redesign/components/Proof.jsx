@@ -22,7 +22,7 @@ export default function Proof({ inspectActive = false }) {
                             key={t.name + t.org}
                             delay={i * 0.08}
                             className="sg-quote"
-                            data-inspect-label="Testimonial evidence"
+                            data-inspect-label="testimonials.map · index-staggered Reveal"
                         >
                             <div className="sg-quote__mark" aria-hidden="true">
                                 “
@@ -35,21 +35,21 @@ export default function Proof({ inspectActive = false }) {
                     ))}
                 </div>
 
-                <div className="sg-proof__metrics" data-inspect-label="Measured outcomes">
+                <div className="sg-proof__metrics" data-inspect-label="Authored proofMetrics → MetricCounter props">
                     {proofMetrics.map((m) => (
                         <MetricCounter key={m.label} {...m} />
                     ))}
                 </div>
                 {inspectActive ? (
                     <InspectNote
-                        title="Proof.jsx"
+                        title="Authored targets + count-up state"
                         placement="proof"
                         side="left"
                         items={[
-                            "Testimonials and metrics are structured data",
-                            "MetricCounter isolates number animation",
-                            "Repeated content uses one Reveal primitive",
-                            "Evidence stays separate from self-description",
+                            "siteData.js supplies quotes and metric targets",
+                            "useInView starts a requestAnimationFrame count-up",
+                            "MetricCounter formats decimals and suffixes",
+                            "Reduced motion shows final values immediately",
                         ]}
                     />
                 ) : null}

@@ -21,7 +21,7 @@ export default function Capabilities({ inspectActive = false }) {
                             key={cap.id}
                             delay={(i % 3) * 0.06}
                             className="sg-cap"
-                            data-inspect-label={`Capability · ${cap.title}`}
+                            data-inspect-label={`Mapped card · key=${cap.id}`}
                         >
                             <span className="sg-cap__idx">{String(i + 1).padStart(2, "0")}</span>
                             <h3 className="sg-cap__title">{cap.title}</h3>
@@ -38,13 +38,13 @@ export default function Capabilities({ inspectActive = false }) {
                 </div>
                 {inspectActive ? (
                     <InspectNote
-                        title="Capabilities"
+                        title="Data-mapped auto-fit grid"
                         placement="capabilities"
                         items={[
-                            "Capability data separated from presentation",
-                            "One reusable card pattern",
-                            "Design tokens drive spacing and color",
-                            "Semantic section boundary",
+                            "capabilities comes from siteData.js",
+                            "cap.id keys each card; cap.items maps tags",
+                            "CSS auto-fit uses minmax(290px, 1fr)",
+                            "Reveal delay repeats every three cards",
                         ]}
                     />
                 ) : null}

@@ -31,20 +31,20 @@ export default function Journey({ inspectActive = false }) {
 
                 {inspectActive ? (
                     <InspectNote
-                        title="Journey.jsx"
+                        title="Scroll progress → spring → scaleY"
                         placement="journey"
                         items={[
-                            "Career data lives outside presentation",
-                            "useScroll drives timeline progress",
-                            "useSpring prevents abrupt progress changes",
-                            "Reduced-motion renders full static timeline",
+                            "journey from siteData.js maps to Reveal rows",
+                            "useScroll measures the timeline container ref",
+                            "useSpring smooths progress into scaleY",
+                            "Reduced motion sets the progress line scaleY to 1",
                         ]}
                     />
                 ) : null}
                 <div
                     className="sg-journey"
                     ref={ref}
-                    data-inspect-label="Scroll-linked career timeline"
+                    data-inspect-label="Container ref → useScroll target"
                 >
                     <div className="sg-journey__track" />
                     <motion.div
@@ -55,7 +55,7 @@ export default function Journey({ inspectActive = false }) {
                         <Reveal
                             key={j.year + j.org}
                             className="sg-journey__item"
-                            data-inspect-label={`${j.year} · ${j.org}`}
+                            data-inspect-label={`Mapped Reveal row · ${j.year}`}
                         >
                             <div className="sg-journey__dot" />
                             <div className="sg-journey__year">{j.year}</div>

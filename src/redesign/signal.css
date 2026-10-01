@@ -1307,6 +1307,20 @@
 .sg-inspect-note--proof { top: 20%; left: 0; right: auto; }
 .sg-inspect-note--contact { top: 22%; right: 0; }
 
+/* Reserve space for section notes instead of overlaying inspected content. */
+.signal-root[data-inspect="true"] .sg-inspect-note {
+    position: relative;
+    inset: auto !important;
+    width: min(360px, 100%);
+    margin: 24px 0 0;
+}
+.signal-root[data-inspect="true"] .sg-inspect-note[data-side="right"] {
+    margin-left: auto;
+}
+.signal-root[data-inspect="true"] .sg-inspect-note::before {
+    display: none;
+}
+
 .signal-root[data-inspect="true"] .sg-hero__inner,
 .signal-root[data-inspect="true"] #work .sg-shell,
 .signal-root[data-inspect="true"] #side-projects,
