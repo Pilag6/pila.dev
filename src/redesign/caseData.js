@@ -12,6 +12,7 @@ import riverPlate from "@/assets/projects/river-plate.webp";
 import descubre from "@/assets/projects/descubre.webp";
 import olga from "@/assets/projects/olga.webp";
 import integral from "@/assets/projects/integral.webp";
+import screenRecorder from "@/assets/projects/screen-recorder.webp";
 
 // Legacy portfolio screenshot lives in /public and is served at site root.
 const legacyShot = "/pila-portfolio-home.webp";
@@ -38,12 +39,12 @@ export const work = [
     },
     {
         slug: "screen-recorder",
-        title: "Screen Recorder",
+        title: "Screen Recorder for Linux",
         year: "2026",
         role: "Product Design, Desktop Engineering & Release",
         outcome: "A purpose-built Linux desktop recorder that turns complex X11 capture, audio routing and multi-monitor workflows into a clear, reliable interface.",
         tags: ["Python", "GTK3", "FFmpeg", "Linux X11"],
-        image: "/screen-recorder-banner.svg",
+        image: screenRecorder,
     },
     {
         slug: "signal-redesign",
@@ -97,8 +98,8 @@ export const caseStudies = {
         slug: "screen-recorder",
         title: "Screen Recorder",
         eyebrow: "Case Study · Linux Desktop Engineering",
-        image: "/screen-recorder-banner.svg",
-        featuredImage: "/screen-recorder-banner.svg",
+        image: screenRecorder,
+        featuredImage: screenRecorder,
         problem: "Screen recording on Linux should be a small, deliberate action. On my multi-monitor X11 setup, it had become a chain of terminal commands, capture geometry, audio-device choices and window-management workarounds. I built a native GTK application that hides that complexity without removing control.",
         meta: {
             Role: "Solo Developer · Product, UX, Architecture & Engineering",
