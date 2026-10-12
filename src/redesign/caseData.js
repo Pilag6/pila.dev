@@ -12,6 +12,7 @@ import riverPlate from "@/assets/projects/river-plate.webp";
 import descubre from "@/assets/projects/descubre.webp";
 import olga from "@/assets/projects/olga.webp";
 import integral from "@/assets/projects/integral.webp";
+import screenRecorder from "@/assets/projects/screen-recorder.webp";
 
 // Legacy portfolio screenshot lives in /public and is served at site root.
 const legacyShot = "/pila-portfolio-home.webp";
@@ -35,6 +36,15 @@ export const work = [
         outcome: "A multilingual publishing system with typed content, build-time validation, route intelligence, editorial tooling, and a deliberately small runtime surface.",
         tags: ["Astro", "TypeScript", "Content Graph", "Build-time Validation"],
         image: theBerlinAround,
+    },
+    {
+        slug: "screen-recorder",
+        title: "Screen Recorder for Linux",
+        year: "2026",
+        role: "Product Design, Desktop Engineering & Release",
+        outcome: "A purpose-built Linux desktop recorder that turns complex X11 capture, audio routing and multi-monitor workflows into a clear, reliable interface.",
+        tags: ["Python", "GTK3", "FFmpeg", "Linux X11"],
+        image: screenRecorder,
     },
     {
         slug: "signal-redesign",
@@ -84,6 +94,123 @@ export const work = [
 ];
 
 export const caseStudies = {
+    "screen-recorder": {
+        slug: "screen-recorder",
+        title: "Screen Recorder",
+        eyebrow: "Case Study · Linux Desktop Engineering",
+        image: screenRecorder,
+        featuredImage: screenRecorder,
+        problem: "Screen recording on Linux should be a small, deliberate action. On my multi-monitor X11 setup, it had become a chain of terminal commands, capture geometry, audio-device choices and window-management workarounds. I built a native GTK application that hides that complexity without removing control.",
+        meta: {
+            Role: "Solo Developer · Product, UX, Architecture & Engineering",
+            Type: "Open-source Linux desktop utility",
+            Year: "2026",
+            Stack: "Python 3 · GTK3 / PyGObject · FFmpeg · X11 · Bash",
+        },
+        links: [
+            { label: "View source on GitHub", href: "https://github.com/Pilag6/screen-recorder" },
+        ],
+        blocks: [
+            {
+                heading: "01 / The problem I wanted to solve",
+                body: [
+                    "I work across a laptop display and two external monitors. A recording might need the whole display, just one region, system sound, my microphone, or both. Making those decisions in a terminal is possible, but repeatedly remembering FFmpeg flags, PulseAudio devices, X11 coordinates and process lifecycle details is not a good product experience.",
+                    "The brief was straightforward: **choose what to capture, choose the audio, press Record, and trust the result**. Everything after that needed to feel like a native desktop workflow rather than a thin wrapper around a command.",
+                    "I designed for a real Linux Mint Cinnamon workstation, with X11 as an explicit architectural boundary rather than claiming universal Linux support.",
+                ],
+            },
+            {
+                heading: "02 / From CLI workflow to a coherent desktop product",
+                body: [
+                    "The first version was a set of command-line scripts and small helper windows. That proved the capture pipeline, but it left important responsibilities scattered across launchers, scripts and manually managed processes.",
+                    "I gradually consolidated the experience into a Python GTK3 application: source selection, audio routing, quality, output location, recording state, and visible desktop feedback now live in one compact interface.",
+                ],
+                list: [
+                    "Capture a selected screen region or any detected monitor.",
+                    "Record without audio, system audio, microphone audio, or both.",
+                    "Choose 30 or 60 FPS and Normal or High quality.",
+                    "Choose an output directory, with settings saved between sessions.",
+                    "Get a countdown, an outside-the-capture recording border, a REC indicator and a completion notification.",
+                ],
+            },
+            {
+                heading: "03 / Why the interface is deliberately simple",
+                body: [
+                    "The UI makes the most consequential decisions visible before recording starts. Screen source comes first; audio, frame rate and quality follow; the output destination and status remain readable above one primary action.",
+                    "The GTK interface is intentionally compact. I did not try to recreate an editing suite or invent configuration that users would have to understand before their first recording. The complexity lives in the application layer, not in the control panel.",
+                    "During recording, state-dependent controls are disabled. This prevents a settings change from appearing to affect an FFmpeg process that is already running.",
+                ],
+            },
+            {
+                heading: "04 / Multi-monitor capture without hard-coded machines",
+                body: [
+                    "My original setup had monitor names that made sense only on my own desk. That was useful during development, but it would have made the application confusing on another computer.",
+                    "The application now discovers displays using **xrandr --listmonitors** and separates the monitor's technical identity from its display label. Users can rename a display, and those aliases persist in local preferences. Unnamed displays fall back to a stable, understandable label.",
+                    "The recording engine uses the resolved display geometry rather than the custom label. If the selected monitor disappears, the UI returns to region selection rather than accidentally capturing a different display.",
+                ],
+            },
+            {
+                heading: "05 / The recording pipeline",
+                body: [
+                    "The architecture separates the **GTK presentation**, validated recording options, persistent preferences, process lifecycle and capture execution. The UI does not need to assemble shell commands, and the FFmpeg layer does not need to know how a radio button looks.",
+                    "On X11, FFmpeg's x11grab input captures a selected display geometry or user-defined region. Encoding uses H.264 with configurable frame rate and quality, producing MKV recordings. Audio input is selected from the system's PulseAudio-compatible interfaces.",
+                    "This is a pragmatic native desktop architecture: make each responsibility inspectable, keep the runtime dependencies explicit and preserve a direct path from user intent to capture configuration.",
+                ],
+            },
+            {
+                heading: "06 / Recording is a lifecycle, not a button",
+                body: [
+                    "A recording crosses several states: idle, countdown, starting, active, stopping, cleanup and completion. The dangerous bugs are not just encoding failures; they are stale indicators, abandoned subprocesses, duplicate launches and controls that no longer represent reality.",
+                    "I introduced a dedicated lifecycle layer to coordinate the cancellable countdown, FFmpeg subprocess, visual helpers and cleanup paths. Supporting scripts live inside the project rather than depending on files scattered throughout my home directory.",
+                    "The app uses a single-instance GTK application ID, integrates with the desktop launcher and returns useful feedback after recording rather than silently leaving a file somewhere.",
+                ],
+            },
+            {
+                heading: "07 / Feedback that stays outside the video",
+                body: [
+                    "Recording feedback should reassure the person recording, not appear in their exported footage. I built an external recording border and a separate REC indicator alongside a three-second countdown, while keeping the primary application window out of the way once capture starts.",
+                    "On completion, a native desktop notification confirms the result and can lead back to the output folder. That small feedback loop matters: users know whether the interaction actually finished.",
+                ],
+            },
+            {
+                heading: "08 / Audio was the hardest practical edge case",
+                body: [
+                    "A desktop recorder has to distinguish the user's microphone from system playback, and the combined case can reveal a subtle problem: acoustic feedback when speakers leak into the microphone. It is a real-world limitation, not just a software routing detail.",
+                    "I kept four explicit modes and treated combined-audio quality as something to communicate honestly rather than claiming that echo cancellation is universally solved. The app does not change global PipeWire or desktop audio configuration as part of normal recording.",
+                ],
+            },
+            {
+                heading: "09 / Portability and user-local installation",
+                body: [
+                    "A program that works from **~/work/screen-recorder** is a local project, not a distributable application. Packaging became part of the engineering work: install the complete runtime under an XDG data directory, provide a menu entry and icon, and launch without reaching back into the Git checkout.",
+                    "The installer and uninstaller are designed for per-user installation without sudo. They check dependencies and preserve user preferences and recordings on removal. Installation routines were exercised in isolated temporary HOME/XDG environments.",
+                    "The supported target is **Linux with X11**, especially Mint Cinnamon and related desktop environments. Wayland capture is not implemented. The graphical installer/menu behavior has not been validated across other people's machines.",
+                ],
+            },
+            {
+                heading: "10 / How I tested it",
+                body: [
+                    "I used automated tests to make the nonvisual contracts reliable: monitor discovery and identity resolution, persisted aliases, disappearance of the selected display, recording lifecycle decisions, and safe installation/uninstallation behavior.",
+                    "At the v1.0 release-preparation milestone, the suite reported **194 passing tests**, along with Python and Bash syntax checks. I also manually exercised the GTK interface, monitor naming and actual capture on my workstation. These are local engineering checks, not a claim of a broad compatibility certification.",
+                ],
+            },
+            {
+                heading: "11 / What I chose not to build",
+                body: [
+                    "The product has no embedded timeline, video editor or cloud recording account. Those would fundamentally change its scope. Instead I focused on one job: recording a region or display with predictable audio options and enough feedback to know it worked.",
+                    "Likewise, I kept **X11** explicit. A real Wayland implementation would require a different capture and permission model, not a label change in the README.",
+                ],
+            },
+            {
+                heading: "12 / Outcome and engineering lessons",
+                body: [
+                    "Screen Recorder became a daily-use desktop tool with a small interface over a surprisingly involved system: display discovery, coordinate mapping, FFmpeg execution, audio-source selection, process cleanup, persistence and desktop integration.",
+                    "The deeper lesson was about product ownership. Shipping a useful utility meant thinking beyond the happy-path recording button: **what happens when a display disconnects, a helper fails, the program is launched twice, or someone installs it on a different machine?** Those details are where an experiment becomes a maintainable product.",
+                    "The project is open source so others can inspect, adapt and improve the X11 implementation. Further compatibility testing and improvements can happen without overstating what v1.0 currently guarantees.",
+                ],
+            },
+        ],
+    },
     "the-berlin-around": {
         slug: "the-berlin-around",
         title: "The Berlin Around",
