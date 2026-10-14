@@ -3,8 +3,9 @@ NODE_VERSION = "24.15.0"
 
 [[redirects]]
 from = "/textos"
-to = "/textos/"
-status = 301
+to = "https://pilablog.netlify.app/textos/"
+status = 200
+force = true
 
 [[redirects]]
 from = "/textos/*"
