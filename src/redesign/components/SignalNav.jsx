@@ -7,6 +7,7 @@ const NAV_LINKS = [
     { href: "#philosophy", label: "Philosophy" },
     { href: "#journey", label: "Journey" },
     { href: "#contact", label: "Contact" },
+    { href: "/textos/", label: "Textos", external: true },
 ];
 
 /**
@@ -34,7 +35,7 @@ export default function SignalNav({ cvHref }) {
     }, [menuOpen]);
 
     const closeMenu = () => setMenuOpen(false);
-    const getSectionHref = (href) => (isSignalLanding ? href : `/${href}`);
+    const getSectionHref = (href) => (href.startsWith("/") ? href : isSignalLanding ? href : `/${href}`);
 
     return (
         <>
