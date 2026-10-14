@@ -3,13 +3,13 @@ NODE_VERSION = "24.15.0"
 
 [[redirects]]
 from = "/textos"
-to = "https://pilablog.netlify.app/textos/"
+to = "https://pilablog.netlify.app/"
 status = 200
 force = true
 
 [[redirects]]
 from = "/textos/*"
-to = "https://pilablog.netlify.app/textos/:splat"
+to = "https://pilablog.netlify.app/:splat"
 status = 200
 force = true
 
